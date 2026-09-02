@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MER Service 24/7</title>
+    <style>
+      /* 强制隐藏 tawk.to 底部 Powered by 品牌标识 */
+      #tawk-tooltip-container,
+      .tawk-branding,
+      div[class*="tawk-branding"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+      }
+    </style>
   </head>
   <body>
     <h1>MER Service 24/7</h1>
@@ -11,7 +22,9 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    var Tawk_API = Tawk_API || {};
+    var Tawk_LoadStart = new Date();
+
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
     s1.async=true;
