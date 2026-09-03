@@ -10,18 +10,18 @@
       --primary-hover: #059669;
     }
 
-    /* 仅精确隐藏 Crisp 原生右下角的默认启动图标，保留聊天面板正常渲染 */
+    /* 仅隐藏 Crisp 原生右下角默认入口及未读消息提示 */
     .crisp-client a[data-crisp-element="chat:icon"],
     .crisp-client div[data-crisp-element="chat:unread"] {
       display: none !important;
     }
 
-    /* 移动端适配：当聊天窗口打开时，确保全屏或正常层级覆盖 */
+    /* 保证 Crisp 弹出面板拥有最高层级 */
     .crisp-client .cc-kv30 {
       z-index: 999990 !important;
     }
 
-    /* 自定义胶囊形态在线客服按钮 */
+    /* 自定义胶囊形态按钮 (采用 button 语义标签) */
     #mer-chat-trigger {
       position: fixed;
       bottom: 28px;
@@ -30,9 +30,10 @@
       padding: 0 18px;
       background-color: var(--primary-color);
       color: #ffffff;
+      border: none;
       border-radius: 24px;
       box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       cursor: pointer;
@@ -40,13 +41,20 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 600;
       font-size: 14px;
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       -webkit-tap-highlight-color: transparent;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hover 与 Active 动效 */
+    #mer-chat-trigger:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(16, 185, 129, 0.45);
     }
 
     #mer-chat-trigger:active {
-      transform: scale(0.96);
-      background-color: var(--primary-hover);
+      transform: translateY(0) scale(0.96);
     }
 
     #mer-chat-trigger svg {
@@ -68,25 +76,39 @@
   <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
+    
     (function() {
-      d = document;
-      s = d.createElement("script");
+      var d = document;
+      var s = d.createElement("script");
       s.src = "https://client.crisp.chat/l.js";
       s.async = 1;
       d.getElementsByTagName("head")[0].appendChild(s);
     })();
 
-    // 基础配置与主题色同调
+    // 基础参数配置
     $crisp.push(["safe", true]);
     $crisp.push(["set", "theme:color", ["emerald"]]);
 
-    // 监听聊天窗口关闭，确保自定义按钮恢复显示
-    $crisp.push(["on", "chat:closed", function() {
-      document.getElementById("mer-chat-trigger").style.display = "flex";
+    // SDK 加载完成后绑定完整的状态同步逻辑
+    $crisp.push(["on", "session:loaded", function() {
+      var triggerBtn = document.getElementById("mer-chat-trigger");
+      if (!triggerBtn) return;
+
+      // 打开面板时隐藏自定义按钮
+      $crisp.push(["on", "chat:opened", function() {
+        triggerBtn.style.display = "none";
+      }]);
+
+      // 关闭面板时显示自定义按钮
+      $crisp.push(["on", "chat:closed", function() {
+        triggerBtn.style.display = "flex";
+      }]);
     }]);
 
-    // 交互逻辑
+    // 打开/关闭 切换逻辑
     function toggleCustomChat() {
+      if (typeof $crisp === "undefined") return;
+
       if ($crisp.is("chat:opened")) {
         $crisp.push(["do", "chat:close"]);
       } else {
@@ -98,13 +120,13 @@
 <body style="background-color: #0b0f17; margin: 0; padding: 0;">
 
   <!-- 自定义绿色客服按钮 -->
-  <div id="mer-chat-trigger" onclick="toggleCustomChat()">
+  <button id="mer-chat-trigger" onclick="toggleCustomChat()" aria-label="联系在线客服">
     <span class="status-dot"></span>
-    <svg viewBox="0 0 24 24">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
     </svg>
     <span>在线客服</span>
-  </div>
+  </button>
 
 </body>
 </html>
