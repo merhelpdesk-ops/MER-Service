@@ -18,6 +18,17 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--bg-main); color: var(--text-title); min-height: 100vh; display: flex; flex-direction: column; position: relative; overflow-x: hidden; }
 
+    /* 关键属性：全局强制隐藏 Crisp 的右下角原生悬浮小气泡与小弹窗，防止重叠 */
+    .crisp-client .crisp-1a13tky,
+    .crisp-client div[data-is-mini="true"],
+    .crisp-client .crisp-k2073d,
+    .crisp-client [data-crisp-chat="true"] span[data-role="badge"] {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
     .glow-bg {
       position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
       width: 320px; height: 320px;
@@ -90,6 +101,7 @@
     $crisp.push(["on", "session:loaded", function() {
       var triggerBtn = document.getElementById("mer-chat-trigger");
 
+      // 监听 Crisp 关闭事件：恢复我们自己的在线客服按钮并再次隐藏原生气泡
       $crisp.push(["on", "chat:closed", function() {
         $crisp.push(["do", "chat:hide"]);
         if (triggerBtn) triggerBtn.style.display = "inline-flex";
@@ -100,7 +112,15 @@
       var triggerBtn = document.getElementById("mer-chat-trigger");
       $crisp.push(["do", "chat:show"]);
       $crisp.push(["do", "chat:open"]);
+      
+      // 隐藏你自定义的按钮，同时通过注入 JS 样式双重保证隐藏 Crisp 的原生蓝色小圆圈
       if (triggerBtn) triggerBtn.style.display = "none";
+      
+      setTimeout(function() {
+        var style = document.createElement('style');
+        style.innerHTML = '.crisp-client div[data-is-mini="true"], .crisp-client span[data-role="badge"] { display: none !important; }';
+        document.head.appendChild(style);
+      }, 100);
     }
 
     function toggleFaq(element) {
