@@ -16,20 +16,20 @@
       padding: 0;
     }
 
-    /* 1. 核心修复：精准隐藏原生气泡按钮 & 未读数，保留聊天面板 */
+    /* 暴力隐藏 Crisp 原生浮球 (无论怎么更新选择器统统隐藏) */
     .crisp-client div[data-crisp-element="chat"] > a,
-    .crisp-client span[data-crisp-element="chat:unread"] {
+    .crisp-client div[data-crisp-element="chat:unread"],
+    .crisp-client [class*="cc-1h0d"],
+    .crisp-client [class*="cc-kv30"]:not([class*="cc-opened"]) {
       display: none !important;
       opacity: 0 !important;
+      visibility: hidden !important;
       pointer-events: none !important;
+      width: 0 !important;
+      height: 0 !important;
     }
 
-    /* 2. 确保 Crisp 弹出面板层级高于自定义按钮 */
-    .crisp-client .cc-kv30 {
-      z-index: 999999 !important;
-    }
-
-    /* 3. 自定义绿色客服按钮 */
+    /* 自定义绿色客服按钮 */
     #mer-chat-trigger {
       position: fixed;
       bottom: 28px;
@@ -53,13 +53,9 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    #mer-chat-trigger:hover {
-      background-color: var(--primary-hover);
-      transform: translateY(-2px);
-    }
-
     #mer-chat-trigger:active {
       transform: scale(0.96);
+      background-color: var(--primary-hover);
     }
 
     #mer-chat-trigger svg {
@@ -77,7 +73,6 @@
     }
   </style>
 
-  <!-- Crisp SDK 配置 -->
   <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
@@ -93,7 +88,21 @@
     $crisp.push(["safe", true]);
     $crisp.push(["set", "theme:color", ["emerald"]]);
 
-    // 交互逻辑
+    // 核心黑科技：通过 JS 动态擦除蓝球元素
+    function destroyBlueIcon() {
+      var node = document.querySelector('.crisp-client a[data-crisp-element="chat:icon"]');
+      if (node) {
+        node.remove(); // 直接从 DOM 节点抹除原生蓝球
+      }
+    }
+
+    $crisp.push(["on", "session:loaded", function() {
+      destroyBlueIcon();
+      // 持续监听，只要 Crisp 试图重新生成蓝球就立马抹掉
+      var observer = new MutationObserver(destroyBlueIcon);
+      observer.observe(document.body, { childList: true, subtree: true });
+    }]);
+
     function toggleCustomChat() {
       if (typeof $crisp === "undefined") return;
 
@@ -107,7 +116,6 @@
 </head>
 <body>
 
-  <!-- 自定义绿色客服按钮 -->
   <button id="mer-chat-trigger" onclick="toggleCustomChat()">
     <span class="status-dot"></span>
     <svg viewBox="0 0 24 24">
