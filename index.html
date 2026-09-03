@@ -268,9 +268,22 @@
       border-radius: 50%;
       box-shadow: 0 0 8px #34D399;
     }
+
+    /* 隐藏 Crisp 顶部 Messages 按钮及导航选项 */
+    .crisp-client [data-a-title="Messages"],
+    .crisp-client [data-is-header="true"] button:not([data-a-title="Close"]),
+    .crisp-client [data-is-header="true"] span[data-role="button"] {
+      display: none !important;
+    }
+
+    /* 隐藏 Crisp 底部 "We run on crisp" 标识及链接 */
+    .crisp-client [data-is-footer="true"] a,
+    .crisp-client [data-is-footer="true"] span,
+    .crisp-client a[href*="crisp.chat"] {
+      display: none !important;
+    }
   </style>
 
-  <!-- Crisp SDK -->
   <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
@@ -285,6 +298,7 @@
 
     $crisp.push(["safe", true]);
     $crisp.push(["set", "theme:color", ["emerald"]]);
+    $crisp.push(["set", "chat:hide:badge", [true]]); // 结合 SDK 参数隐藏 Crisp 底部标识
     $crisp.push(["do", "chat:hide"]);
 
     $crisp.push(["on", "session:loaded", function() {
@@ -337,7 +351,6 @@
       <p id="t-desc">无需 KYC 认证，连接 Web3 钱包即可交易现货与合约</p>
     </div>
 
-    <!-- 4 个卡片 (前两个卡片配置外链，后两个配置打开客服) -->
     <div class="grid">
       <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
         <h3 id="c1-title">现货兑换 (Swap)</h3>
@@ -357,7 +370,6 @@
       </div>
     </div>
 
-    <!-- FAQ 常见问题解答 -->
     <div class="section-title" id="t-faq-title">常见问题解答</div>
 
     <div class="faq-wrapper">
