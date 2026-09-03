@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>MER Finance | 智能客户支持中心</title>
+  <title>MER Protocol | DEX Support</title>
   <style>
     :root {
       --primary: #10B981;
@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* 动态背景光晕效果 */
     .glow-bg {
       position: absolute;
       top: -100px;
@@ -45,7 +44,6 @@
       pointer-events: none;
     }
 
-    /* 顶部导航 */
     header {
       position: sticky;
       top: 0;
@@ -53,7 +51,7 @@
       backdrop-filter: blur(12px);
       background: rgba(11, 15, 23, 0.7);
       border-bottom: 1px solid var(--card-border);
-      padding: 16px 20px;
+      padding: 14px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -79,7 +77,28 @@
       box-shadow: 0 0 12px var(--primary-glow);
     }
 
-    /* 主内容区 */
+    /* 语言切换按钮组件 */
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text-title);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .lang-btn:active {
+      transform: scale(0.95);
+      border-color: var(--primary);
+    }
+
     main {
       flex: 1;
       padding: 24px 20px 100px;
@@ -89,10 +108,9 @@
       width: 100%;
     }
 
-    /* Hero Banner 头部标语 */
     .hero {
       text-align: center;
-      margin: 20px 0 32px;
+      margin: 16px 0 32px;
     }
 
     .hero-tag {
@@ -119,7 +137,6 @@
       font-size: 14px;
     }
 
-    /* 快捷功能卡片 */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -134,6 +151,7 @@
       padding: 16px;
       backdrop-filter: blur(8px);
       transition: all 0.2s ease;
+      cursor: pointer;
     }
 
     .card:active {
@@ -150,6 +168,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 12px;
+      font-size: 18px;
     }
 
     .card h3 {
@@ -163,14 +182,10 @@
       color: var(--text-sub);
     }
 
-    /* 常见问题区 */
     .section-title {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .faq-item {
@@ -184,9 +199,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
     }
 
-    /* 自定义绿色客服按钮 */
     #mer-chat-trigger {
       position: fixed;
       bottom: 28px;
@@ -270,10 +285,9 @@
 </head>
 <body>
 
-  <!-- 顶部光晕背景 -->
   <div class="glow-bg"></div>
 
-  <!-- 顶部 Header -->
+  <!-- Header 含有语言切换按钮 -->
   <header>
     <div class="brand">
       <div class="brand-logo">
@@ -281,66 +295,145 @@
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
         </svg>
       </div>
-      <span>MER Finance</span>
+      <span>MER Protocol</span>
     </div>
+    <button class="lang-btn" onclick="toggleLanguage()">
+      🌐 <span id="lang-text">English</span>
+    </button>
   </header>
 
-  <!-- 主内容 -->
   <main>
     <div class="hero">
-      <span class="hero-tag">7x24 全天候响应</span>
-      <h1> MER 客户支持中心</h1>
-      <p>为您提供极速、安全、专业的在线咨询服务</p>
+      <span class="hero-tag" id="t-tag">非托管 · 完全去中心化</span>
+      <h1 id="t-title">MER 支持中心</h1>
+      <p id="t-desc">无需 KYC 认证，通过 WalletConnect 即可安全交易</p>
     </div>
 
-    <!-- 功能卡片区块 -->
+    <!-- 4 个核心卡片 -->
     <div class="grid">
       <div class="card" onclick="toggleCustomChat()">
+        <div class="card-icon">🦊</div>
+        <h3 id="c1-title">钱包连接</h3>
+        <p id="c1-desc">MetaMask / OKX 连线</p>
+      </div>
+      <div class="card" onclick="toggleCustomChat()">
         <div class="card-icon">⚡</div>
-        <h3>业务咨询</h3>
-        <p>产品使用与流程引导</p>
+        <h3 id="c2-title">兑换与滑点</h3>
+        <p id="c2-desc">Swap 交易与 Gas 费</p>
       </div>
       <div class="card" onclick="toggleCustomChat()">
-        <div class="card-icon">🛡️</div>
-        <h3>安全与风控</h3>
-        <p>账户安全与交易复核</p>
+        <div class="card-icon">💧</div>
+        <h3 id="c3-title">流动性池</h3>
+        <p id="c3-desc">添加 LP 与 Yield 收益</p>
       </div>
       <div class="card" onclick="toggleCustomChat()">
-        <div class="card-icon">💳</div>
-        <h3>出入金协助</h3>
-        <p>资金划转与进度查询</p>
-      </div>
-      <div class="card" onclick="toggleCustomChat()">
-        <div class="card-icon">💬</div>
-        <h3>人工专席</h3>
-        <p>一对一技术支持</p>
+        <div class="card-icon">🛠️</div>
+        <h3 id="c4-title">链上问题</h3>
+        <p id="c4-desc">交易 Pending 与 撤单</p>
       </div>
     </div>
 
-    <!-- 常见问题列表 -->
-    <div class="section-title">常见问题解答</div>
+    <!-- FAQ 常见问题 -->
+    <div class="section-title" id="t-faq-title">常见问题解答</div>
     <div class="faq-item" onclick="toggleCustomChat()">
-      <span>如何进行实名身份认证？</span>
+      <span id="f1-title">为什么 Swap 提示交易失败 (Transaction Failed)？</span>
       <span style="color:var(--text-sub)">></span>
     </div>
     <div class="faq-item" onclick="toggleCustomChat()">
-      <span>充值到账需要多长时间？</span>
+      <span id="f2-title">如何在 DEX 调整 Gas 费与滑点容忍度 (Slippage)？</span>
       <span style="color:var(--text-sub)">></span>
     </div>
     <div class="faq-item" onclick="toggleCustomChat()">
-      <span>遇到交易异常如何申请拦截？</span>
+      <span id="f3-title">授权智能合约 (Approve) 的安全性与解除授权</span>
       <span style="color:var(--text-sub)">></span>
     </div>
   </main>
 
-  <!-- 右下角胶囊按钮 -->
+  <!-- 右下角悬浮按钮 -->
   <button id="mer-chat-trigger" onclick="toggleCustomChat()">
     <span class="status-dot"></span>
     <svg viewBox="0 0 24 24">
       <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
     </svg>
-    <span>在线客服</span>
+    <span id="t-btn">在线客服</span>
   </button>
+
+  <!-- 语言切换脚本逻辑 -->
+  <script>
+    let currentLang = 'zh';
+
+    const i18n = {
+      zh: {
+        langBtn: "English",
+        tag: "非托管 · 完全去中心化",
+        title: "MER 支持中心",
+        desc: "无需 KYC 认证，通过 WalletConnect 即可安全交易",
+        c1Title: "钱包连接",
+        c1Desc: "MetaMask / OKX 连线",
+        c2Title: "兑换与滑点",
+        c2Desc: "Swap 交易与 Gas 费",
+        c3Title: "流动性池",
+        c3Desc: "添加 LP 与 Yield 收益",
+        c4Title: "链上问题",
+        c4Desc: "交易 Pending 与 撤单",
+        faqTitle: "常见问题解答",
+        f1: "为什么 Swap 提示交易失败 (Transaction Failed)？",
+        f2: "如何在 DEX 调整 Gas 费与滑点容忍度 (Slippage)？",
+        f3: "授权智能合约 (Approve) 的安全性与解除授权",
+        chatBtn: "在线客服"
+      },
+      en: {
+        langBtn: "中文",
+        tag: "Non-Custodial · Fully Decentralized",
+        title: "MER Support Center",
+        desc: "No KYC required. Trade securely via WalletConnect.",
+        c1Title: "Wallet Connection",
+        c1Desc: "MetaMask / OKX Wallet",
+        c2Title: "Swap & Slippage",
+        c2Desc: "Swap rules & Gas fees",
+        c3Title: "Liquidity Pools",
+        c3Desc: "Add LP & Yield farming",
+        c4Title: "On-Chain Issues",
+        c4Desc: "Pending tx & Cancellations",
+        faqTitle: "Frequently Asked Questions",
+        f1: "Why did my Swap transaction fail?",
+        f2: "How to adjust Gas fee & Slippage tolerance?",
+        f3: "Smart contract approval safety & Revoke allowance",
+        chatBtn: "Live Support"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'zh' ? 'en' : 'zh';
+      const data = i18n[currentLang];
+
+      document.getElementById('lang-text').innerText = data.langBtn;
+      document.getElementById('t-tag').innerText = data.tag;
+      document.getElementById('t-title').innerText = data.title;
+      document.getElementById('t-desc').innerText = data.desc;
+
+      document.getElementById('c1-title').innerText = data.c1Title;
+      document.getElementById('c1-desc').innerText = data.c1Desc;
+      document.getElementById('c2-title').innerText = data.c2Title;
+      document.getElementById('c2-desc').innerText = data.c2Desc;
+      document.getElementById('c3-title').innerText = data.c3Title;
+      document.getElementById('c3-desc').innerText = data.c3Desc;
+      document.getElementById('c4-title').innerText = data.c4Title;
+      document.getElementById('c4-desc').innerText = data.c4Desc;
+
+      document.getElementById('t-faq-title').innerText = data.faqTitle;
+      document.getElementById('f1-title').innerText = data.f1;
+      document.getElementById('f2-title').innerText = data.f2;
+      document.getElementById('f3-title').innerText = data.f3;
+
+      document.getElementById('t-btn').innerText = data.chatBtn;
+
+      // 同步 Crisp 客服对话框语言环境
+      if (typeof $crisp !== "undefined") {
+        $crisp.push(["set", "session:language", [currentLang]]);
+      }
+    }
+  </script>
 
 </body>
 </html>
