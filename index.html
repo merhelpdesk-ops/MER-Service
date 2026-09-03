@@ -104,7 +104,6 @@
       margin: 16px 0 32px;
     }
 
-    /* 海报图片样式 */
     .banner-img {
       width: 100%;
       height: auto;
@@ -182,7 +181,6 @@
       margin-bottom: 16px;
     }
 
-    /* FAQ 可折叠样式 */
     .faq-wrapper {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -274,42 +272,16 @@
     }
   </style>
 
-  <!-- Crisp SDK -->
-  <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
+  <!-- Tidio SDK -->
+  <script src="//code.tidio.co/sohcbosn8tezhpdk0uetogcoqplvxyb0.js" async></script>
 
-    (function() {
-      var d = document;
-      var s = d.createElement("script");
-      s.src = "https://client.crisp.chat/l.js";
-      s.async = 1;
-      d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-
-    $crisp.push(["safe", true]);
-    $crisp.push(["set", "theme:color", ["emerald"]]);
-    $crisp.push(["do", "chat:hide"]);
-
-    $crisp.push(["on", "session:loaded", function() {
-      var triggerBtn = document.getElementById("mer-chat-trigger");
-
-      $crisp.push(["on", "chat:closed", function() {
-        $crisp.push(["do", "chat:hide"]);
-        if (triggerBtn) triggerBtn.style.display = "inline-flex";
-      }]);
-    }]);
-
+  <script>
+    // 调用 Tidio 打开客服窗口
     function toggleCustomChat() {
-      if (typeof $crisp === "undefined") return;
-      var triggerBtn = document.getElementById("mer-chat-trigger");
-
-      if ($crisp.is("chat:opened")) {
-        $crisp.push(["do", "chat:close"]);
+      if (window.tidioChatApi) {
+        window.tidioChatApi.open();
       } else {
-        $crisp.push(["do", "chat:show"]);
-        $crisp.push(["do", "chat:open"]);
-        if (triggerBtn) triggerBtn.style.display = "none";
+        alert("客服系统正在加载中，请稍后再试。");
       }
     }
 
@@ -341,7 +313,6 @@
       <p id="t-desc">无需 KYC 认证，连接 Web3 钱包即可交易现货与合约</p>
     </div>
 
-    <!-- 4 个卡片 (前两个卡片配置外链，后两个配置打开客服) -->
     <div class="grid">
       <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
         <h3 id="c1-title">现货兑换 (Swap)</h3>
@@ -361,7 +332,6 @@
       </div>
     </div>
 
-    <!-- FAQ 常见问题解答 -->
     <div class="section-title" id="t-faq-title">常见问题解答</div>
 
     <div class="faq-wrapper">
@@ -480,10 +450,6 @@
       document.getElementById('f3-body').innerText = data.f3Body;
 
       document.getElementById('t-btn').innerText = data.chatBtn;
-
-      if (typeof $crisp !== "undefined") {
-        $crisp.push(["set", "session:language", [currentLang]]);
-      }
     }
   </script>
 
