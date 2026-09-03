@@ -2,74 +2,69 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>MER 客户支持服务</title>
   <style>
     :root {
       --primary-color: #10B981;
       --primary-hover: #059669;
-      --bg-dark: #121827;
     }
 
-    /* 1. 深度隐藏 Crisp 原生 Logo、悬浮球和底部水印 */
-    .crisp-client .cc-kv30, 
-    .crisp-client .cc-un82,
-    .crisp-client .cc-1896, /* 隐藏官方水印标志 */
-    div[data-crisp-has-chat="true"] {
+    /* 仅精确隐藏 Crisp 原生右下角的默认启动图标，保留聊天面板正常渲染 */
+    .crisp-client a[data-crisp-element="chat:icon"],
+    .crisp-client div[data-crisp-element="chat:unread"] {
       display: none !important;
     }
 
-    /* 2. 重写 Crisp 主窗口样式（改造成优雅的现代暗色/高亮绿风） */
-    .crisp-client .cc-kx21 {
-      border-radius: 16px !important;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
-      overflow: hidden !important;
+    /* 移动端适配：当聊天窗口打开时，确保全屏或正常层级覆盖 */
+    .crisp-client .cc-kv30 {
+      z-index: 999990 !important;
     }
 
-    /* 3. 自定义外部触发展示按钮 */
+    /* 自定义胶囊形态在线客服按钮 */
     #mer-chat-trigger {
       position: fixed;
       bottom: 28px;
-      right: 28px;
-      height: 52px;
-      padding: 0 20px;
+      right: 20px;
+      height: 48px;
+      padding: 0 18px;
       background-color: var(--primary-color);
       color: #ffffff;
-      border-radius: 26px;
+      border-radius: 24px;
       box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       cursor: pointer;
-      z-index: 999999;
+      z-index: 999989;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 600;
-      font-size: 15px;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 14px;
+      transition: all 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    #mer-chat-trigger:hover {
+    #mer-chat-trigger:active {
+      transform: scale(0.96);
       background-color: var(--primary-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.45);
     }
 
     #mer-chat-trigger svg {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       fill: currentColor;
     }
 
-    /* 在线状态点 */
     .status-dot {
       width: 8px;
       height: 8px;
       background-color: #34D399;
       border-radius: 50%;
-      box-shadow: 0 0 8px #34D399;
+      box-shadow: 0 0 6px #34D399;
     }
   </style>
 
+  <!-- Crisp SDK 配置 -->
   <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
@@ -81,13 +76,14 @@
       d.getElementsByTagName("head")[0].appendChild(s);
     })();
 
-    // SDK 自定义动作：隐去原生浮球并定制颜色
+    // 基础配置与主题色同调
     $crisp.push(["safe", true]);
-    $crisp.push(["do", "chat:hide"]);
-    $crisp.push(["config", "container:insert", ["html"]]);
-    
-    // 设置主题主色调为 MER 绿
     $crisp.push(["set", "theme:color", ["emerald"]]);
+
+    // 监听聊天窗口关闭，确保自定义按钮恢复显示
+    $crisp.push(["on", "chat:closed", function() {
+      document.getElementById("mer-chat-trigger").style.display = "flex";
+    }]);
 
     // 交互逻辑
     function toggleCustomChat() {
@@ -95,14 +91,20 @@
         $crisp.push(["do", "chat:close"]);
       } else {
         $crisp.push(["do", "chat:open"]);
-        $crisp.push(["do", "chat:show"]);
       }
     }
   </script>
 </head>
-<body style="background-color: #0b0f17;">
+<body style="background-color: #0b0f17; margin: 0; padding: 0;">
 
+  <!-- 自定义绿色客服按钮 -->
   <div id="mer-chat-trigger" onclick="toggleCustomChat()">
     <span class="status-dot"></span>
     <svg viewBox="0 0 24 24">
-      <path d="
+      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+    </svg>
+    <span>在线客服</span>
+  </div>
+
+</body>
+</html>
