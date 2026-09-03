@@ -1,48 +1,120 @@
-<script type="text/javascript">
-  window.$crisp = [];
-  window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
-  
-  (function() {
-    var d = document;
-    var s = d.createElement("script");
-    s.src = "https://client.crisp.chat/l.js";
-    s.async = 1;
-    d.getElementsByTagName("head")[0].appendChild(s);
-  })();
-
-  // 1. 基础安全设置
-  $crisp.push(["safe", true]);
-  $crisp.push(["set", "theme:color", ["emerald"]]);
-
-  // 2. 重点：使用官方 API 隐藏 Crisp 原生图标，并关掉原生未读提示
-  $crisp.push(["do", "chat:hide"]);
-
-  // 3. 监听面板切换事件，控制自定义按钮显隐
-  $crisp.push(["on", "session:loaded", function() {
-    var triggerBtn = document.getElementById("mer-chat-trigger");
-    if (!triggerBtn) return;
-
-    $crisp.push(["on", "chat:opened", function() {
-      triggerBtn.style.display = "none";
-    }]);
-
-    $crisp.push(["on", "chat:closed", function() {
-      // 关闭聊天框后，重新显示自定义按钮（保持原生图标隐藏）
-      $crisp.push(["do", "chat:hide"]);
-      triggerBtn.style.display = "flex";
-    }]);
-  }]);
-
-  // 4. 点击自定义按钮时展开/收起聊天框
-  function toggleCustomChat() {
-    if (typeof $crisp === "undefined") return;
-
-    if ($crisp.is("chat:opened")) {
-      $crisp.push(["do", "chat:close"]);
-    } else {
-      // 打开聊天框（Crisp 会自动展示面板）
-      $crisp.push(["do", "chat:open"]);
-      $crisp.push(["do", "chat:show"]); 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MER 客户支持服务</title>
+  <style>
+    :root {
+      --primary-color: #10B981;
+      --primary-hover: #059669;
     }
-  }
-</script>
+
+    body {
+      background-color: #0b0f17;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 1. 核心修复：精准隐藏原生气泡按钮 & 未读数，保留聊天面板 */
+    .crisp-client div[data-crisp-element="chat"] > a,
+    .crisp-client span[data-crisp-element="chat:unread"] {
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    /* 2. 确保 Crisp 弹出面板层级高于自定义按钮 */
+    .crisp-client .cc-kv30 {
+      z-index: 999999 !important;
+    }
+
+    /* 3. 自定义绿色客服按钮 */
+    #mer-chat-trigger {
+      position: fixed;
+      bottom: 28px;
+      right: 20px;
+      height: 48px;
+      padding: 0 18px;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      z-index: 999989;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #mer-chat-trigger:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    #mer-chat-trigger:active {
+      transform: scale(0.96);
+    }
+
+    #mer-chat-trigger svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #34D399;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #34D399;
+    }
+  </style>
+
+  <!-- Crisp SDK 配置 -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
+
+    (function() {
+      var d = document;
+      var s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+
+    $crisp.push(["safe", true]);
+    $crisp.push(["set", "theme:color", ["emerald"]]);
+
+    // 交互逻辑
+    function toggleCustomChat() {
+      if (typeof $crisp === "undefined") return;
+
+      if ($crisp.is("chat:opened")) {
+        $crisp.push(["do", "chat:close"]);
+      } else {
+        $crisp.push(["do", "chat:open"]);
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- 自定义绿色客服按钮 -->
+  <button id="mer-chat-trigger" onclick="toggleCustomChat()">
+    <span class="status-dot"></span>
+    <svg viewBox="0 0 24 24">
+      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+    </svg>
+    <span>在线客服</span>
+  </button>
+
+</body>
+</html>
