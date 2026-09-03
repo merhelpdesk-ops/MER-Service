@@ -16,20 +16,7 @@
       padding: 0;
     }
 
-    /* 暴力隐藏 Crisp 原生浮球 (无论怎么更新选择器统统隐藏) */
-    .crisp-client div[data-crisp-element="chat"] > a,
-    .crisp-client div[data-crisp-element="chat:unread"],
-    .crisp-client [class*="cc-1h0d"],
-    .crisp-client [class*="cc-kv30"]:not([class*="cc-opened"]) {
-      display: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-      width: 0 !important;
-      height: 0 !important;
-    }
-
-    /* 自定义绿色客服按钮 */
+    /* 自定义绿色胶囊客服按钮 */
     #mer-chat-trigger {
       position: fixed;
       bottom: 28px;
@@ -45,7 +32,7 @@
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      z-index: 999989;
+      z-index: 999999;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-weight: 600;
       font-size: 14px;
@@ -73,6 +60,7 @@
     }
   </style>
 
+  <!-- Crisp SDK 配置 -->
   <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "9beb0458-5fd0-49c4-ba0c-7f99ab3c851a";
@@ -88,34 +76,40 @@
     $crisp.push(["safe", true]);
     $crisp.push(["set", "theme:color", ["emerald"]]);
 
-    // 核心黑科技：通过 JS 动态擦除蓝球元素
-    function destroyBlueIcon() {
-      var node = document.querySelector('.crisp-client a[data-crisp-element="chat:icon"]');
-      if (node) {
-        node.remove(); // 直接从 DOM 节点抹除原生蓝球
-      }
-    }
+    // 1. 在初始化第一时间强制隐藏原生浮球（包含整块图标区域）
+    $crisp.push(["do", "chat:hide"]);
 
+    // 2. 监听 Crisp 状态
     $crisp.push(["on", "session:loaded", function() {
-      destroyBlueIcon();
-      // 持续监听，只要 Crisp 试图重新生成蓝球就立马抹掉
-      var observer = new MutationObserver(destroyBlueIcon);
-      observer.observe(document.body, { childList: true, subtree: true });
+      var triggerBtn = document.getElementById("mer-chat-trigger");
+
+      // 当用户通过 Crisp 内部的关闭按钮关闭聊天框时，恢复隐藏原生图标并显示自定义按钮
+      $crisp.push(["on", "chat:closed", function() {
+        $crisp.push(["do", "chat:hide"]);
+        if (triggerBtn) triggerBtn.style.display = "inline-flex";
+      }]);
     }]);
 
+    // 3. 点击自定义绿色按钮的触发逻辑
     function toggleCustomChat() {
       if (typeof $crisp === "undefined") return;
+
+      var triggerBtn = document.getElementById("mer-chat-trigger");
 
       if ($crisp.is("chat:opened")) {
         $crisp.push(["do", "chat:close"]);
       } else {
+        // 先解除 hide 限制并展示全屏/弹窗聊天界面
+        $crisp.push(["do", "chat:show"]);
         $crisp.push(["do", "chat:open"]);
+        if (triggerBtn) triggerBtn.style.display = "none";
       }
     }
   </script>
 </head>
 <body>
 
+  <!-- 自定义绿色客服按钮 -->
   <button id="mer-chat-trigger" onclick="toggleCustomChat()">
     <span class="status-dot"></span>
     <svg viewBox="0 0 24 24">
