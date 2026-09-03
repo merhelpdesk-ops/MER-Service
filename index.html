@@ -230,58 +230,15 @@
       padding: 12px 16px 16px;
       border-top: 1px solid rgba(255, 255, 255, 0.04);
     }
-
-    #mer-chat-trigger {
-      position: fixed;
-      bottom: 28px;
-      right: 20px;
-      height: 48px;
-      padding: 0 20px;
-      background-color: var(--primary);
-      color: #ffffff;
-      border: none;
-      border-radius: 24px;
-      box-shadow: 0 8px 24px var(--primary-glow);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      z-index: 999999;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.25s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    #mer-chat-trigger:active {
-      transform: scale(0.95);
-    }
-
-    #mer-chat-trigger svg {
-      width: 18px;
-      height: 18px;
-      fill: currentColor;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #34D399;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #34D399;
-    }
   </style>
 
   <!-- Tidio SDK -->
   <script src="//code.tidio.co/sohcbosn8tezhpdk0uetogcoqplvxyb0.js" async></script>
 
   <script>
-    // 调用 Tidio 打开客服窗口
-    function toggleCustomChat() {
+    function openTidioChat() {
       if (window.tidioChatApi) {
         window.tidioChatApi.open();
-      } else {
-        alert("客服系统正在加载中，请稍后再试。");
       }
     }
 
@@ -322,11 +279,11 @@
         <h3 id="c2-title">永续合约 (Perps)</h3>
         <p id="c2-desc">高倍杠杆与资金费率</p>
       </a>
-      <div class="card" onclick="toggleCustomChat()">
+      <div class="card" onclick="openTidioChat()">
         <h3 id="c3-title">钱包与连接</h3>
         <p id="c3-desc">钱包绑定与链上授权</p>
       </div>
-      <div class="card" onclick="toggleCustomChat()">
+      <div class="card" onclick="openTidioChat()">
         <h3 id="c4-title">订单与持仓</h3>
         <p id="c4-desc">止盈止损与 Pending 撤单</p>
       </div>
@@ -365,14 +322,6 @@
     </div>
   </main>
 
-  <button id="mer-chat-trigger" onclick="toggleCustomChat()">
-    <span class="status-dot"></span>
-    <svg viewBox="0 0 24 24">
-      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
-    </svg>
-    <span id="t-btn">在线客服</span>
-  </button>
-
   <script>
     let currentLang = 'zh';
 
@@ -396,8 +345,7 @@
         f2: "永续合约的杠杆倍数、全仓模式与资金费率规则",
         f2Body: "平台支持最高 100x 杠杆。全仓模式下，账户内的可用 USDC 均作为保证金共享；资金费率每 8 小时结算一次，用于锚定合约价格与现货价格。",
         f3: "如何查看/撤销未成交订单，或处理链上 Pending 状态？",
-        f3Body: "您可以在“交易页面 - 底部订单栏”或“投资组合”中随时手动撤销限价单。若遇到链上网络拥堵提示 Pending，请在钱包中加速或取消该笔链上交易。",
-        chatBtn: "在线客服"
+        f3Body: "您可以在“交易页面 - 底部订单栏”或“投资组合”中随时手动撤销限价单。若遇到链上网络拥堵提示 Pending，请在钱包中加速或取消该笔链上交易。"
       },
       en: {
         langBtn: "中文",
@@ -418,8 +366,7 @@
         f2: "Rules for Perpetual leverage, Cross Margin, and Funding Rates",
         f2Body: "Up to 100x leverage is supported. Under Cross Margin, all available USDC in your account is shared as margin. Funding rates settle every 8 hours to align index prices.",
         f3: "How to check/cancel open orders or fix Pending status?",
-        f3Body: "You can manually cancel limit orders under the Trade or Portfolio tab anytime. If a transaction is Pending due to network congestion, speed up or cancel it in your wallet.",
-        chatBtn: "Live Support"
+        f3Body: "You can manually cancel limit orders under the Trade or Portfolio tab anytime. If a transaction is Pending due to network congestion, speed up or cancel it in your wallet."
       }
     };
 
@@ -448,8 +395,6 @@
       document.getElementById('f2-body').innerText = data.f2Body;
       document.getElementById('f3-title').innerText = data.f3;
       document.getElementById('f3-body').innerText = data.f3Body;
-
-      document.getElementById('t-btn').innerText = data.chatBtn;
     }
   </script>
 
