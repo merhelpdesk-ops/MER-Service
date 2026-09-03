@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>MER Protocol | DEX Support</title>
+  <title>MER Protocol | Support Center</title>
   <style>
     :root {
       --primary: #10B981;
@@ -77,7 +77,6 @@
       box-shadow: 0 0 12px var(--primary-glow);
     }
 
-    /* 语言切换按钮组件 */
     .lang-btn {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--card-border);
@@ -287,7 +286,6 @@
 
   <div class="glow-bg"></div>
 
-  <!-- Header 含有语言切换按钮 -->
   <header>
     <div class="brand">
       <div class="brand-logo">
@@ -304,52 +302,51 @@
 
   <main>
     <div class="hero">
-      <span class="hero-tag" id="t-tag">非托管 · 完全去中心化</span>
+      <span class="hero-tag" id="t-tag">非托管 · 高速聚合交易</span>
       <h1 id="t-title">MER 支持中心</h1>
-      <p id="t-desc">无需 KYC 认证，通过 WalletConnect 即可安全交易</p>
+      <p id="t-desc">无需 KYC 认证，连接 Web3 钱包即可交易现货与合约</p>
     </div>
 
-    <!-- 4 个核心卡片 -->
+    <!-- 4 个核心业务卡片 -->
     <div class="grid">
       <div class="card" onclick="toggleCustomChat()">
-        <div class="card-icon">🦊</div>
-        <h3 id="c1-title">钱包连接</h3>
-        <p id="c1-desc">MetaMask / OKX 连线</p>
+        <div class="card-icon">🔄</div>
+        <h3 id="c1-title">现货兑换 (Swap)</h3>
+        <p id="c1-desc">多链快速兑换与滑点</p>
       </div>
       <div class="card" onclick="toggleCustomChat()">
-        <div class="card-icon">⚡</div>
-        <h3 id="c2-title">兑换与滑点</h3>
-        <p id="c2-desc">Swap 交易与 Gas 费</p>
+        <div class="card-icon">📈</div>
+        <h3 id="c2-title">永续合约 (Perps)</h3>
+        <p id="c2-desc">高倍杠杆与资金费率</p>
       </div>
       <div class="card" onclick="toggleCustomChat()">
-        <div class="card-icon">💧</div>
-        <h3 id="c3-title">流动性池</h3>
-        <p id="c3-desc">添加 LP 与 Yield 收益</p>
+        <div class="card-icon">👛</div>
+        <h3 id="c3-title">钱包与连接</h3>
+        <p id="c3-desc">钱包绑定与链上授权</p>
       </div>
       <div class="card" onclick="toggleCustomChat()">
         <div class="card-icon">🛠️</div>
-        <h3 id="c4-title">链上问题</h3>
-        <p id="c4-desc">交易 Pending 与 撤单</p>
+        <h3 id="c4-title">订单与持仓</h3>
+        <p id="c4-desc">止盈止损与 Pending 撤单</p>
       </div>
     </div>
 
-    <!-- FAQ 常见问题 -->
+    <!-- FAQ 常见问题（对应现货+合约） -->
     <div class="section-title" id="t-faq-title">常见问题解答</div>
     <div class="faq-item" onclick="toggleCustomChat()">
-      <span id="f1-title">为什么 Swap 提示交易失败 (Transaction Failed)？</span>
+      <span id="f1-title">现货 Swap 交易提示失败或滑点过大怎么办？</span>
       <span style="color:var(--text-sub)">></span>
     </div>
     <div class="faq-item" onclick="toggleCustomChat()">
-      <span id="f2-title">如何在 DEX 调整 Gas 费与滑点容忍度 (Slippage)？</span>
+      <span id="f2-title">永续合约的杠杆倍数、全仓模式与资金费率规则</span>
       <span style="color:var(--text-sub)">></span>
     </div>
     <div class="faq-item" onclick="toggleCustomChat()">
-      <span id="f3-title">授权智能合约 (Approve) 的安全性与解除授权</span>
+      <span id="f3-title">如何查看/撤销未成交订单，或处理链上 Pending 状态？</span>
       <span style="color:var(--text-sub)">></span>
     </div>
   </main>
 
-  <!-- 右下角悬浮按钮 -->
   <button id="mer-chat-trigger" onclick="toggleCustomChat()">
     <span class="status-dot"></span>
     <svg viewBox="0 0 24 24">
@@ -358,47 +355,46 @@
     <span id="t-btn">在线客服</span>
   </button>
 
-  <!-- 语言切换脚本逻辑 -->
   <script>
     let currentLang = 'zh';
 
     const i18n = {
       zh: {
         langBtn: "English",
-        tag: "非托管 · 完全去中心化",
+        tag: "非托管 · 高速聚合交易",
         title: "MER 支持中心",
-        desc: "无需 KYC 认证，通过 WalletConnect 即可安全交易",
-        c1Title: "钱包连接",
-        c1Desc: "MetaMask / OKX 连线",
-        c2Title: "兑换与滑点",
-        c2Desc: "Swap 交易与 Gas 费",
-        c3Title: "流动性池",
-        c3Desc: "添加 LP 与 Yield 收益",
-        c4Title: "链上问题",
-        c4Desc: "交易 Pending 与 撤单",
+        desc: "无需 KYC 认证，连接 Web3 钱包即可交易现货与合约",
+        c1Title: "现货兑换 (Swap)",
+        c1Desc: "多链快速兑换与滑点",
+        c2Title: "永续合约 (Perps)",
+        c2Desc: "高倍杠杆与资金费率",
+        c3Title: "钱包与连接",
+        c3Desc: "钱包绑定与链上授权",
+        c4Title: "订单与持仓",
+        c4Desc: "止盈止损与 Pending 撤单",
         faqTitle: "常见问题解答",
-        f1: "为什么 Swap 提示交易失败 (Transaction Failed)？",
-        f2: "如何在 DEX 调整 Gas 费与滑点容忍度 (Slippage)？",
-        f3: "授权智能合约 (Approve) 的安全性与解除授权",
+        f1: "现货 Swap 交易提示失败或滑点过大怎么办？",
+        f2: "永续合约的杠杆倍数、全仓模式与资金费率规则",
+        f3: "如何查看/撤销未成交订单，或处理链上 Pending 状态？",
         chatBtn: "在线客服"
       },
       en: {
         langBtn: "中文",
-        tag: "Non-Custodial · Fully Decentralized",
+        tag: "Non-Custodial · High-Speed Aggregator",
         title: "MER Support Center",
-        desc: "No KYC required. Trade securely via WalletConnect.",
-        c1Title: "Wallet Connection",
-        c1Desc: "MetaMask / OKX Wallet",
-        c2Title: "Swap & Slippage",
-        c2Desc: "Swap rules & Gas fees",
-        c3Title: "Liquidity Pools",
-        c3Desc: "Add LP & Yield farming",
-        c4Title: "On-Chain Issues",
-        c4Desc: "Pending tx & Cancellations",
+        desc: "No KYC required. Connect Web3 wallet to trade Swap & Perps.",
+        c1Title: "Spot Swap",
+        c1Desc: "Multi-chain swap & slippage",
+        c2Title: "Perpetuals (Perps)",
+        c2Desc: "High leverage & funding rates",
+        c3Title: "Wallet Connection",
+        c3Desc: "Wallet linking & contract approval",
+        c4Title: "Orders & Positions",
+        c4Desc: "TP/SL & Cancel pending tx",
         faqTitle: "Frequently Asked Questions",
-        f1: "Why did my Swap transaction fail?",
-        f2: "How to adjust Gas fee & Slippage tolerance?",
-        f3: "Smart contract approval safety & Revoke allowance",
+        f1: "What should I do if a Spot Swap fails or has high slippage?",
+        f2: "Rules for Perpetual leverage, Cross Margin, and Funding Rates",
+        f3: "How to check/cancel open orders or fix Pending status?",
         chatBtn: "Live Support"
       }
     };
@@ -428,7 +424,6 @@
 
       document.getElementById('t-btn').innerText = data.chatBtn;
 
-      // 同步 Crisp 客服对话框语言环境
       if (typeof $crisp !== "undefined") {
         $crisp.push(["set", "session:language", [currentLang]]);
       }
