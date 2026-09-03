@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MER Service 24/7</title>
     <style>
-      /* 强制隐藏 tawk.to 底部 Powered by 品牌标识 */
+      /* 保留你的原始 CSS */
       #tawk-tooltip-container,
       .tawk-branding,
       div[class*="tawk-branding"] {
@@ -14,11 +14,21 @@
         opacity: 0 !important;
         height: 0 !important;
       }
+
+      /* 让页面背景完全透明，不影响悬浮球展示 */
+      html, body {
+        background-color: transparent !important;
+        margin: 0;
+        padding: 0;
+      }
     </style>
   </head>
   <body>
-    <h1>MER Service 24/7</h1>
-    <p>实时客服系统测试页面</p>
+    <!-- 隐藏页面里的固定文字，仅保留右下角独立悬浮球 -->
+    <div style="display: none;">
+      <h1>MER Service 24/7</h1>
+      <p>实时客服系统测试页面</p>
+    </div>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
