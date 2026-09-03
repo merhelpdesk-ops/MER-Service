@@ -150,6 +150,9 @@
       backdrop-filter: blur(8px);
       transition: all 0.2s ease;
       cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
 
     .card:active {
@@ -334,16 +337,16 @@
       <p id="t-desc">无需 KYC 认证，连接 Web3 钱包即可交易现货与合约</p>
     </div>
 
-    <!-- 4 个卡片 -->
+    <!-- 4 个卡片 (前两个卡片配置外链，后两个配置打开客服) -->
     <div class="grid">
-      <div class="card" onclick="toggleCustomChat()">
+      <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
         <h3 id="c1-title">现货兑换 (Swap)</h3>
         <p id="c1-desc">多链快速兑换与滑点</p>
-      </div>
-      <div class="card" onclick="toggleCustomChat()">
+      </a>
+      <a class="card" href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">
         <h3 id="c2-title">永续合约 (Perps)</h3>
         <p id="c2-desc">高倍杠杆与资金费率</p>
-      </div>
+      </a>
       <div class="card" onclick="toggleCustomChat()">
         <h3 id="c3-title">钱包与连接</h3>
         <p id="c3-desc">钱包绑定与链上授权</p>
