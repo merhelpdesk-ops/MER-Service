@@ -5,204 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MER Service 24/7</title>
   <style>
-    /* 全局重置 */
     body {
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: transparent;
     }
 
-    /* 1. 自定义右下角绿色悬浮球 */
-    #mer-chat-button {
+    /* 遮罩1：精准遮挡右上角的三条杠菜单 */
+    .hide-menu-cover {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 60px;
-      height: 60px;
-      background-color: #00b96b;
-      border-radius: 50%;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999999;
-      transition: transform 0.2s ease;
-    }
-
-    #mer-chat-button:hover {
-      transform: scale(1.08);
-    }
-
-    #mer-chat-button svg {
-      width: 28px;
-      height: 28px;
-      fill: #ffffff;
-    }
-
-    /* 2. 纯净自建聊天窗口（无任何顶部菜单与官方水印） */
-    #mer-chat-window {
+      bottom: 520px; /* 匹配官方窗口高度顶部 */
+      right: 60px;   /* 匹配右上角菜单位置 */
+      width: 40px;
+      height: 40px;
+      background-color: #00b96b; /* 匹配你的绿头背景色 */
+      z-index: 2147483647;
+      pointer-events: auto; /* 阻止用户点击该区域 */
       display: none;
-      position: fixed;
-      bottom: 96px;
-      right: 24px;
-      width: 360px;
-      height: 520px;
-      max-width: calc(100vw - 48px);
-      max-height: calc(100vh - 120px);
-      background-color: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 999999;
-      border: 1px solid #eaeaea;
-    }
-
-    /* 窗口顶部 Header */
-    .mer-chat-header {
-      background-color: #00b96b;
-      color: #ffffff;
-      padding: 16px 20px;
-      font-weight: 600;
-      font-size: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .mer-chat-close {
-      cursor: pointer;
-      font-size: 18px;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-
-    .mer-chat-close:hover {
-      opacity: 1;
-    }
-
-    /* 消息区域 */
-    #mer-chat-messages {
-      flex: 1;
-      padding: 16px;
-      overflow-y: auto;
-      background-color: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .msg-row {
-      display: flex;
-      flex-direction: column;
-      max-width: 80%;
-    }
-
-    .msg-row.agent {
-      align-self: flex-start;
-    }
-
-    .msg-row.user {
-      align-self: flex-end;
-    }
-
-    .msg-bubble {
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.4;
-      word-break: break-word;
-    }
-
-    .msg-row.agent .msg-bubble {
-      background-color: #ffffff;
-      color: #333333;
-      border: 1px solid #e5e5e5;
-      border-bottom-left-radius: 2px;
-    }
-
-    .msg-row.user .msg-bubble {
-      background-color: #00b96b;
-      color: #ffffff;
-      border-bottom-right-radius: 2px;
-    }
-
-    /* 输入框区域 */
-    .mer-chat-input-area {
-      padding: 12px 16px;
-      background-color: #ffffff;
-      border-top: 1px solid #eeeeee;
-      display: flex;
-      gap: 8px;
-    }
-
-    .mer-chat-input-area input {
-      flex: 1;
-      border: 1px solid #e0e0e0;
-      border-radius: 20px;
-      padding: 8px 16px;
-      outline: none;
-      font-size: 14px;
-    }
-
-    .mer-chat-input-area input:focus {
-      border-color: #00b96b;
-    }
-
-    .mer-chat-input-area button {
-      background-color: #00b96b;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
-  <!-- 自定义绿色悬浮球 -->
-  <div id="mer-chat-button" onclick="toggleMerChat()">
-    <svg viewBox="0 0 24 24">
-      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
-    </svg>
-  </div>
-
-  <!-- 自定义聊天对话框 -->
-  <div id="mer-chat-window">
-    <div class="mer-chat-header">
-      <span>MER Service</span>
-      <span class="mer-chat-close" onclick="toggleMerChat()">✕</span>
-    </div>
-    <div id="mer-chat-messages">
-      <div class="msg-row agent">
-        <div class="msg-bubble">Hi! How can we help?</div>
-      </div>
-    </div>
-    <div class="mer-chat-input-area">
-      <input type="text" id="merInput" placeholder="输入消息..." onkeydown="if(event.key==='Enter') sendMerMsg()" />
-      <button onclick="sendMerMsg()">发送</button>
-    </div>
-  </div>
-
-  <!-- tawk.to 隐藏运行脚本 (仅作为后端消息引擎) -->
+  <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {};
+    var Tawk_LoadStart = new Date();
 
-    // 1. 加载完成后静默隐藏 tawk.to 官方所有 UI 组件
-    Tawk_API.onLoad = function(){
-      Tawk_API.hideWidget();
-    };
-
-    // 2. 接收来自客服后台回复的消息并渲染到自建窗口
-    Tawk_API.onChatMessageAgent = function(message){
-      appendMessage('agent', message);
-    };
-
-    // 加载你的 tawk.to 凭证
     (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
       s1.async=true;
@@ -211,42 +40,8 @@
       s1.setAttribute('crossorigin','*');
       s0.parentNode.insertBefore(s1,s0);
     })();
-
-    // 切换弹窗显隐
-    function toggleMerChat() {
-      var win = document.getElementById('mer-chat-window');
-      win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
-    }
-
-    // 发送消息到客服后台
-    function sendMerMsg() {
-      var input = document.getElementById('merInput');
-      var val = input.value.trim();
-      if (!val) return;
-
-      // 使用 tawk.to API 免费发送 API 消息
-      Tawk_API.sendMessage(val, function(err){
-        if (!err) {
-          appendMessage('user', val);
-          input.value = '';
-        }
-      });
-    }
-
-    // 辅助函数：向聊天框渲染气泡
-    function appendMessage(sender, text) {
-      var container = document.getElementById('mer-chat-messages');
-      var row = document.createElement('div');
-      row.className = 'msg-row ' + sender;
-      
-      var bubble = document.createElement('div');
-      bubble.className = 'msg-bubble';
-      bubble.innerText = text;
-      
-      row.appendChild(bubble);
-      container.appendChild(row);
-      container.scrollTop = container.scrollHeight;
-    }
   </script>
+  <!--End of Tawk.to Script-->
+
 </body>
 </html>
