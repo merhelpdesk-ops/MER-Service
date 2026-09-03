@@ -244,7 +244,7 @@
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      z-index: 999999;
+      z-index: 99999;
       font-weight: 600;
       font-size: 14px;
       transition: all 0.25s ease;
@@ -267,6 +267,34 @@
       background-color: #34D399;
       border-radius: 50%;
       box-shadow: 0 0 8px #34D399;
+    }
+
+    /* ==========================================
+       强行遮挡 Crisp Logo 和 Messages 按钮的样式
+       ========================================== */
+    #crisp-cover-top {
+      position: fixed;
+      top: 55px; /* 精准定位在 Crisp 顶部 Messages 按钮位置 */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px; /* 宽度只覆盖中间的 Messages 按钮，保留右上角 X 按钮 */
+      height: 45px;
+      background-color: #FFFFFF;
+      z-index: 2147483647; /* 赋予最高层级 */
+      display: none;
+      pointer-events: none; /* 穿透鼠标事件 */
+    }
+
+    #crisp-cover-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 28px; /* 精准覆盖底部的 We run on crisp 标语 */
+      background-color: #FFFFFF;
+      z-index: 2147483647;
+      display: none;
+      pointer-events: none;
     }
   </style>
 
@@ -292,6 +320,16 @@
       $crisp.push(["on", "chat:closed", function() {
         $crisp.push(["do", "chat:hide"]);
         if (triggerBtn) triggerBtn.style.display = "inline-flex";
+        
+        // 隐藏遮挡块
+        document.getElementById("crisp-cover-top").style.display = "none";
+        document.getElementById("crisp-cover-bottom").style.display = "none";
+      }]);
+
+      $crisp.push(["on", "chat:opened", function() {
+        // 显示遮挡块
+        document.getElementById("crisp-cover-top").style.display = "block";
+        document.getElementById("crisp-cover-bottom").style.display = "block";
       }]);
     }]);
 
@@ -305,6 +343,9 @@
         $crisp.push(["do", "chat:show"]);
         $crisp.push(["do", "chat:open"]);
         if (triggerBtn) triggerBtn.style.display = "none";
+        
+        document.getElementById("crisp-cover-top").style.display = "block";
+        document.getElementById("crisp-cover-bottom").style.display = "block";
       }
     }
 
@@ -315,6 +356,10 @@
   </script>
 </head>
 <body>
+
+  <!-- 视觉遮挡块（放置在 body 根级） -->
+  <div id="crisp-cover-top"></div>
+  <div id="crisp-cover-bottom"></div>
 
   <div class="glow-bg"></div>
 
