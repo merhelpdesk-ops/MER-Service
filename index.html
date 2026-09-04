@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>MERDEX | Support Center</title>
+  <title>MERDEX | 帮助中心</title>
   
   <link rel="icon" type="image/webp" href="favicon.webp">
 
@@ -68,7 +68,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* 语言切换按钮样式 */
     .lang-switcher {
       display: flex;
       gap: 6px;
@@ -227,18 +226,23 @@
       padding: 0 16px;
     }
 
+    .faq-body a {
+      color: var(--primary);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+
     .faq-wrapper.active .faq-arrow {
       transform: rotate(90deg);
       color: var(--primary);
     }
 
     .faq-wrapper.active .faq-body {
-      max-height: 300px;
+      max-height: 500px;
       padding: 12px 16px 16px;
       border-top: 1px solid rgba(255, 255, 255, 0.04);
     }
 
-    /* Mobile Tawk Widget Styles */
     #mobile-tawk-widget {
       display: none;
     }
@@ -282,7 +286,6 @@
     }
   </style>
 
-  <!-- Start of Tawk.to Script -->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     Tawk_API.lang = 'en';
@@ -469,7 +472,6 @@
       s0.parentNode.insertBefore(s1, s0);
     })();
   </script>
-  <!-- End of Tawk.to Script -->
 
   <script>
     function toggleFaq(element) {
@@ -477,12 +479,12 @@
       parent.classList.toggle('active');
     }
 
-    // 语言翻译配置
     const i18nData = {
       'zh-CN': {
+        docTitle: 'MERDEX | 帮助中心',
         heroTag: '非托管 · 高速聚合器',
         heroTitle: 'MERDEX 帮助中心',
-        heroDesc: '无需 KYC。连接 Web3 钱包即可进行现货与永续合约交易。',
+        heroDesc: '无需身份验证。连接 Web3 钱包即可进行现货与永续合约交易。',
         card1Title: '现货兑换',
         card1Desc: '多链兑换与滑点设置',
         card2Title: '永续合约',
@@ -492,17 +494,28 @@
         card4Title: '订单与持仓',
         card4Desc: '止盈止损与取消未完成交易',
         faqTitle: '常见问题',
-        faq1Q: '现货兑换失败或滑点过高怎么办？',
-        faq1A: '交易失败通常是因为价格波动超过了您设置的限制。请点击兑换页面的设置图标，提高您的滑点容忍度或 Gas 费用。',
-        faq2Q: '永续合约杠杆、全仓模式及资金费率规则',
-        faq2A: '最高支持 100 倍杠杆。在全仓模式下，您账户中所有可用 USDC 都将共享作为保证金。资金费率每 8 小时结算一次，以使合约价格锚定现货指数价格。',
-        faq3Q: '如何查看/取消挂单或解决 Pending 状态？',
-        faq3A: '您可以随时在“交易”或“资产组合”标签页下手动取消限价单。如果交易因网络拥堵处于 Pending 状态，可在钱包中进行加速或取消。'
+        faq1Q: '为什么选择 MERDEX Perps 来进行合约交易？',
+        faq1A: 'MERDEX Perps 是由 Orderly 进行搭建的去中心化 Perps 合约交易平台，我们使用了 Orderly 的流动性共享订单簿来实现优质的流动性为您提供撮合订单。',
+        faq2Q: 'MERDEX Perps 如何赚钱？为什么选择使用 MERDEX Perps？',
+        faq2A: 'MERDEX Perps 根据不同用户等级（例如普通用户、VIP1-VIP6 用户）收取不同等级的手续费来赚取收益。MERDEX Perps 提供了链上交易优质深度，您可以信赖 MERDEX 的流动性。',
+        faq3Q: 'MERDEX Perps 共享流动性订单簿提供平台网址是什么？（Orderly）',
+        faq3A: '这是 MERDEX Perps 共享流动性订单簿开发者官网来自（Orderly 团队）：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
+        faq4Q: 'MERDEX Swap 由谁提供聚合器交互功能？',
+        faq4A: 'MERDEX Swap 由 WOOFi 提供。',
+        faq5Q: 'MERDEX Swap 如何赚钱？为什么选择使用 MERDEX Swap？',
+        faq5A: 'MERDEX Swap 由 WOOFi 提供，MERDEX Swap 从中赚取交易手续费。MERDEX Swap 通过智能合约发起交易，每一次交易都需要您确认后才能发起，因此这就是选择使用 MERDEX Swap 的原因。',
+        faq6Q: '什么是奖励机制？',
+        faq6A: '奖励是邀请您的好友，您和 MER 共享您好友的手续费。MER 奖励是一直保持 50% 的分佣，只要您的好友产生交易，那么您将一直获得您好友 50% 的手续费分佣。',
+        faq7Q: 'MER 客户支持是由谁提供的？',
+        faq7A: 'MER 客户支持是由 Tawk.to 提供的。Tawk.to 的官方网站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>',
+        faq8Q: 'MER 是一家什么企业？',
+        faq8A: 'MER 是一家提供现货、合约、股票交易和股票现货交易的加密货币企业，由 Sky（宋小天）于 2023 年发起的 MER Global，是一家完全去中心化的交易平台，提供全天候客户支持并让全球用户安全交易的平台。'
       },
       'zh-TW': {
-        heroTag: '非托管 · 高速聚合器',
+        docTitle: 'MERDEX | 幫助中心',
+        heroTag: '非託管 · 高速聚合器',
         heroTitle: 'MERDEX 幫助中心',
-        heroDesc: '無需 KYC。連接 Web3 錢包即可進行現貨與永續合約交易。',
+        heroDesc: '無需身份驗證。連接 Web3 錢包即可進行現貨與永續合約交易。',
         card1Title: '現貨兌換',
         card1Desc: '多鏈兌換與滑點設置',
         card2Title: '永續合約',
@@ -512,51 +525,104 @@
         card4Title: '訂單與持倉',
         card4Desc: '止盈止損與取消未完成交易',
         faqTitle: '常見問題',
-        faq1Q: '現貨兌換失敗或滑點過高怎麼辦？',
-        faq1A: '交易失敗通常是因為價格波動超過了您設置的限制。請點擊兌換頁面的設置圖標，提高您的滑點容忍度或 Gas 費用。',
-        faq2Q: '永續合約槓桿、全倉模式及資金費率規則',
-        faq2A: '最高支持 100 倍槓桿。在全倉模式下，您帳戶中所有可用 USDC 都將共享作為保證金。資金費率每 8 小時結算一次，以使合約價格錨定現貨指數價格。',
-        faq3Q: '如何查看/取消掛單或解決 Pending 狀態？',
-        faq3A: '您可以隨時在「交易」或「資產組合」標籤頁下手動取消限價單。如果交易因網路擁塞處於 Pending 狀態，可在錢包中進行加速或取消。'
+        faq1Q: '為什麼選擇 MERDEX Perps 來進行合約交易？',
+        faq1A: 'MERDEX Perps 是由 Orderly 進行搭建的去中心化 Perps 合約交易平台，我們使用了 Orderly 的流動性共享訂單簿來實現優質的流動性為您提供撮合訂單。',
+        faq2Q: 'MERDEX Perps 如何賺錢？為什麼選擇使用 MERDEX Perps？',
+        faq2A: 'MERDEX Perps 根據不同用戶等級（例如普通用戶、VIP1-VIP6 用戶）收取不同等級的手續費來賺取收益。MERDEX Perps 提供了鏈上交易優質深度，您可以信賴 MERDEX 的流動性。',
+        faq3Q: 'MERDEX Perps 共享流動性訂單簿提供平台網址是什麼？（Orderly）',
+        faq3A: '這是 MERDEX Perps 共享流動性訂單簿開發者官網來自（Orderly 團隊）：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
+        faq4Q: 'MERDEX Swap 由誰提供聚合器交互功能？',
+        faq4A: 'MERDEX Swap 由 WOOFi 提供。',
+        faq5Q: 'MERDEX Swap 如何賺錢？為什麼選擇使用 MERDEX Swap？',
+        faq5A: 'MERDEX Swap 由 WOOFi 提供，MERDEX Swap 從中賺取交易手續費。MERDEX Swap 通過智能合約發起交易，每一次交易都需要您確認後才能發起，因此這就是選擇使用 MERDEX Swap 的原因。',
+        faq6Q: '什麼是獎勵機制？',
+        faq6A: '獎勵是邀請您的好友，您和 MER 共享您好友的手續費。MER 獎勵是一直保持 50% 的分傭，只要您的好友產生交易，那麼您將一直獲得您好友 50% 的手續費分傭。',
+        faq7Q: 'MER 客戶支持是由誰提供的？',
+        faq7A: 'MER 客戶支持是由 Tawk.to 提供的。Tawk.to 的官方網站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>',
+        faq8Q: 'MER 是一家什麼企業？',
+        faq8A: 'MER 是一家提供現貨、合約、股票交易和股票現貨交易的加密貨幣企業，由 Sky（宋小天）於 2023 年發起的 MER Global，是一家完全去中心化的交易平台，提供全天候客戶支持並讓全球用戶安全交易的平台。'
+      },
+      'en': {
+        docTitle: 'MERDEX | Support Center',
+        heroTag: 'Non-Custodial · High-Speed Aggregator',
+        heroTitle: 'MERDEX Support Center',
+        heroDesc: 'No identity verification required. Connect Web3 wallet to trade Spot & Perps.',
+        card1Title: 'Spot Swap',
+        card1Desc: 'Multi-chain swap & slippage settings',
+        card2Title: 'Perpetuals',
+        card2Desc: 'High leverage & funding rates',
+        card3Title: 'Wallet Connection',
+        card3Desc: 'Wallet linking & contract approval',
+        card4Title: 'Orders & Positions',
+        card4Desc: 'Take profit, stop loss & cancel transactions',
+        faqTitle: 'Frequently Asked Questions',
+        faq1Q: 'Why choose MERDEX Perps for perpetual trading?',
+        faq1A: 'MERDEX Perps is a decentralized perpetual trading platform built powered by Orderly. We utilize Orderly\'s shared liquidity orderbook to deliver premium liquidity and match your orders efficiently.',
+        faq2Q: 'How does MERDEX Perps generate revenue, and why choose it?',
+        faq2A: 'MERDEX Perps generates revenue by charging tiered trading fees based on user levels (e.g., Regular Users, VIP1–VIP6). MERDEX Perps offers deep on-chain liquidity that traders can rely on with confidence.',
+        faq3Q: 'What is the official website of the shared liquidity orderbook provider for MERDEX Perps? (Orderly)',
+        faq3A: 'This is the official developer website of the shared liquidity orderbook provided by the Orderly team: <a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
+        faq4Q: 'Who powers the aggregator interactive features for MERDEX Swap?',
+        faq4A: 'MERDEX Swap aggregator interactions are powered by WOOFi.',
+        faq5Q: 'How does MERDEX Swap generate revenue, and why choose it?',
+        faq5A: 'MERDEX Swap is powered by WOOFi and earns revenue through transaction fees. Trades are initiated directly via smart contracts and require explicit user confirmation for every execution, ensuring full security and control.',
+        faq6Q: 'What is the Reward program?',
+        faq6A: 'Rewards allow you to share trading fee commissions with MER by inviting friends. You earn a perpetual 50% fee split—whenever your referred friends trade, you continuously receive 50% of their generated trading fees.',
+        faq7Q: 'Who provides MER Customer Support?',
+        faq7A: 'MER customer support is provided by Tawk.to. Their official website is: <a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>',
+        faq8Q: 'What kind of company is MER?',
+        faq8A: 'MER is a cryptocurrency enterprise offering Spot, Futures, Stock Trading, and Stock Spot Trading. Founded in 2023 by Sky (Song Xiaotian), MER Global is a fully decentralized exchange platform providing 24/7 support for secure global trading.'
       },
       'ko': {
+        docTitle: 'MERDEX | 지원 센터',
         heroTag: '비수탁형 · 고속 애그리게이터',
         heroTitle: 'MERDEX 지원 센터',
-        heroDesc: 'KYC 불필요. Web3 지갑을 연결하여 스왑 및 무기한 선물을 거래하세요.',
+        heroDesc: '본인 인증 불필요. Web3 지갑을 연결하여 스왑 및 무기한 선물을 거래하세요.',
         card1Title: '스팟 스왑',
-        card1Desc: '멀티체인 스왑 및 슬리피지',
-        card2Title: '무기한 선물 (Perps)',
+        card1Desc: '멀티체인 스왑 및 슬리피지 설정',
+        card2Title: '무기한 선물',
         card2Desc: '고레버리지 및 펀딩 비율',
         card3Title: '지갑 연결',
         card3Desc: '지갑 연동 및 컨트랙트 승인',
         card4Title: '주문 및 포지션',
-        card4Desc: 'TP/SL 및 미체결 트랜잭션 취소',
+        card4Desc: '이익 실현, 손절매 및 미체결 트랜잭션 취소',
         faqTitle: '자주 묻는 질문',
-        faq1Q: '스팟 스왑이 실패하거나 슬리피지가 높으면 어떻게 해야 하나요?',
-        faq1A: '실패는 일반적으로 가격 변동성이 설정한 한도를 초과하여 발생합니다. 스왑 페이지의 설정 아이콘을 클릭하고 슬리피지 허용 범위나 가스비를 늘려주세요.',
-        faq2Q: '무기한 선물 레버리지, 교차 증거금 및 펀딩 비율 규칙',
-        faq2A: '최대 100배 레버리지를 지원합니다. 교차 증거금 모드에서는 계정의 사용 가능한 모든 USDC가 증거금으로 공유됩니다. 펀딩 비율은 지수 가격을 맞추기 위해 8시간마다 정산됩니다.',
-        faq3Q: '미체결 주문 확인/취소 및 Pending 상태 해결 방법은?',
-        faq3A: '거래 또는 포트폴리오 탭에서 언제든지 지정가 주문을 수동으로 취소할 수 있습니다. 네트워크 혼잡으로 인해 트랜잭션이 Pending 상태인 경우 지갑에서 가속하거나 취소하세요.'
+        faq1Q: '선물 거래에 MERDEX Perps를 선택해야 하는 이유는 무엇인가요?',
+        faq1A: 'MERDEX Perps는 Orderly를 기반으로 구축된 탈중앙화 무기한 선물 거래 플랫폼입니다. Orderly의 공유 유동성 오더북을 사용하여 뛰어난 유동성과 원활한 주문 체결을 제공합니다.',
+        faq2Q: 'MERDEX Perps는 어떻게 수익을 창출하며, 왜 선택해야 하나요?',
+        faq2A: 'MERDEX Perps는 일반 사용자 및 VIP1~VIP6 등 등급별 거래 수수료를 통해 수익을 창출합니다. 신뢰할 수 있는 우수한 온체인 거래 유동성 깊이를 제공합니다.',
+        faq3Q: 'MERDEX Perps 공유 유동성 오더북 제공 플랫폼의 웹사이트는 무엇인가요? (Orderly)',
+        faq3A: 'MERDEX Perps 공유 유동성 오더북 개발사(Orderly 팀)의 공식 웹사이트입니다: <a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
+        faq4Q: 'MERDEX Swap의 애그리게이터 연동 기능은 누가 제공하나요?',
+        faq4A: 'MERDEX Swap은 WOOFi에서 지원 및 제공합니다.',
+        faq5Q: 'MERDEX Swap은 어떻게 수익을 창출하며, 왜 선택해야 하나요?',
+        faq5A: 'MERDEX Swap은 WOOFi가 제공하며 거래 수수료를 통해 수익을 올립니다. 모든 거래는 스마트 컨트랙트를 통해 시작되며 사용자의 직접 승인 후에만 실행되므로 안전하고 신뢰할 수 있습니다.',
+        faq6Q: '보상 프로그램이란 무엇인가요?',
+        faq6A: '보상은 친구를 초대하여 친구의 수수료 수익을 MER과 공유하는 시스템입니다. MER 보상은 지속적으로 50% 수수료 커미션을 유지하며, 초대한 친구가 거래할 때마다 거래 수수료의 50%를 지속적으로 지급받게 됩니다.',
+        faq7Q: 'MER 고객 지원은 누가 제공하나요?',
+        faq7A: 'MER 고객 지원은 Tawk.to에서 제공합니다. Tawk.to 공식 웹사이트: <a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>',
+        faq8Q: 'MER은 어떤 기업인가요?',
+        faq8A: 'MER은 현물, 선물, 주식 거래 및 주식 현물 거래를 제공하는 암호화폐 기업입니다. 2023년 Sky(Song Xiaotian)가 설립한 MER Global은 완전 탈중앙화 거래 플랫폼으로서 24시간 연중무휴 고객 지원과 전 세계 사용자를 위한 안전한 거래 환경을 제공합니다.'
       }
     };
 
     function changeLanguage(lang) {
-      // 切换按钮激活状态
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
       });
       document.getElementById(`btn-${lang}`).classList.add('active');
 
-      // 更新 HTML lang 属性
       document.documentElement.lang = lang;
 
-      // 替换 DOM 文本
       const data = i18nData[lang];
+      if (data.docTitle) {
+        document.title = data.docTitle;
+      }
+
       document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (data[key]) {
-          element.textContent = data[key];
+          element.innerHTML = data[key];
         }
       });
     }
@@ -570,10 +636,10 @@
     <div class="brand">
       <span>MERDEX</span>
     </div>
-    <!-- 语言切换按钮 -->
     <div class="lang-switcher">
-      <button id="btn-zh-CN" class="lang-btn active" onclick="changeLanguage('zh-CN')">简</button>
-      <button id="btn-zh-TW" class="lang-btn" onclick="changeLanguage('zh-TW')">繁</button>
+      <button id="btn-zh-CN" class="lang-btn active" onclick="changeLanguage('zh-CN')">简体中文</button>
+      <button id="btn-zh-TW" class="lang-btn" onclick="changeLanguage('zh-TW')">繁體中文</button>
+      <button id="btn-en" class="lang-btn" onclick="changeLanguage('en')">English</button>
       <button id="btn-ko" class="lang-btn" onclick="changeLanguage('ko')">한국어</button>
     </div>
   </header>
@@ -584,7 +650,7 @@
 
       <span class="hero-tag" data-i18n="heroTag">非托管 · 高速聚合器</span>
       <h1 data-i18n="heroTitle">MERDEX 帮助中心</h1>
-      <p data-i18n="heroDesc">无需 KYC。连接 Web3 钱包即可进行现货与永续合约交易。</p>
+      <p data-i18n="heroDesc">无需身份验证。连接 Web3 钱包即可进行现货与永续合约交易。</p>
     </div>
 
     <div class="grid">
@@ -610,31 +676,81 @@
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq1Q">现货兑换失败或滑点过高怎么办？</span>
+        <span data-i18n="faq1Q">为什么选择 MERDEX Perps 来进行合约交易？</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq1A">
-        交易失败通常是因为价格波动超过了您设置的限制。请点击兑换页面的设置图标，提高您的滑点容忍度或 Gas 费用。
+        MERDEX Perps 是由 Orderly 进行搭建的去中心化 Perps 合约交易平台，我们使用了 Orderly 的流动性共享订单簿来实现优质的流动性为您提供撮合订单。
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq2Q">永续合约杠杆、全仓模式及资金费率规则</span>
+        <span data-i18n="faq2Q">MERDEX Perps 如何赚钱？为什么选择使用 MERDEX Perps？</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq2A">
-        最高支持 100 倍杠杆。在全仓模式下，您账户中所有可用 USDC 都将共享作为保证金。资金费率每 8 小时结算一次，以使合约价格锚定现货指数价格。
+        MERDEX Perps 根据不同用户等级（例如普通用户、VIP1-VIP6 用户）收取不同等级的手续费来赚取收益。MERDEX Perps 提供了链上交易优质深度，您可以信赖 MERDEX 的流动性。
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq3Q">如何查看/取消挂单或解决 Pending 状态？</span>
+        <span data-i18n="faq3Q">MERDEX Perps 共享流动性订单簿提供平台网址是什么？（Orderly）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq3A">
-        您可以随时在“交易”或“资产组合”标签页下手动取消限价单。如果交易因网络拥堵处于 Pending 状态，可在钱包中进行加速或取消。
+        这是 MERDEX Perps 共享流动性订单簿开发者官网来自（Orderly 团队）：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq4Q">MERDEX Swap 由谁提供聚合器交互功能？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq4A">
+        MERDEX Swap 由 WOOFi 提供。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq5Q">MERDEX Swap 如何赚钱？为什么选择使用 MERDEX Swap？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq5A">
+        MERDEX Swap 由 WOOFi 提供，MERDEX Swap 从中赚取交易手续费。MERDEX Swap 通过智能合约发起交易，每一次交易都需要您确认后才能发起，因此这就是选择使用 MERDEX Swap 的原因。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq6Q">什么是奖励机制？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq6A">
+        奖励是邀请您的好友，您和 MER 共享您好友的手续费。MER 奖励是一直保持 50% 的分佣，只要您的好友产生交易，那么您将一直获得您好友 50% 的手续费分佣。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq7Q">MER 客户支持是由谁提供的？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq7A">
+        MER 客户支持是由 Tawk.to 提供的。Tawk.to 的官方网站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq8Q">MER 是一家什么企业？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq8A">
+        MER 是一家提供现货、合约、股票交易和股票现货交易的加密货币企业，由 Sky（宋小天）于 2023 年发起的 MER Global，是一家完全去中心化的交易平台，提供全天候客户支持并让全球用户安全交易的平台。
       </div>
     </div>
   </main>
