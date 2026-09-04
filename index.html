@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -241,6 +241,7 @@
   s1.src='https://embed.tawk.to/6a98b268451e133447599dcc/1k1l256b9';
   s1.charset='UTF-8';
   s1.setAttribute('crossorigin','*');
+  s1.setAttribute('language', 'en');
   s0.parentNode.insertBefore(s1,s0);
   })();
   </script>
@@ -270,7 +271,7 @@
       <span>MERDEX</span>
     </div>
     <button class="lang-btn" onclick="toggleLanguage()">
-      🌐 <span id="lang-text">English</span>
+      🌐 <span id="lang-text">中文</span>
     </button>
   </header>
 
@@ -278,65 +279,65 @@
     <div class="hero">
       <img src="MERHelpDesk.JPG" alt="MERDEX Banner" class="banner-img">
 
-      <span class="hero-tag" id="t-tag">非托管 · 高速聚合交易</span>
-      <h1 id="t-title">MERDEX 支持中心</h1>
-      <p id="t-desc">无需 KYC 认证，连接 Web3 钱包即可交易现货与合约</p>
+      <span class="hero-tag" id="t-tag">Non-Custodial · High-Speed Aggregator</span>
+      <h1 id="t-title">MERDEX Support Center</h1>
+      <p id="t-desc">No KYC required. Connect Web3 wallet to trade Swap & Perps.</p>
     </div>
 
     <div class="grid">
       <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3 id="c1-title">现货兑换 (Swap)</h3>
-        <p id="c1-desc">多链快速兑换与滑点</p>
+        <h3 id="c1-title">Spot Swap</h3>
+        <p id="c1-desc">Multi-chain swap & slippage</p>
       </a>
       <a class="card" href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3 id="c2-title">永续合约 (Perps)</h3>
-        <p id="c2-desc">高倍杠杆与资金费率</p>
+        <h3 id="c2-title">Perpetuals (Perps)</h3>
+        <p id="c2-desc">High leverage & funding rates</p>
       </a>
       <div class="card" onclick="openTawkChat()">
-        <h3 id="c3-title">钱包与连接</h3>
-        <p id="c3-desc">钱包绑定与链上授权</p>
+        <h3 id="c3-title">Wallet Connection</h3>
+        <p id="c3-desc">Wallet linking & contract approval</p>
       </div>
       <div class="card" onclick="openTawkChat()">
-        <h3 id="c4-title">订单与持仓</h3>
-        <p id="c4-desc">止盈止损与 Pending 撤单</p>
+        <h3 id="c4-title">Orders & Positions</h3>
+        <p id="c4-desc">TP/SL & Cancel pending tx</p>
       </div>
     </div>
 
-    <div class="section-title" id="t-faq-title">常见问题解答</div>
+    <div class="section-title" id="t-faq-title">Frequently Asked Questions</div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span id="f1-title">现货 Swap 交易提示失败或滑点过大怎么办？</span>
+        <span id="f1-title">What should I do if a Spot Swap fails or has high slippage?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" id="f1-body">
-        交易失败通常是因为市场价格波动剧烈，导致实际滑点超出了设置的上限。请点击交易页面右上角的设置图标，适当调高“滑点容忍度 (Slippage Tolerance)”或增加 Gas 费重试。
+        Failures are usually caused by price volatility exceeding your set limit. Please click the settings icon on the swap page and increase your Slippage Tolerance or Gas fee.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span id="f2-title">永续合约的杠杆倍数、全仓模式与资金费率规则</span>
+        <span id="f2-title">Rules for Perpetual leverage, Cross Margin, and Funding Rates</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" id="f2-body">
-        平台支持最高 100x 杠杆。全仓模式下，账户内的可用 USDC 均作为保证金共享；资金费率每 8 小时结算一次，用于锚定合约价格与现货价格。
+        Up to 100x leverage is supported. Under Cross Margin, all available USDC in your account is shared as margin. Funding rates settle every 8 hours to align index prices.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span id="f3-title">如何查看/撤销未成交订单，或处理链上 Pending 状态？</span>
+        <span id="f3-title">How to check/cancel open orders or fix Pending status?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" id="f3-body">
-        您可以在“交易页面 - 底部订单栏”或“投资组合”中随时手动撤销限价单。若遇到链上网络拥堵提示 Pending，请在钱包中加速或取消该笔链上交易。
+        You can manually cancel limit orders under the Trade or Portfolio tab anytime. If a transaction is Pending due to network congestion, speed up or cancel it in your wallet.
       </div>
     </div>
   </main>
 
   <script>
-    let currentLang = 'zh';
+    let currentLang = 'en';
 
     const i18n = {
       zh: {
