@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>MERDEX | Support Center</title>
   
-  <!-- Favicon 图标配置 -->
   <link rel="icon" type="image/webp" href="favicon.webp">
 
   <style>
@@ -67,27 +66,6 @@
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0.5px;
-    }
-
-    .lang-btn {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--card-border);
-      color: var(--text-title);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .lang-btn:active {
-      transform: scale(0.95);
-      border-color: var(--primary);
     }
 
     main {
@@ -235,10 +213,14 @@
   <!-- Start of Tawk.to Script -->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  
+  // 强制组件展示语言为英文
+  Tawk_API.lang = 'en';
+
   (function(){
   var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
   s1.async=true;
-  s1.src='https://embed.tawk.to/6a98b268451e133447599dcc/1k1l5lpok';
+  s1.src='https://embed.tawk.to/6a98b268451e133447599dcc/1k1l6h0rv';
   s1.charset='UTF-8';
   s1.setAttribute('crossorigin','*');
   s0.parentNode.insertBefore(s1,s0);
@@ -271,147 +253,68 @@
     <div class="brand">
       <span>MERDEX</span>
     </div>
-    <button class="lang-btn" onclick="toggleLanguage()">
-      🌐 <span id="lang-text">中文</span>
-    </button>
   </header>
 
   <main>
     <div class="hero">
       <img src="MERHelpDesk.JPG" alt="MERDEX Banner" class="banner-img">
 
-      <span class="hero-tag" id="t-tag">Non-Custodial · High-Speed Aggregator</span>
-      <h1 id="t-title">MERDEX Support Center</h1>
-      <p id="t-desc">No KYC required. Connect Web3 wallet to trade Swap & Perps.</p>
+      <span class="hero-tag">Non-Custodial · High-Speed Aggregator</span>
+      <h1>MERDEX Support Center</h1>
+      <p>No KYC required. Connect Web3 wallet to trade Swap & Perps.</p>
     </div>
 
     <div class="grid">
       <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3 id="c1-title">Spot Swap</h3>
-        <p id="c1-desc">Multi-chain swap & slippage</p>
+        <h3>Spot Swap</h3>
+        <p>Multi-chain swap & slippage</p>
       </a>
       <a class="card" href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3 id="c2-title">Perpetuals (Perps)</h3>
-        <p id="c2-desc">High leverage & funding rates</p>
+        <h3>Perpetuals (Perps)</h3>
+        <p>High leverage & funding rates</p>
       </a>
       <div class="card" onclick="openTawkChat()">
-        <h3 id="c3-title">Wallet Connection</h3>
-        <p id="c3-desc">Wallet linking & contract approval</p>
+        <h3>Wallet Connection</h3>
+        <p>Wallet linking & contract approval</p>
       </div>
       <div class="card" onclick="openTawkChat()">
-        <h3 id="c4-title">Orders & Positions</h3>
-        <p id="c4-desc">TP/SL & Cancel pending tx</p>
+        <h3>Orders & Positions</h3>
+        <p>TP/SL & Cancel pending tx</p>
       </div>
     </div>
 
-    <div class="section-title" id="t-faq-title">Frequently Asked Questions</div>
+    <div class="section-title">Frequently Asked Questions</div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span id="f1-title">What should I do if a Spot Swap fails or has high slippage?</span>
+        <span>What should I do if a Spot Swap fails or has high slippage?</span>
         <span class="faq-arrow">▲</span>
       </div>
-      <div class="faq-body" id="f1-body">
+      <div class="faq-body">
         Failures are usually caused by price volatility exceeding your set limit. Please click the settings icon on the swap page and increase your Slippage Tolerance or Gas fee.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span id="f2-title">Rules for Perpetual leverage, Cross Margin, and Funding Rates</span>
+        <span>Rules for Perpetual leverage, Cross Margin, and Funding Rates</span>
         <span class="faq-arrow">▲</span>
       </div>
-      <div class="faq-body" id="f2-body">
+      <div class="faq-body">
         Up to 100x leverage is supported. Under Cross Margin, all available USDC in your account is shared as margin. Funding rates settle every 8 hours to align index prices.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span id="f3-title">How to check/cancel open orders or fix Pending status?</span>
+        <span>How to check/cancel open orders or fix Pending status?</span>
         <span class="faq-arrow">▲</span>
       </div>
-      <div class="faq-body" id="f3-body">
+      <div class="faq-body">
         You can manually cancel limit orders under the Trade or Portfolio tab anytime. If a transaction is Pending due to network congestion, speed up or cancel it in your wallet.
       </div>
     </div>
   </main>
-
-  <script>
-    let currentLang = 'en';
-
-    const i18n = {
-      zh: {
-        langBtn: "English",
-        tag: "非托管 · 高速聚合交易",
-        title: "MERDEX 支持中心",
-        desc: "无需 KYC 认证，连接 Web3 钱包即可交易现货与合约",
-        c1Title: "现货兑换 (Swap)",
-        c1Desc: "多链快速兑换与滑点",
-        c2Title: "永续合约 (Perps)",
-        c2Desc: "高倍杠杆与资金费率",
-        c3Title: "钱包与连接",
-        c3Desc: "钱包绑定与链上授权",
-        c4Title: "订单与持仓",
-        c4Desc: "止盈止损与 Pending 撤单",
-        faqTitle: "常见问题解答",
-        f1: "现货 Swap 交易提示失败或滑点过大怎么办？",
-        f1Body: "交易失败通常是因为市场价格波动剧烈，导致实际滑点超出了设置的上限。请点击交易页面右上角的设置图标，适当调高“滑点容忍度 (Slippage Tolerance)”或增加 Gas 费重试。",
-        f2: "永续合约的杠杆倍数、全仓模式与资金费率规则",
-        f2Body: "平台支持最高 100x 杠杆。全仓模式下，账户内的可用 USDC 均作为保证金共享；资金费率每 8 小时结算一次，用于锚定合约价格与现货价格。",
-        f3: "如何查看/撤销未成交订单，或处理链上 Pending 状态？",
-        f3Body: "您可以在“交易页面 - 底部订单栏”或“投资组合”中随时手动撤销限价单。若遇到链上网络拥堵提示 Pending，请在钱包中加速或取消该笔链上交易。"
-      },
-      en: {
-        langBtn: "中文",
-        tag: "Non-Custodial · High-Speed Aggregator",
-        title: "MERDEX Support Center",
-        desc: "No KYC required. Connect Web3 wallet to trade Swap & Perps.",
-        c1Title: "Spot Swap",
-        c1Desc: "Multi-chain swap & slippage",
-        c2Title: "Perpetuals (Perps)",
-        c2Desc: "High leverage & funding rates",
-        c3Title: "Wallet Connection",
-        c3Desc: "Wallet linking & contract approval",
-        c4Title: "Orders & Positions",
-        c4Desc: "TP/SL & Cancel pending tx",
-        faqTitle: "Frequently Asked Questions",
-        f1: "What should I do if a Spot Swap fails or has high slippage?",
-        f1Body: "Failures are usually caused by price volatility exceeding your set limit. Please click the settings icon on the swap page and increase your Slippage Tolerance or Gas fee.",
-        f2: "Rules for Perpetual leverage, Cross Margin, and Funding Rates",
-        f2Body: "Up to 100x leverage is supported. Under Cross Margin, all available USDC in your account is shared as margin. Funding rates settle every 8 hours to align index prices.",
-        f3: "How to check/cancel open orders or fix Pending status?",
-        f3Body: "You can manually cancel limit orders under the Trade or Portfolio tab anytime. If a transaction is Pending due to network congestion, speed up or cancel it in your wallet."
-      }
-    };
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'zh' ? 'en' : 'zh';
-      const data = i18n[currentLang];
-
-      document.getElementById('lang-text').innerText = data.langBtn;
-      document.getElementById('t-tag').innerText = data.tag;
-      document.getElementById('t-title').innerText = data.title;
-      document.getElementById('t-desc').innerText = data.desc;
-
-      document.getElementById('c1-title').innerText = data.c1Title;
-      document.getElementById('c1-desc').innerText = data.c1Desc;
-      document.getElementById('c2-title').innerText = data.c2Title;
-      document.getElementById('c2-desc').innerText = data.c2Desc;
-      document.getElementById('c3-title').innerText = data.c3Title;
-      document.getElementById('c3-desc').innerText = data.c3Desc;
-      document.getElementById('c4-title').innerText = data.c4Title;
-      document.getElementById('c4-desc').innerText = data.c4Desc;
-
-      document.getElementById('t-faq-title').innerText = data.faqTitle;
-      document.getElementById('f1-title').innerText = data.f1;
-      document.getElementById('f1-body').innerText = data.f1Body;
-      document.getElementById('f2-title').innerText = data.f2;
-      document.getElementById('f2-body').innerText = data.f2Body;
-      document.getElementById('f3-title').innerText = data.f3;
-      document.getElementById('f3-body').innerText = data.f3Body;
-    }
-  </script>
 
 </body>
 </html>
