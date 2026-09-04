@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -66,6 +66,35 @@
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0.5px;
+    }
+
+    /* 语言切换按钮样式 */
+    .lang-switcher {
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-sub);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-title);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #000;
+      font-weight: 600;
+      border-color: var(--primary);
     }
 
     main {
@@ -447,6 +476,90 @@
       const parent = element.parentElement;
       parent.classList.toggle('active');
     }
+
+    // 语言翻译配置
+    const i18nData = {
+      'zh-CN': {
+        heroTag: '非托管 · 高速聚合器',
+        heroTitle: 'MERDEX 帮助中心',
+        heroDesc: '无需 KYC。连接 Web3 钱包即可进行现货与永续合约交易。',
+        card1Title: '现货兑换',
+        card1Desc: '多链兑换与滑点设置',
+        card2Title: '永续合约',
+        card2Desc: '高杠杆与资金费率',
+        card3Title: '钱包连接',
+        card3Desc: '钱包绑定与智能合约授权',
+        card4Title: '订单与持仓',
+        card4Desc: '止盈止损与取消未完成交易',
+        faqTitle: '常见问题',
+        faq1Q: '现货兑换失败或滑点过高怎么办？',
+        faq1A: '交易失败通常是因为价格波动超过了您设置的限制。请点击兑换页面的设置图标，提高您的滑点容忍度或 Gas 费用。',
+        faq2Q: '永续合约杠杆、全仓模式及资金费率规则',
+        faq2A: '最高支持 100 倍杠杆。在全仓模式下，您账户中所有可用 USDC 都将共享作为保证金。资金费率每 8 小时结算一次，以使合约价格锚定现货指数价格。',
+        faq3Q: '如何查看/取消挂单或解决 Pending 状态？',
+        faq3A: '您可以随时在“交易”或“资产组合”标签页下手动取消限价单。如果交易因网络拥堵处于 Pending 状态，可在钱包中进行加速或取消。'
+      },
+      'zh-TW': {
+        heroTag: '非托管 · 高速聚合器',
+        heroTitle: 'MERDEX 幫助中心',
+        heroDesc: '無需 KYC。連接 Web3 錢包即可進行現貨與永續合約交易。',
+        card1Title: '現貨兌換',
+        card1Desc: '多鏈兌換與滑點設置',
+        card2Title: '永續合約',
+        card2Desc: '高槓桿與資金費率',
+        card3Title: '錢包連接',
+        card3Desc: '錢包綁定與智能合約授權',
+        card4Title: '訂單與持倉',
+        card4Desc: '止盈止損與取消未完成交易',
+        faqTitle: '常見問題',
+        faq1Q: '現貨兌換失敗或滑點過高怎麼辦？',
+        faq1A: '交易失敗通常是因為價格波動超過了您設置的限制。請點擊兌換頁面的設置圖標，提高您的滑點容忍度或 Gas 費用。',
+        faq2Q: '永續合約槓桿、全倉模式及資金費率規則',
+        faq2A: '最高支持 100 倍槓桿。在全倉模式下，您帳戶中所有可用 USDC 都將共享作為保證金。資金費率每 8 小時結算一次，以使合約價格錨定現貨指數價格。',
+        faq3Q: '如何查看/取消掛單或解決 Pending 狀態？',
+        faq3A: '您可以隨時在「交易」或「資產組合」標籤頁下手動取消限價單。如果交易因網路擁塞處於 Pending 狀態，可在錢包中進行加速或取消。'
+      },
+      'ko': {
+        heroTag: '비수탁형 · 고속 애그리게이터',
+        heroTitle: 'MERDEX 지원 센터',
+        heroDesc: 'KYC 불필요. Web3 지갑을 연결하여 스왑 및 무기한 선물을 거래하세요.',
+        card1Title: '스팟 스왑',
+        card1Desc: '멀티체인 스왑 및 슬리피지',
+        card2Title: '무기한 선물 (Perps)',
+        card2Desc: '고레버리지 및 펀딩 비율',
+        card3Title: '지갑 연결',
+        card3Desc: '지갑 연동 및 컨트랙트 승인',
+        card4Title: '주문 및 포지션',
+        card4Desc: 'TP/SL 및 미체결 트랜잭션 취소',
+        faqTitle: '자주 묻는 질문',
+        faq1Q: '스팟 스왑이 실패하거나 슬리피지가 높으면 어떻게 해야 하나요?',
+        faq1A: '실패는 일반적으로 가격 변동성이 설정한 한도를 초과하여 발생합니다. 스왑 페이지의 설정 아이콘을 클릭하고 슬리피지 허용 범위나 가스비를 늘려주세요.',
+        faq2Q: '무기한 선물 레버리지, 교차 증거금 및 펀딩 비율 규칙',
+        faq2A: '최대 100배 레버리지를 지원합니다. 교차 증거금 모드에서는 계정의 사용 가능한 모든 USDC가 증거금으로 공유됩니다. 펀딩 비율은 지수 가격을 맞추기 위해 8시간마다 정산됩니다.',
+        faq3Q: '미체결 주문 확인/취소 및 Pending 상태 해결 방법은?',
+        faq3A: '거래 또는 포트폴리오 탭에서 언제든지 지정가 주문을 수동으로 취소할 수 있습니다. 네트워크 혼잡으로 인해 트랜잭션이 Pending 상태인 경우 지갑에서 가속하거나 취소하세요.'
+      }
+    };
+
+    function changeLanguage(lang) {
+      // 切换按钮激活状态
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(`btn-${lang}`).classList.add('active');
+
+      // 更新 HTML lang 属性
+      document.documentElement.lang = lang;
+
+      // 替换 DOM 文本
+      const data = i18nData[lang];
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (data[key]) {
+          element.textContent = data[key];
+        }
+      });
+    }
   </script>
 </head>
 <body>
@@ -457,65 +570,71 @@
     <div class="brand">
       <span>MERDEX</span>
     </div>
+    <!-- 语言切换按钮 -->
+    <div class="lang-switcher">
+      <button id="btn-zh-CN" class="lang-btn active" onclick="changeLanguage('zh-CN')">简</button>
+      <button id="btn-zh-TW" class="lang-btn" onclick="changeLanguage('zh-TW')">繁</button>
+      <button id="btn-ko" class="lang-btn" onclick="changeLanguage('ko')">한국어</button>
+    </div>
   </header>
 
   <main>
     <div class="hero">
       <img src="MERHelpDesk.JPG" alt="MERDEX Banner" class="banner-img">
 
-      <span class="hero-tag">Non-Custodial · High-Speed Aggregator</span>
-      <h1>MERDEX Support Center</h1>
-      <p>No KYC required. Connect Web3 wallet to trade Swap & Perps.</p>
+      <span class="hero-tag" data-i18n="heroTag">非托管 · 高速聚合器</span>
+      <h1 data-i18n="heroTitle">MERDEX 帮助中心</h1>
+      <p data-i18n="heroDesc">无需 KYC。连接 Web3 钱包即可进行现货与永续合约交易。</p>
     </div>
 
     <div class="grid">
       <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3>Spot Swap</h3>
-        <p>Multi-chain swap & slippage</p>
+        <h3 data-i18n="card1Title">现货兑换</h3>
+        <p data-i18n="card1Desc">多链兑换与滑点设置</p>
       </a>
       <a class="card" href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3>Perpetuals (Perps)</h3>
-        <p>High leverage & funding rates</p>
+        <h3 data-i18n="card2Title">永续合约</h3>
+        <p data-i18n="card2Desc">高杠杆与资金费率</p>
       </a>
       <div class="card" onclick="openTawkChat()">
-        <h3>Wallet Connection</h3>
-        <p>Wallet linking & contract approval</p>
+        <h3 data-i18n="card3Title">钱包连接</h3>
+        <p data-i18n="card3Desc">钱包绑定与智能合约授权</p>
       </div>
       <div class="card" onclick="openTawkChat()">
-        <h3>Orders & Positions</h3>
-        <p>TP/SL & Cancel pending tx</p>
+        <h3 data-i18n="card4Title">订单与持仓</h3>
+        <p data-i18n="card4Desc">止盈止损与取消未完成交易</p>
       </div>
     </div>
 
-    <div class="section-title">Frequently Asked Questions</div>
+    <div class="section-title" data-i18n="faqTitle">常见问题</div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span>What should I do if a Spot Swap fails or has high slippage?</span>
+        <span data-i18n="faq1Q">现货兑换失败或滑点过高怎么办？</span>
         <span class="faq-arrow">▲</span>
       </div>
-      <div class="faq-body">
-        Failures are usually caused by price volatility exceeding your set limit. Please click the settings icon on the swap page and increase your Slippage Tolerance or Gas fee.
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span>Rules for Perpetual leverage, Cross Margin, and Funding Rates</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body">
-        Up to 100x leverage is supported. Under Cross Margin, all available USDC in your account is shared as margin. Funding rates settle every 8 hours to align index prices.
+      <div class="faq-body" data-i18n="faq1A">
+        交易失败通常是因为价格波动超过了您设置的限制。请点击兑换页面的设置图标，提高您的滑点容忍度或 Gas 费用。
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span>How to check/cancel open orders or fix Pending status?</span>
+        <span data-i18n="faq2Q">永续合约杠杆、全仓模式及资金费率规则</span>
         <span class="faq-arrow">▲</span>
       </div>
-      <div class="faq-body">
-        You can manually cancel limit orders under the Trade or Portfolio tab anytime. If a transaction is Pending due to network congestion, speed up or cancel it in your wallet.
+      <div class="faq-body" data-i18n="faq2A">
+        最高支持 100 倍杠杆。在全仓模式下，您账户中所有可用 USDC 都将共享作为保证金。资金费率每 8 小时结算一次，以使合约价格锚定现货指数价格。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq3Q">如何查看/取消挂单或解决 Pending 状态？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq3A">
+        您可以随时在“交易”或“资产组合”标签页下手动取消限价单。如果交易因网络拥堵处于 Pending 状态，可在钱包中进行加速或取消。
       </div>
     </div>
   </main>
