@@ -250,6 +250,8 @@
     function openTawkChat() {
       if (typeof Tawk_API !== 'undefined' && typeof Tawk_API.maximize === 'function') {
         Tawk_API.maximize();
+      } else if (typeof Tawk_API !== 'undefined' && typeof Tawk_API.toggle === 'function') {
+        Tawk_API.toggle();
       }
     }
 
