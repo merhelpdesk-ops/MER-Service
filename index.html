@@ -63,16 +63,9 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0.5px;
-    }
-
-    .copyright-tag {
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--text-sub);
     }
 
     .lang-switcher {
@@ -105,7 +98,7 @@
 
     main {
       flex: 1;
-      padding: 24px 20px 100px;
+      padding: 24px 20px 40px;
       z-index: 1;
       max-width: 600px;
       margin: 0 auto;
@@ -250,6 +243,16 @@
       border-top: 1px solid rgba(255, 255, 255, 0.04);
     }
 
+    footer {
+      text-align: center;
+      padding: 20px 20px calc(80px + env(safe-area-inset-bottom, 0px));
+      font-size: 13px;
+      color: var(--text-sub);
+      border-top: 1px solid var(--card-border);
+      background: rgba(11, 15, 23, 0.5);
+      z-index: 1;
+    }
+
     #mobile-tawk-widget {
       display: none;
     }
@@ -286,6 +289,9 @@
     }
 
     @media (min-width: 1001px) {
+      footer {
+        padding-bottom: 24px;
+      }
       #mobile-tawk-widget.is-visible {
         bottom: 30px;
         right: 20px;
@@ -488,7 +494,7 @@
 
     const i18nData = {
       'zh-CN': {
-        brandCopyright: '© MER Global 2023-2026',
+        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | 帮助中心',
         heroTag: '非托管 · 高速聚合器',
         heroTitle: 'MERDEX 帮助中心',
@@ -520,7 +526,7 @@
         faq8A: 'MER 是一家提供加密货币与股票的现货及合约交易的去中心化金融企业。由 Sky（宋小天）于 2023 年发起的 MER Global 是一个完全去中心化的交易平台，提供 7×24 小时客户支持，致力于为全球用户提供安全、高效的交易环境。'
       },
       'zh-TW': {
-        brandCopyright: '© MER Global 2023-2026',
+        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | 幫助中心',
         heroTag: '非託管 · 高速聚合器',
         heroTitle: 'MERDEX 幫助中心',
@@ -552,7 +558,7 @@
         faq8A: 'MER 是一家提供加密貨幣與股票的現貨及合約交易的去中心化金融企業。由 Sky（宋小天）於 2023 年發起的 MER Global 是完全去中心化的交易平台，提供 7×24 小時客戶支持，致力於為全球用戶提供安全、高效的交易環境。'
       },
       'en': {
-        brandCopyright: '© MER Global 2023-2026',
+        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | Support Center',
         heroTag: 'Non-Custodial · High-Speed Aggregator',
         heroTitle: 'MERDEX Support Center',
@@ -584,7 +590,7 @@
         faq8A: 'MER is a decentralized enterprise offering Crypto & Stock Spot and Futures trading. Founded in 2023 by Sky (Song Xiaotian), MER Global is a fully decentralized exchange platform providing 24/7 customer support for secure global trading.'
       },
       'ko': {
-        brandCopyright: '© MER Global 2023-2026',
+        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | 지원 센터',
         heroTag: '비수탁형 · 고속 애그리게이터',
         heroTitle: 'MERDEX 지원 센터',
@@ -646,7 +652,6 @@
   <header>
     <div class="brand">
       <span>MERDEX</span>
-      <span class="copyright-tag" data-i18n="brandCopyright">© MER Global 2023-2026</span>
     </div>
     <div class="lang-switcher">
       <button id="btn-zh-CN" class="lang-btn active" onclick="changeLanguage('zh-CN')">简体中文</button>
@@ -766,6 +771,10 @@
       </div>
     </div>
   </main>
+
+  <footer>
+    <span data-i18n="copyright">© MER Global 2023-2026</span>
+  </footer>
 
   <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget"
     class="tawk-custom-color tawk-custom-border-color tawk-outline tawk-button tawk-button-circle tawk-button-large">
