@@ -269,7 +269,6 @@
       z-index: 1;
     }
 
-    /* 自定义客服按钮样式 */
     #mobile-tawk-widget {
       display: none;
     }
@@ -357,7 +356,6 @@
     }
 
     function syncMobileTawkWidget() {
-      if (typeof Tawk_API.showWidget !== 'function') return;
       var maximized = typeof Tawk_API.isChatMaximized === 'function' && Tawk_API.isChatMaximized();
       if (maximized) {
         showMobileTawkWidget(false);
@@ -367,10 +365,11 @@
     }
 
     function openMobileTawkChat() {
-      showMobileTawkWidget(false);
-      if (typeof Tawk_API.start === 'function') Tawk_API.start({ showWidget: true });
-      if (typeof Tawk_API.showWidget === 'function') Tawk_API.showWidget();
-      if (typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
+      if (typeof Tawk_API.maximize === 'function') {
+        Tawk_API.maximize();
+      } else if (typeof Tawk_API.start === 'function') {
+        Tawk_API.start();
+      }
     }
 
     function openTawkChat() {
@@ -378,17 +377,31 @@
     }
 
     Tawk_API.onLoad = function() {
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget();
+      }
       restoreMobileTawkPosition();
       syncMobileTawkWidget();
     };
+
     Tawk_API.onChatMaximized = function () {
       showMobileTawkWidget(false);
     };
+
     Tawk_API.onChatMinimized = function () {
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget();
+      }
       showMobileTawkWidget(true);
+      restoreMobileTawkPosition();
     };
+
     Tawk_API.onChatHidden = function () {
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget();
+      }
       showMobileTawkWidget(true);
+      restoreMobileTawkPosition();
     };
 
     window.addEventListener('resize', syncMobileTawkWidget);
