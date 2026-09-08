@@ -273,11 +273,6 @@
       display: none;
     }
 
-    .tawk-mobile-native-hidden iframe[src="about:blank"][referrerpolicy="no-referrer-when-downgrade"][style*="max-width:124px"] {
-      transform: translateX(200vw) !important;
-      -webkit-transform: translateX(200vw) !important;
-    }
-
     #mobile-tawk-widget.is-visible {
       align-items: center;
       background: #1595ad;
@@ -319,8 +314,6 @@
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
     Tawk_API.lang = 'en';
     var mobileTawkPositionKey = 'merdex-mobile-tawk-position';
-    Tawk_API.autoStart = false;
-    document.documentElement.classList.add('tawk-mobile-native-hidden');
 
     function isMobileTawkScreen() {
       return true;
@@ -384,10 +377,8 @@
         showMobileTawkWidget(false);
         Tawk_API.showWidget();
       } else {
-        hideNativeMobileTawkWidget(true);
-        Tawk_API.hideWidget();
-        showMobileTawkWidget(true);
-        restoreMobileTawkPosition();
+        hideNativeMobileTawkWidget(false);
+        Tawk_API.showWidget();
       }
     }
 
@@ -409,19 +400,12 @@
       showMobileTawkWidget(false);
     };
     Tawk_API.onChatMinimized = function () {
-      if (isMobileTawkScreen()) {
-        hideNativeMobileTawkWidget(true);
-        Tawk_API.hideWidget();
-        showMobileTawkWidget(true);
-        restoreMobileTawkPosition();
-      }
+      hideNativeMobileTawkWidget(false);
+      Tawk_API.showWidget();
     };
     Tawk_API.onChatHidden = function () {
-      if (isMobileTawkScreen()) {
-        hideNativeMobileTawkWidget(true);
-        showMobileTawkWidget(true);
-        restoreMobileTawkPosition();
-      }
+      hideNativeMobileTawkWidget(false);
+      Tawk_API.showWidget();
     };
 
     window.addEventListener('resize', syncMobileTawkWidget);
@@ -431,11 +415,6 @@
       var drag = null;
 
       if (!widget) return;
-
-      if (isMobileTawkScreen()) {
-        showMobileTawkWidget(true);
-        restoreMobileTawkPosition();
-      }
 
       widget.addEventListener('pointerdown', function (event) {
         var rect = widget.getBoundingClientRect();
