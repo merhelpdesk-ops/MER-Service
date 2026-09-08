@@ -301,11 +301,8 @@
       z-index: 1;
     }
 
+    /* 自载即显示：默认 display: flex 呈现 */
     #mobile-tawk-widget {
-      display: none;
-    }
-
-    #mobile-tawk-widget.is-visible {
       align-items: center;
       background: #1595ad;
       border: 0;
@@ -324,10 +321,11 @@
       user-select: none;
       width: 48px;
       z-index: 2000000001;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
+      opacity: 1;
     }
 
-    #mobile-tawk-widget.is-visible:hover {
+    #mobile-tawk-widget:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 22px rgba(21, 149, 173, 0.6);
     }
@@ -337,181 +335,191 @@
       transform: scale(0.96);
     }
 
+    /* 当打开聊天框时，才隐藏自定义悬浮按钮 */
+    #mobile-tawk-widget.is-hidden {
+      display: none !important;
+    }
+
     @media (min-width: 1001px) {
       footer {
         padding-bottom: 24px;
       }
-      #mobile-tawk-widget.is-visible {
+      #mobile-tawk-widget {
         bottom: 30px;
         right: 20px;
       }
     }
   </style>
+</head>
+<body>
+
+  <div class="glow-bg"></div>
+
+  <header>
+    <div class="brand">
+      <span>MERDEX</span>
+    </div>
+    <div class="lang-switcher">
+      <button id="btn-zh-CN" class="lang-btn active" onclick="changeLanguage('zh-CN')">简体中文</button>
+      <button id="btn-zh-TW" class="lang-btn" onclick="changeLanguage('zh-TW')">繁體中文</button>
+      <button id="btn-en" class="lang-btn" onclick="changeLanguage('en')">English</button>
+      <button id="btn-ko" class="lang-btn" onclick="changeLanguage('ko')">한국어</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <img src="MERHelpDesk.JPG" alt="MERDEX Banner" class="banner-img">
+
+      <span class="hero-tag" data-i18n="heroTag">非托管 · 高速聚合器</span>
+      <h1 data-i18n="heroTitle">MERDEX 帮助中心</h1>
+      <p data-i18n="heroDesc">无需身份验证。连接 Web3 钱包即可进行加密货币与股票的现货及合约交易。</p>
+    </div>
+
+    <div class="grid">
+      <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
+        <h3 data-i18n="card1Title">现货兑换</h3>
+        <p data-i18n="card1Desc">加密货币与股票现货兑换、多链交易与滑点设置</p>
+      </a>
+      <a class="card" href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">
+        <h3 data-i18n="card2Title">永续合约</h3>
+        <p data-i18n="card2Desc">加密货币与股票合约交易、高杠杆及资金费率</p>
+      </a>
+      <div class="card" onclick="openTawkChat()">
+        <h3 data-i18n="card3Title">钱包连接</h3>
+        <p data-i18n="card3Desc">钱包绑定与智能合约授权</p>
+      </div>
+      <div class="card" onclick="openTawkChat()">
+        <h3 data-i18n="card4Title">订单与持仓</h3>
+        <p data-i18n="card4Desc">止盈止损与取消未完成交易</p>
+      </div>
+    </div>
+
+    <div class="section-title" data-i18n="faqTitle">常见问题</div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq0Q">MER提醒您谨防加密货币投资骗局2026年9月8日</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq0A">
+        1. 无限授权陷阱：骗子诱导您点击恶意智能合约或去中心化应用链接，在您不知情的情况下获取钱包中USDT/USDC“无限授权”，随后随时划走您的资产。<br><br>
+        2. 高额分红诱饵：承诺“购买某种代币即可享受高额分红”或“稳赚不赔”，利用虚构的高收益吸引您投入本金。<br><br>
+        3. 拉人头与付费解锁账户：骗子会诱导您充值到资金盘或诈骗平台进行交易，当您在资金盘或诈骗平台进行交易您获得了收益后却无法进行提现，您的账户被冻结，骗子会要求您邀请您的好友或以服务条款为由让您以解封账户缴纳USDT/USDC/BTC/ETH/SOL/等主流资产后才可以解封您的账户当您缴纳了对应资产后您的账户依然无法解封，因为骗子就没想给您钱，您看中的是资金盘或诈骗平台的高额利率而骗子看中的是您的本金<br><br>
+        4. 撤销流动性：骗子发行新代币并在去中心化交易所上建立交易池，通过虚假宣传吸引投资者购买。当池子里积攒了USDT、SOL、ETH等主流资产后，骗子突然撤销并移除全部流动性资金并销声匿迹。代币价格瞬间归零，导致投资者手中代币无法卖出兑现。<br><br>
+        5. 貔貅盘（只准买不许卖）：这些骗局常发生在这些区块链网络设施中，Ethereum包含但不仅限于二层网络（L2）SOL BNB Chain X Layer 诈骗团队会在代币合约中设置后门，例如：可增发、修改您的代币余额、设置100%买卖税、冻结您的地址、或通过各种手段让您只许买不许卖，导致您的投资本金全部损失。<br><br>
+        6. 多签钱包骗局：骗子会在各种社交平台例如：Telegram等平台发布助记词，但里面没有对应公链的燃料（Gas）您发现这个助记词里面有很多USDT/USDC，然后骗子会诱导您去交易所或通过您自己的钱包转账燃料（Gas）转账后却发现您仍然无法提现，因为多签钱包通常需要多个地址确认发起转账才能进行交易，而骗子利用不懂区块链技术或加密货币公链原理来欺骗您。<br><br>
+        7. MER希望您在加密货币投资交易时，免受欺诈风险，建议您在每一次投资，以及授权智能合约，均保持高度警惕，审慎投资，慎重授权智能合约，加密货币存在巨大风险，您在加密货币市场中进行的交易，随时可能导致您亏损您投资的全部本金，您应保持理性判断您的风险承受能力后在考虑是否进入加密货币市场进行投资交易。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faqUpgradeQ">MERDEX升级公告2026年9月5日</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faqUpgradeA">
+        MERDEX全场景功能升级包含：Swap Perps 升级时间为2026年9月5日UTC至2026年9月5日晚上8:45分，在此期间给您带来的不便我们真诚的向您致歉。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq1Q">为什么选择 MERDEX Perps 来进行加密货币及股票合约交易？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq1A">
+        MERDEX Perps 是由 Orderly 搭建的去中心化合约交易平台，我们利用 Orderly 的共享流动性订单簿实现优质流动性，为您高效撮合加密货币与股票合约订单。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq2Q">MERDEX Perps 如何赚钱？为什么选择使用 MERDEX Perps？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq2A">
+        MERDEX Perps 根据不同用户等级（如普通用户、VIP1–VIP6 用户）收取阶梯手续费来获取收益。MERDEX Perps 提供深厚的链上交易深度，让您可以放心交易各类加密货币与股票合约。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq3Q">MERDEX Perps 共享流动性订单簿提供平台的网址是什么？（Orderly）</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq3A">
+        这是 MERDEX Perps 共享流动性订单簿开发者（Orderly 团队）的官网：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq4Q">MERDEX Swap 由谁提供聚合器交互功能？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq4A">
+        MERDEX Swap 的聚合器交互功能由 WOOFi 提供支持。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq5Q">MERDEX Swap 如何赚钱？为什么选择使用 MERDEX Swap？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq5A">
+        MERDEX Swap 由 WOOFi 提供支持，并通过收取交易手续费赚取收益。所有交易均通过智能合约发起，且每次交易都需要您手动确认，确保绝对的安全与自主控制权。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq6Q">什么是奖励机制？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq6A">
+        奖励机制是指邀请好友后，您与 MER 共享好友产生的交易手续费。MER 奖励保持 50% 的分佣比例，只要您邀请的好友产生交易，您将永久获得其手续费 50% 的分佣。
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq7Q">MER 客户支持是由谁提供的？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq7A">
+        MER 客户支持服务由 Tawk.to 提供。Tawk.to 的官方网站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>
+      </div>
+    </div>
+
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faq8Q">MER 是一家什么企业？</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faq8A">
+        MER 是一家提供加密货币与股票的现货及合约交易的去中心化金融企业。由 Sky（宋小天）于 2023 年发起的 MER Global 是一个完全去中心化的交易平台，提供 7×24 小时客户支持，致力于为全球用户提供安全、高效的交易环境。
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span data-i18n="copyright">© MER Global 2023-2026</span>
+  </footer>
+
+  <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget"
+    class="tawk-custom-color tawk-custom-border-color tawk-outline tawk-button tawk-button-circle tawk-button-large">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" height="32" width="32" role="img"
+      aria-labelledby="tawk-open-icon-title tawk-open-icon-description" class="tawk-min-chat-icon">
+      <title id="tawk-open-icon-title">Opens Chat</title>
+      <desc id="tawk-open-icon-description">This icon opens the chat window.</desc>
+      <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
+        d="M400 26.2c-193.3 0-350 156.7-350 350 0 136.2 77.9 254.3 191.5 312.1 15.4 8.1 31.4 15.1 48.1 20.8l-16.5 63.5c-2 7.8 5.4 14.7 13 12.1l229.8-77.6c14.6-5.3 28.8-11.6 42.4-18.7C672 630.6 750 512.5 750 376.2c0-193.3-156.7-350-350-350zm211.1 510.7c-10.8 26.5-41.9 77.2-121.5 77.2-79.9 0-110.9-51-121.6-77.4-2.8-6.8 5-13.4 13.8-11.8 76.2 13.7 147.7 13 215.3.3 8.9-1.8 16.8 4.8 14 11.7z" />
+    </svg>
+  </button>
 
   <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    Tawk_API.lang = 'en';
-    var mobileTawkPositionKey = 'merdex-mobile-tawk-position';
-
-    function isMobileTawkScreen() {
-      return true;
-    }
-
-    function getMobileTawkWidget() {
-      return document.getElementById('mobile-tawk-widget');
-    }
-
-    function showMobileTawkWidget(visible) {
-      var widget = getMobileTawkWidget();
-      if (widget) widget.classList.toggle('is-visible', visible && isMobileTawkScreen());
-    }
-
-    function clampMobileTawkWidget() {
-      var widget = getMobileTawkWidget();
-      if (!widget || !widget.classList.contains('is-visible')) return;
-      var rect = widget.getBoundingClientRect();
-      var left = Math.max(0, Math.min(rect.left, window.innerWidth - rect.width));
-      var top = Math.max(0, Math.min(rect.top, window.innerHeight - rect.height));
-      widget.style.left = left + 'px';
-      widget.style.top = top + 'px';
-      widget.style.right = 'auto';
-      widget.style.bottom = 'auto';
-    }
-
-    function restoreMobileTawkPosition() {
-      var widget = getMobileTawkWidget();
-      if (!widget) return;
-      try {
-        var position = JSON.parse(localStorage.getItem(mobileTawkPositionKey));
-        if (position && Number.isFinite(position.left) && Number.isFinite(position.top)) {
-          widget.style.left = position.left + 'px';
-          widget.style.top = position.top + 'px';
-          widget.style.right = 'auto';
-          widget.style.bottom = 'auto';
-        }
-      } catch (error) { }
-      requestAnimationFrame(clampMobileTawkWidget);
-    }
-
-    function syncMobileTawkWidget() {
-      var maximized = typeof Tawk_API.isChatMaximized === 'function' && Tawk_API.isChatMaximized();
-      showMobileTawkWidget(!maximized);
-    }
-
-    function openMobileTawkChat() {
-      if (typeof Tawk_API.maximize === 'function') {
-        Tawk_API.maximize();
-      } else if (typeof Tawk_API.start === 'function') {
-        Tawk_API.start();
-      }
-    }
-
-    function openTawkChat() {
-      openMobileTawkChat();
-    }
-
-    Tawk_API.onLoad = function() {
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-      restoreMobileTawkPosition();
-      syncMobileTawkWidget();
-    };
-
-    Tawk_API.onChatMaximized = function () {
-      showMobileTawkWidget(false);
-    };
-
-    Tawk_API.onChatMinimized = function () {
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-      showMobileTawkWidget(true);
-      restoreMobileTawkPosition();
-    };
-
-    Tawk_API.onChatHidden = function () {
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-      showMobileTawkWidget(true);
-      restoreMobileTawkPosition();
-    };
-
-    window.addEventListener('resize', syncMobileTawkWidget);
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var widget = getMobileTawkWidget();
-      var drag = null;
-
-      if (!widget) return;
-
-      widget.addEventListener('pointerdown', function (event) {
-        var rect = widget.getBoundingClientRect();
-        drag = {
-          pointerId: event.pointerId,
-          startX: event.clientX,
-          startY: event.clientY,
-          startLeft: rect.left,
-          startTop: rect.top,
-          moved: false
-        };
-        widget.setPointerCapture(event.pointerId);
-        widget.classList.add('is-dragging');
-        event.preventDefault();
-      });
-
-      widget.addEventListener('pointermove', function (event) {
-        if (!drag || drag.pointerId !== event.pointerId) return;
-        var deltaX = event.clientX - drag.startX;
-        var deltaY = event.clientY - drag.startY;
-        if (Math.hypot(deltaX, deltaY) > 5) drag.moved = true;
-        var left = Math.max(0, Math.min(drag.startLeft + deltaX, window.innerWidth - widget.offsetWidth));
-        var top = Math.max(0, Math.min(drag.startTop + deltaY, window.innerHeight - widget.offsetHeight));
-        widget.style.left = left + 'px';
-        widget.style.top = top + 'px';
-        widget.style.right = 'auto';
-        widget.style.bottom = 'auto';
-      });
-
-      widget.addEventListener('pointerup', function (event) {
-        if (!drag || drag.pointerId !== event.pointerId) return;
-        widget.releasePointerCapture(event.pointerId);
-        widget.classList.remove('is-dragging');
-        if (drag.moved) {
-          try {
-            localStorage.setItem(mobileTawkPositionKey, JSON.stringify({
-              left: widget.offsetLeft,
-              top: widget.offsetTop
-            }));
-          } catch (error) { }
-        } else {
-          openMobileTawkChat();
-        }
-        drag = null;
-      });
-
-      widget.addEventListener('pointercancel', function () {
-        widget.classList.remove('is-dragging');
-        drag = null;
-      });
-
-      widget.addEventListener('click', function (event) {
-        if (event.detail === 0) openMobileTawkChat();
-      });
-    });
-
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/6a98b268451e133447599dcc/1k1l6h0rv';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
-
-  <script>
     function toggleFaq(element) {
       const parent = element.parentElement;
       parent.classList.toggle('active');
@@ -688,175 +696,135 @@
         }
       });
     }
+
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    Tawk_API.lang = 'en';
+    var mobileTawkPositionKey = 'merdex-mobile-tawk-position';
+
+    function getMobileTawkWidget() {
+      return document.getElementById('mobile-tawk-widget');
+    }
+
+    function restoreMobileTawkPosition() {
+      var widget = getMobileTawkWidget();
+      if (!widget) return;
+      try {
+        var position = JSON.parse(localStorage.getItem(mobileTawkPositionKey));
+        if (position && Number.isFinite(position.left) && Number.isFinite(position.top)) {
+          widget.style.left = position.left + 'px';
+          widget.style.top = position.top + 'px';
+          widget.style.right = 'auto';
+          widget.style.bottom = 'auto';
+        }
+      } catch (error) { }
+    }
+
+    function openTawkChat() {
+      if (typeof Tawk_API.maximize === 'function') {
+        Tawk_API.maximize();
+      } else if (typeof Tawk_API.start === 'function') {
+        Tawk_API.start();
+      }
+    }
+
+    Tawk_API.onLoad = function() {
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget();
+      }
+    };
+
+    Tawk_API.onChatMaximized = function () {
+      var widget = getMobileTawkWidget();
+      if (widget) widget.classList.add('is-hidden');
+    };
+
+    Tawk_API.onChatMinimized = function () {
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget();
+      }
+      var widget = getMobileTawkWidget();
+      if (widget) widget.classList.remove('is-hidden');
+    };
+
+    Tawk_API.onChatHidden = function () {
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget();
+      }
+      var widget = getMobileTawkWidget();
+      if (widget) widget.classList.remove('is-hidden');
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      restoreMobileTawkPosition();
+
+      var widget = getMobileTawkWidget();
+      var drag = null;
+
+      if (!widget) return;
+
+      widget.addEventListener('pointerdown', function (event) {
+        var rect = widget.getBoundingClientRect();
+        drag = {
+          pointerId: event.pointerId,
+          startX: event.clientX,
+          startY: event.clientY,
+          startLeft: rect.left,
+          startTop: rect.top,
+          moved: false
+        };
+        widget.setPointerCapture(event.pointerId);
+        widget.classList.add('is-dragging');
+        event.preventDefault();
+      });
+
+      widget.addEventListener('pointermove', function (event) {
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        var deltaX = event.clientX - drag.startX;
+        var deltaY = event.clientY - drag.startY;
+        if (Math.hypot(deltaX, deltaY) > 5) drag.moved = true;
+        var left = Math.max(0, Math.min(drag.startLeft + deltaX, window.innerWidth - widget.offsetWidth));
+        var top = Math.max(0, Math.min(drag.startTop + deltaY, window.innerHeight - widget.offsetHeight));
+        widget.style.left = left + 'px';
+        widget.style.top = top + 'px';
+        widget.style.right = 'auto';
+        widget.style.bottom = 'auto';
+      });
+
+      widget.addEventListener('pointerup', function (event) {
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        widget.releasePointerCapture(event.pointerId);
+        widget.classList.remove('is-dragging');
+        if (drag.moved) {
+          try {
+            localStorage.setItem(mobileTawkPositionKey, JSON.stringify({
+              left: widget.offsetLeft,
+              top: widget.offsetTop
+            }));
+          } catch (error) { }
+        } else {
+          openTawkChat();
+        }
+        drag = null;
+      });
+
+      widget.addEventListener('pointercancel', function () {
+        widget.classList.remove('is-dragging');
+        drag = null;
+      });
+
+      widget.addEventListener('click', function (event) {
+        if (event.detail === 0) openTawkChat();
+      });
+    });
+
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6a98b268451e133447599dcc/1k1l6h0rv';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
   </script>
-</head>
-<body>
-
-  <div class="glow-bg"></div>
-
-  <header>
-    <div class="brand">
-      <span>MERDEX</span>
-    </div>
-    <div class="lang-switcher">
-      <button id="btn-zh-CN" class="lang-btn active" onclick="changeLanguage('zh-CN')">简体中文</button>
-      <button id="btn-zh-TW" class="lang-btn" onclick="changeLanguage('zh-TW')">繁體中文</button>
-      <button id="btn-en" class="lang-btn" onclick="changeLanguage('en')">English</button>
-      <button id="btn-ko" class="lang-btn" onclick="changeLanguage('ko')">한국어</button>
-    </div>
-  </header>
-
-  <main>
-    <div class="hero">
-      <img src="MERHelpDesk.JPG" alt="MERDEX Banner" class="banner-img">
-
-      <span class="hero-tag" data-i18n="heroTag">非托管 · 高速聚合器</span>
-      <h1 data-i18n="heroTitle">MERDEX 帮助中心</h1>
-      <p data-i18n="heroDesc">无需身份验证。连接 Web3 钱包即可进行加密货币与股票的现货及合约交易。</p>
-    </div>
-
-    <div class="grid">
-      <a class="card" href="https://mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3 data-i18n="card1Title">现货兑换</h3>
-        <p data-i18n="card1Desc">加密货币与股票现货兑换、多链交易与滑点设置</p>
-      </a>
-      <a class="card" href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">
-        <h3 data-i18n="card2Title">永续合约</h3>
-        <p data-i18n="card2Desc">加密货币与股票合约交易、高杠杆及资金费率</p>
-      </a>
-      <div class="card" onclick="openTawkChat()">
-        <h3 data-i18n="card3Title">钱包连接</h3>
-        <p data-i18n="card3Desc">钱包绑定与智能合约授权</p>
-      </div>
-      <div class="card" onclick="openTawkChat()">
-        <h3 data-i18n="card4Title">订单与持仓</h3>
-        <p data-i18n="card4Desc">止盈止损与取消未完成交易</p>
-      </div>
-    </div>
-
-    <div class="section-title" data-i18n="faqTitle">常见问题</div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq0Q">MER提醒您谨防加密货币投资骗局2026年9月8日</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq0A">
-        1. 无限授权陷阱：骗子诱导您点击恶意智能合约或去中心化应用链接，在您不知情的情况下获取钱包中USDT/USDC“无限授权”，随后随时划走您的资产。<br><br>
-        2. 高额分红诱饵：承诺“购买某种代币即可享受高额分红”或“稳赚不赔”，利用虚构的高收益吸引您投入本金。<br><br>
-        3. 拉人头与付费解锁账户：骗子会诱导您充值到资金盘或诈骗平台进行交易，当您在资金盘或诈骗平台进行交易您获得了收益后却无法进行提现，您的账户被冻结，骗子会要求您邀请您的好友或以服务条款为由让您以解封账户缴纳USDT/USDC/BTC/ETH/SOL/等主流资产后才可以解封您的账户当您缴纳了对应资产后您的账户依然无法解封，因为骗子就没想给您钱，您看中的是资金盘或诈骗平台的高额利率而骗子看中的是您的本金<br><br>
-        4. 撤销流动性：骗子发行新代币并在去中心化交易所上建立交易池，通过虚假宣传吸引投资者购买。当池子里积攒了USDT、SOL、ETH等主流资产后，骗子突然撤销并移除全部流动性资金并销声匿迹。代币价格瞬间归零，导致投资者手中代币无法卖出兑现。<br><br>
-        5. 貔貅盘（只准买不许卖）：这些骗局常发生在这些区块链网络设施中，Ethereum包含但不仅限于二层网络（L2）SOL BNB Chain X Layer 诈骗团队会在代币合约中设置后门，例如：可增发、修改您的代币余额、设置100%买卖税、冻结您的地址、或通过各种手段让您只许买不许卖，导致您的投资本金全部损失。<br><br>
-        6. 多签钱包骗局：骗子会在各种社交平台例如：Telegram等平台发布助记词，但里面没有对应公链的燃料（Gas）您发现这个助记词里面有很多USDT/USDC，然后骗子会诱导您去交易所或通过您自己的钱包转账燃料（Gas）转账后却发现您仍然无法提现，因为多签钱包通常需要多个地址确认发起转账才能进行交易，而骗子利用不懂区块链技术或加密货币公链原理来欺骗您。<br><br>
-        7. MER希望您在加密货币投资交易时，免受欺诈风险，建议您在每一次投资，以及授权智能合约，均保持高度警惕，审慎投资，慎重授权智能合约，加密货币存在巨大风险，您在加密货币市场中进行的交易，随时可能导致您亏损您投资的全部本金，您应保持理性判断您的风险承受能力后在考虑是否进入加密货币市场进行投资交易。
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqUpgradeQ">MERDEX升级公告2026年9月5日</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faqUpgradeA">
-        MERDEX全场景功能升级包含：Swap Perps 升级时间为2026年9月5日UTC至2026年9月5日晚上8:45分，在此期间给您带来的不便我们真诚的向您致歉。
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq1Q">为什么选择 MERDEX Perps 来进行加密货币及股票合约交易？</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq1A">
-        MERDEX Perps 是由 Orderly 搭建的去中心化合约交易平台，我们利用 Orderly 的共享流动性订单簿实现优质流动性，为您高效撮合加密货币与股票合约订单。
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq2Q">MERDEX Perps 如何赚钱？为什么选择使用 MERDEX Perps？</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq2A">
-        MERDEX Perps 根据不同用户等级（如普通用户、VIP1–VIP6 用户）收取阶梯手续费来获取收益。MERDEX Perps 提供深厚的链上交易深度，让您可以放心交易各类加密货币与股票合约。
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq3Q">MERDEX Perps 共享流动性订单簿提供平台的网址是什么？（Orderly）</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq3A">
-        这是 MERDEX Perps 共享流动性订单簿开发者（Orderly 团队）的官网：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq4Q">MERDEX Swap 由谁提供聚合器交互功能？</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq4A">
-        MERDEX Swap 的聚合器交互功能由 WOOFi 提供支持。
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq5Q">MERDEX Swap 如何赚钱？为什么选择使用 MERDEX Swap？</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq5A">
-        MERDEX Swap 由 WOOFi 提供支持，并通过收取交易手续费赚取收益。所有交易均通过智能合约发起，且每次交易都需要您手动确认，确保绝对的安全与自主控制权。
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq6Q">什么是奖励机制？</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq6A">
-        奖励机制是指邀请好友后，您与 MER 共享好友产生的交易手续费。MER 奖励保持 50% 的分佣比例，只要您邀请的好友产生交易，您将永久获得其手续费 50% 的分佣。
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq7Q">MER 客户支持是由谁提供的？</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq7A">
-        MER 客户支持服务由 Tawk.to 提供。Tawk.to 的官方网站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq8Q">MER 是一家什么企业？</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq8A">
-        MER 是一家提供加密货币与股票的现货及合约交易的去中心化金融企业。由 Sky（宋小天）于 2023 年发起的 MER Global 是一个完全去中心化的交易平台，提供 7×24 小时客户支持，致力于为全球用户提供安全、高效的交易环境。
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <span data-i18n="copyright">© MER Global 2023-2026</span>
-  </footer>
-
-  <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget"
-    class="tawk-custom-color tawk-custom-border-color tawk-outline tawk-button tawk-button-circle tawk-button-large">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" height="32" width="32" role="img"
-      aria-labelledby="tawk-open-icon-title tawk-open-icon-description" class="tawk-min-chat-icon">
-      <title id="tawk-open-icon-title">Opens Chat</title>
-      <desc id="tawk-open-icon-description">This icon opens the chat window.</desc>
-      <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
-        d="M400 26.2c-193.3 0-350 156.7-350 350 0 136.2 77.9 254.3 191.5 312.1 15.4 8.1 31.4 15.1 48.1 20.8l-16.5 63.5c-2 7.8 5.4 14.7 13 12.1l229.8-77.6c14.6-5.3 28.8-11.6 42.4-18.7C672 630.6 750 512.5 750 376.2c0-193.3-156.7-350-350-350zm211.1 510.7c-10.8 26.5-41.9 77.2-121.5 77.2-79.9 0-110.9-51-121.6-77.4-2.8-6.8 5-13.4 13.8-11.8 76.2 13.7 147.7 13 215.3.3 8.9-1.8 16.8 4.8 14 11.7z" />
-    </svg>
-  </button>
-
 </body>
 </html>
