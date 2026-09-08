@@ -269,6 +269,7 @@
       z-index: 1;
     }
 
+    /* 自定义客服按钮样式 */
     #mobile-tawk-widget {
       display: none;
     }
@@ -328,13 +329,6 @@
       if (widget) widget.classList.toggle('is-visible', visible && isMobileTawkScreen());
     }
 
-    function hideNativeMobileTawkWidget(hidden) {
-      document.documentElement.classList.toggle(
-        'tawk-mobile-native-hidden',
-        hidden && isMobileTawkScreen()
-      );
-    }
-
     function clampMobileTawkWidget() {
       var widget = getMobileTawkWidget();
       if (!widget || !widget.classList.contains('is-visible')) return;
@@ -364,27 +358,16 @@
 
     function syncMobileTawkWidget() {
       if (typeof Tawk_API.showWidget !== 'function') return;
-      if (!isMobileTawkScreen()) {
-        hideNativeMobileTawkWidget(false);
-        showMobileTawkWidget(false);
-        if (typeof Tawk_API.start === 'function') Tawk_API.start({ showWidget: true });
-        Tawk_API.showWidget();
-        return;
-      }
       var maximized = typeof Tawk_API.isChatMaximized === 'function' && Tawk_API.isChatMaximized();
       if (maximized) {
-        hideNativeMobileTawkWidget(false);
         showMobileTawkWidget(false);
-        Tawk_API.showWidget();
       } else {
-        hideNativeMobileTawkWidget(false);
-        Tawk_API.showWidget();
+        showMobileTawkWidget(true);
       }
     }
 
     function openMobileTawkChat() {
       showMobileTawkWidget(false);
-      hideNativeMobileTawkWidget(false);
       if (typeof Tawk_API.start === 'function') Tawk_API.start({ showWidget: true });
       if (typeof Tawk_API.showWidget === 'function') Tawk_API.showWidget();
       if (typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
@@ -394,18 +377,18 @@
       openMobileTawkChat();
     }
 
-    Tawk_API.onLoad = syncMobileTawkWidget;
+    Tawk_API.onLoad = function() {
+      restoreMobileTawkPosition();
+      syncMobileTawkWidget();
+    };
     Tawk_API.onChatMaximized = function () {
-      hideNativeMobileTawkWidget(false);
       showMobileTawkWidget(false);
     };
     Tawk_API.onChatMinimized = function () {
-      hideNativeMobileTawkWidget(false);
-      Tawk_API.showWidget();
+      showMobileTawkWidget(true);
     };
     Tawk_API.onChatHidden = function () {
-      hideNativeMobileTawkWidget(false);
-      Tawk_API.showWidget();
+      showMobileTawkWidget(true);
     };
 
     window.addEventListener('resize', syncMobileTawkWidget);
@@ -813,6 +796,7 @@
     <span data-i18n="copyright">© MER Global 2023-2026</span>
   </footer>
 
+  <!-- 自定义悬浮聊天按钮 -->
   <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget"
     class="tawk-custom-color tawk-custom-border-color tawk-outline tawk-button tawk-button-circle tawk-button-large">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" height="32" width="32" role="img"
