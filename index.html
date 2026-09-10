@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>MERDEX | MERHelpDesk</title>
-  
-  <!-- 【精确拦截原生气泡，保护 PC 展开大窗口及关闭按钮】 -->
+
   <script>
     (function suppressNativeTawkIcon() {
       const observer = new MutationObserver((mutations) => {
@@ -14,8 +13,6 @@
             if (node.nodeType === 1 && node.tagName === 'IFRAME') {
               const title = (node.getAttribute('title') || '').toLowerCase();
               const style = node.getAttribute('style') || '';
-              
-              // 精确判定：只有当尺寸小于 150px 时才认为是原生浮动气泡，防止误伤大窗口
               const isSmallBubble = style.includes('width: 60px') || style.includes('width: 64px') || style.includes('height: 60px') || style.includes('height: 64px');
               const isTawkBubble = (title.includes('chat widget') || title.includes('tawk')) && !style.includes('100%') && (isSmallBubble || !style.includes('width:'));
 
@@ -73,7 +70,6 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    /* 重要字体全局加粗且为白色粗体 */
     strong, b {
       color: #FFFFFF !important;
       font-weight: 700 !important;
@@ -342,7 +338,6 @@
       z-index: 1;
     }
 
-    /* 精确隐藏原生气泡：仅当 iframe 尺寸为气泡大小时触发，绝不隐藏聊天大窗口 */
     iframe[title*="chat widget"][style*="width: 60px"],
     iframe[title*="chat widget"][style*="width: 64px"],
     iframe[title*="chat widget"][style*="width:60px"],
@@ -354,7 +349,6 @@
       transform: scale(0) !important;
     }
 
-    /* 自定义客服悬浮球 */
     #mobile-tawk-widget {
       display: none;
     }
@@ -468,12 +462,10 @@
       }
     }
 
-    // 快捷打开函数供 HelpDesk 卡片交互调用
     function openTawkChat() {
       openMobileTawkChat();
     }
 
-    /* Tawk 生命周期逻辑 */
     Tawk_API.onBeforeLoad = function() {
       hideNativeTawkWidget();
     };
@@ -624,7 +616,6 @@
 
     <div class="section-title" data-i18n="faqTitle">常见问题</div>
 
-    <!-- MERDEX升级完毕公告2026年9月10日 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
         <span data-i18n="faqSwapCompletedQ">MERDEX升级完毕公告2026年9月10日</span>
@@ -638,7 +629,6 @@
       </div>
     </div>
 
-    <!-- MERDEX Swap功能升级公告2026年9月10号 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
         <span data-i18n="faqSwapUpgradeQ">MERDEX升级公告2026年9月10号</span>
@@ -651,7 +641,6 @@
       </div>
     </div>
 
-    <!-- MER DEX 永续合约交易系统规则 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
         <span data-i18n="faqPerpsRulesQ">MER DEX 永续合约（Perps）交易系统规则指南</span>
@@ -879,7 +868,7 @@
         faqSwapUpgradeQ: 'MERDEX升级公告2026年9月10号',
         faqSwapUpgradeA: '尊贵的MERDEX用户，我们于2026年9月10号升级MERDEX Swap功能 可能出现您暂时性无法访问Swap页面MERDEX Perps（永续合约）不受此影响<br><br><strong>升级结束时间：</strong>预计3-30分钟<br><strong>主要升级原因：</strong>提升访问速度，修复卡顿情况。',
         faqPerpsRulesQ: 'MER DEX 永续合约（Perps）交易系统规则指南',
-        faqPerpsRulesA: '<strong>一、 价格机制</strong><br>系统引入三价机制，以确保交易的公平性与稳定性，防止极端行情下的恶意插针与市场操纵：<br>• <strong>最新成交价（Last Price）</strong>：订单簿上最新一笔撮合成功的实际价格。仅用于绘制 K 线图、深度展示及限价单撮合，不参与任何未实现盈亏计算与强制平仓决策。<br>• <strong>指数价格（Index Price）</strong>：基于多个主流现货交易所（如 Binance, OKX, Coinbase 等）的现货价格计算得到的加权平均价。经过异常值剔除（Outlier Filtering）与偏离限制保护，真实反映现货市场价格。<br>• <strong>标记价格（Mark Price）</strong>：用于计算持仓未实现盈亏（uPnL）及触发强制平仓（Liquidation）的唯一基准价格。结合了指数价格与订单簿深度加权的基差（Basis）及资金费率，能有效避免因单一市场流动性不足导致的误强平。<br><br><strong>二、 保证金与杠杆模式</strong><br>系统提供灵活的杠杆与保证金模式，满足不同用户的风险偏好：<br>• <strong>全仓模式（Cross Margin）</strong>：<br>&nbsp;&nbsp;- 规则：账户内的可用结算资产与所有全仓持仓共享同一个保证金池，多空持仓盈亏自动抵扣。<br>&nbsp;&nbsp;- 强平条件：当账户整体权益（Balance + uPnL）低于或等于账户整体维持保证金（Total Maintenance Margin），即账户保证金率 ≤ 100% 时触发。<br>• <strong>逐仓模式（Isolated Margin）</strong>：<br>&nbsp;&nbsp;- 规则：各持仓保证金独立划转与隔离，单笔持仓的亏损上限仅限于该持仓分配的独立保证金。<br>&nbsp;&nbsp;- 强平条件：当单笔持仓的当前保证金（含未实现盈亏）低于或等于该持仓在当前档位所需的维持保证金（MM）时触发。<br>• <strong>阶梯持仓与维持保证金率（MMR）</strong>：系统实行动态阶梯持仓制度。持仓名义价值（Position Value）越大，最高允许杠杆倍数越低，要求的维持保证金率（MMR）越高。设计目的在于降低大额仓位强平对订单簿深度的冲击，减少级联爆仓风险。<br><br><strong>三、 资金费率（Funding Rate）</strong><br>资金费率用于锚定永续合约价格与现货指数价格。资金费用在多空双方之间直接划转，平台不收取任何手续费或抽成。<br>• <strong>结算周期</strong>：定时结算（默认每 8 小时或 1 小时结算一次，具体视标的参数配置而定）。<br>• <strong>支付方向</strong>：<br>&nbsp;&nbsp;- 资金费率为正 (&gt;0)：多头持仓者向空头持仓者支付。<br>&nbsp;&nbsp;- 资金费率为负 (&lt;0)：空头持仓者向多头持仓者支付。<br>• <strong>极端行情机制</strong>：当市场出现单边暴涨暴跌时，资金费率可能触及预设的上限/下限（Cap/Floor）。高额资金费用将直接从持仓保证金/账户余额中扣除；若扣除后保证金不满足维持保证金要求，可能直接引发强制平仓。<br><br><strong>四、 止盈止损（TP / SL）与订单保护</strong><br>• <strong>触发条件</strong>：交易者可自主选择以“标记价格”或“最新成交价”作为触发基准。达到设定目标价后，系统将自动向订单簿提交市价单或限价单。<br>• <strong>执行与滑点风险</strong>：止盈止损单属于条件委托。在市场流动性断层、剧烈波动或断崖式行情下：<br>&nbsp;&nbsp;1. 市价止盈止损单可能会以优于或劣于触发价的价格成交（即产生滑点）；<br>&nbsp;&nbsp;2. 若设定的触发价超出系统的“价格保护限幅（Price Protection Limit）”，为防止异常挂单，订单可能会被系统拒绝或部分撤销；<br>&nbsp;&nbsp;3. 若账户余额在订单触发时不足以支付预扣手续费或已无对应持仓，条件单将自动失效。<br><br><strong>五、 强制平仓、穿仓与 ADL 机制</strong><br>当仓位触及强平线时，系统强平引擎将按以下优先级处理：<br>1. <strong>阶梯减仓（Partial Liquidation）</strong>：强平引擎优先对处于高阶梯（Tier）的大额仓位执行部分减仓，将其降至较低阶梯，降低维持保证金要求，尽量为交易者保留剩余仓位。<br>2. <strong>风险准备金（Insurance Fund）</strong>：若强平平仓实际成交价优于破产价（Bankruptcy Price），产生的剩余盈余资金将注入风险准备金池。若强平平仓实际成交价劣于破产价（即产生穿仓亏损），亏损部分优先由风险准备金池全额垫付。<br>3. <strong>自动减仓（ADL - Auto-Deleveraging）</strong>：当风险准备金池不足以弥补穿仓亏损时，系统将启动 ADL 机制。系统将根据“账户收益率 × 杠杆倍数”对全网反向盈利持仓进行实时排序。排名靠前的盈利账户将被系统以破产价格（Bankruptcy Price）强制对冲平仓，以确保系统整体账目平衡。<br><br><strong>六、 链上风控与资产安全</strong><br>• <strong>预言机（Oracle）熔断保护</strong>：若链上预言机价格更新延迟、数据中断或异常偏离超限，系统将自动触发熔断保护机制——暂停开仓及强平触发，仅保留平仓与撤单功能，防止异常价格引发误强平。<br>• <strong>资产提现与划转校验</strong>：交易者仅能提现已实现盈亏（Realized PnL）及可用保证金。发起提现或划转时，系统将动态校验账户保证金率，确保提现后账户仍满足初始保证金（IM）要求。<br><br><strong>风险提示与法律免责声明</strong><br>高风险警告：加密资产及永续合约衍生品交易具有极高的财务风险。杠杆交易可能放大收益，亦可能导致您的全部本金快速亏损。极端市场行情下，链上预言机更新、网络传输及订单执行均可能产生不可抗力的延迟或滑点。<br><strong>MERDEX Perps 以及 Orderly Network 不承担任何赔偿义务，在您使用 MERDEX Perps 进行合约交易时，您就同意此公告。</strong>',
+        faqPerpsRulesA: '<strong>一、 价格机制</strong><br>系统引入三价机制，以确保交易的公平性与稳定性，防止极端行情下的恶意插针与市场操纵：<br>- <strong>最新成交价（Last Price）</strong>：订单簿上最新一笔撮合成功的实际价格。仅用于绘制 K 线图、深度展示及限价单撮合，不参与任何未实现盈亏计算与强制平仓决策。<br>- <strong>指数价格（Index Price）</strong>：基于多个主流现货交易所（如 Binance, OKX, Coinbase 等）的现货价格计算得到的加权平均价。经过异常值剔除（Outlier Filtering）与偏离限制保护，真实反映现货市场价格。<br>- <strong>标记价格（Mark Price）</strong>：用于计算持仓未实现盈亏（uPnL）及触发强制平仓（Liquidation）的唯一基准价格。结合了指数价格与订单簿深度加权的基差（Basis）及资金费率，能有效避免因单一市场流动性不足导致的误强平。<br><br><strong>二、 保证金与杠杆模式</strong><br>系统提供灵活的杠杆与保证金模式，满足不同用户的风险偏好：<br>- <strong>全仓模式（Cross Margin）</strong>：<br>&nbsp;&nbsp;- 规则：账户内的可用结算资产与所有全仓持仓共享同一个保证金池，多空持仓盈亏自动抵扣。<br>&nbsp;&nbsp;- 强平条件：当账户整体权益（Balance + uPnL）低于或等于账户整体维持保证金（Total Maintenance Margin），即账户保证金率 ≤ 100% 时触发。<br>- <strong>逐仓模式（Isolated Margin）</strong>：<br>&nbsp;&nbsp;- 规则：各持仓保证金独立划转与隔离，单笔持仓的亏损上限仅限于该持仓分配的独立保证金。<br>&nbsp;&nbsp;- 强平条件：当单笔持仓的当前保证金（含未实现盈亏）低于或等于该持仓在当前档位所需的维持保证金（MM）时触发。<br>- <strong>阶梯持仓与维持保证金率（MMR）</strong>：系统实行动态阶梯持仓制度。持仓名义价值（Position Value）越大，最高允许杠杆倍数越低，要求的维持保证金率（MMR）越高。设计目的在于降低大额仓位强平对订单簿深度的冲击，减少级联爆仓风险。<br><br><strong>三、 资金费率（Funding Rate）</strong><br>资金费率用于锚定永续合约价格与现货指数价格。资金费用在多空双方之间直接划转，平台不收取任何手续费或抽成。<br>- <strong>结算周期</strong>：定时结算（默认每 8 小时或 1 小时结算一次，具体视标的参数配置而定）。<br>- <strong>支付方向</strong>：<br>&nbsp;&nbsp;- 资金费率为正 (&gt;0)：多头持仓者向空头持仓者支付。<br>&nbsp;&nbsp;- 资金费率为负 (&lt;0)：空头持仓者向多头持仓者支付。<br>- <strong>极端行情机制</strong>：当市场出现单边暴涨暴跌时，资金费率可能触及预设的上限/下限（Cap/Floor）。高额资金费用将直接从持仓保证金/账户余额中扣除；若扣除后保证金不满足维持保证金要求，可能直接引发强制平仓。<br><br><strong>四、 止盈止损（TP / SL）与订单保护</strong><br>- <strong>触发条件</strong>：交易者可自主选择以“标记价格”或“最新成交价”作为触发基准。达到设定目标价后，系统将自动向订单簿提交市价单或限价单。<br>- <strong>执行与滑点风险</strong>：止盈止损单属于条件委托。在市场流动性断层、剧烈波动或断崖式行情下：<br>&nbsp;&nbsp;1. 市价止盈止损单可能会以优于或劣于触发价的价格成交（即产生滑点）；<br>&nbsp;&nbsp;2. 若设定的触发价超出系统的“价格保护限幅（Price Protection Limit）”，为防止异常挂单，订单可能会被系统拒绝或部分撤销；<br>&nbsp;&nbsp;3. 若账户余额在订单触发时不足以支付预扣手续费或已无对应持仓，条件单将自动失效。<br><br><strong>五、 强制平仓、穿仓与 ADL 机制</strong><br>当仓位触及强平线时，系统强平引擎将按以下优先级处理：<br>1. <strong>阶梯减仓（Partial Liquidation）</strong>：强平引擎优先对处于高阶梯（Tier）的大额仓位执行部分减仓，将其降至较低阶梯，降低维持保证金要求，尽量为交易者保留剩余仓位。<br>2. <strong>风险准备金（Insurance Fund）</strong>：若强平平仓实际成交价优于破产价（Bankruptcy Price），产生的剩余盈余资金将注入风险准备金池。若强平平仓实际成交价劣于破产价（即产生穿仓亏损），亏损部分优先由风险准备金池全额垫付。<br>3. <strong>自动减仓（ADL - Auto-Deleveraging）</strong>：当风险准备金池不足以弥补穿仓亏损时，系统将启动 ADL 机制。系统将根据“账户收益率 × 杠杆倍数”对全网反向盈利持仓进行实时排序。排名靠前的盈利账户将被系统以破产价格（Bankruptcy Price）强制对冲平仓，以确保系统整体账目平衡。<br><br><strong>六、 链上风控与资产安全</strong><br>- <strong>预言机（Oracle）熔断保护</strong>：若链上预言机价格更新延迟、数据中断或异常偏离超限，系统将自动触发熔断保护机制——暂停开仓及强平触发，仅保留平仓与撤单功能，防止异常价格引发误强平。<br>- <strong>资产提现与划转校验</strong>：交易者仅能提现已实现盈亏（Realized PnL）及可用保证金。发起提现或划转时，系统将动态校验账户保证金率，确保提现后账户仍满足初始保证金（IM）要求。<br><br><strong>风险提示与法律免责声明</strong><br>高风险警告：加密资产及永续合约衍生品交易具有极高的财务风险。杠杆交易可能放大收益，亦可能导致您的全部本金快速亏损。极端市场行情下，链上预言机更新、网络传输及订单执行均可能产生不可抗力的延迟或滑点。<br><strong>MERDEX Perps 以及 Orderly Network 不承担任何赔偿义务，在您使用 MERDEX Perps 进行合约交易时，您就同意此公告。</strong>',
         faqRobinhoodLaunchQ: '关于MERDEX正式上线Robinhood Chain的正式公告2026年9月10号',
         faqRobinhoodLaunchA: '亲爱的MERDEX用户！您好！MER很荣幸的正式宣布，我们已经正式上线并支持Robinhood Chain，您现在可以在MERDEX，随时交易Robinhood的现货交易，温馨提示：加密货币存在巨大风险，您随时有可能亏损您全部的投资本金，在投资加密货币时，您应该审慎判断您投资的币种，以及您承担亏损的投资能力，谨慎以及慎重购买任何加密货币的币种，MER Global祝您交易愉快！<br><br>MER Global<br>MER Service<br>2026年9月10号',
         faqRobinhoodQ: 'MERDEX以支持Robinhood Chain 2026年9月9日',
@@ -921,11 +910,11 @@
         card4Desc: '止盈止損與取消未完成交易',
         faqTitle: '常見問題',
         faqSwapCompletedQ: 'MERDEX升級完畢公告2026年9月10日',
-        faqSwapCompletedA: '尊貴的MERDEX用戶，我們於2026年9月10日已經完成對MERDEX Swap的升級，您可以通過：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 直接訪問MERDEX Swap界面，期間給您带来的不便我們深表歉意。<br><br>MER Global<br>MER Service<br>2026年9月10號',
+        faqSwapCompletedA: '尊貴的MERDEX用戶，我們於2026年9月10日已經完成對MERDEX Swap的升級，您可以通過：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 直接訪問MERDEX Swap界面，期間給您帶來的不便我們深表歉意。<br><br>MER Global<br>MER Service<br>2026年9月10號',
         faqSwapUpgradeQ: 'MERDEX升級公告2026年9月10號',
         faqSwapUpgradeA: '尊貴的MERDEX用戶，我們於2026年9月10號升級MERDEX Swap功能 可能出現您暫時性無法訪問Swap頁面MERDEX Perps（永續合約）不受此影響<br><br><strong>升級結束時間：</strong>預計3-30分鐘<br><strong>主要升級原因：</strong>提升訪問速度，修復卡頓情況。',
         faqPerpsRulesQ: 'MER DEX 永續合約（Perps）交易系統規則指南',
-        faqPerpsRulesA: '<strong>一、 價格機制</strong><br>系統引入三價機制，以確保交易的公平性與穩定性，防止極端行情下的惡意插針與市場操縱：<br>• <strong>最新成交價（Last Price）</strong>：訂單簿上最新一筆撮合成功的實際價格。僅用於繪製 K 線圖、深度展示及限價單撮合，不參與任何未實現盈虧計算與強制平倉決策。<br>• <strong>指數價格（Index Price）</strong>：基於多個主流現貨交易所（如 Binance, OKX, Coinbase 等）的現貨價格計算得到的加權平均價。經過異常值剔除（Outlier Filtering）與偏離限制保護，真實反映現貨市場價格。<br>• <strong>標記價格（Mark Price）</strong>：用於計算持倉未實現盈虧（uPnL）及觸發強制平倉（Liquidation）的唯一基準價格。結合了指數價格與訂單簿深度加權的基差（Basis）及資金費率，能有效避免因單一市場流動性不足導致的誤強平。<br><br><strong>二、 保證金與槓桿模式</strong><br>系統提供靈活的槓桿與保證金模式，滿足不同用戶的風險偏好：<br>• <strong>全倉模式（Cross Margin）</strong>：<br>&nbsp;&nbsp;- 規則：賬戶內的可用結算資產與所有全倉持倉共享同一個保證金池，多空持倉盈虧自動抵扣。<br>&nbsp;&nbsp;- 強平條件：當賬戶整體權益（Balance + uPnL）低於或等於賬戶整體維持保證金（Total Maintenance Margin），即賬戶保證金率 ≤ 100% 時觸發。<br>• <strong>逐倉模式（Isolated Margin）</strong>：<br>&nbsp;&nbsp;- 規則：各持倉保證金獨立劃轉與隔離，單筆持倉的虧損上限僅限於該持倉分配的獨立保證金。<br>&nbsp;&nbsp;- 強平條件：當單筆持倉的當前保證金（含未實現盈虧）低於或等於該持倉在當前檔位所需的維持保證金（MM）時觸發。<br>• <strong>階梯持倉與維持保證金率（MMR）</strong>：系統實行動態階梯持倉制度。持倉名義價值（Position Value）越大，最高允許槓桿倍數越低，要求的維持保證金率（MMR）越高。設計目的在於降低大額倉位強平對訂單簿深度的衝擊，減少級聯爆倉風險。<br><br><strong>三、 資金費率（Funding Rate）</strong><br>資金費率用於錨定永續合約價格與現貨指數價格。資金費用在多空雙方之間直接劃轉，平台不收取任何手續費或抽成。<br>• <strong>結算週期</strong>：定時結算（預設每 8 小時或 1 小時結算一次，具體視標的參數配置而定）。<br>• <strong>支付方向</strong>：<br>&nbsp;&nbsp;- 資金費率為正 (&gt;0)：多頭持倉者向空頭持倉者支付。<br>&nbsp;&nbsp;- 資金費率為負 (&lt;0)：空頭持倉者向多頭持倉者支付。<br>• <strong>極端行情機制</strong>：當市場出現單邊暴漲暴跌時，資金費率可能觸及預設的上限/下限（Cap/Floor）。高額資金費用將直接從持倉保證金/賬戶餘額中扣除；若扣除後保證金不滿足維持保證金要求，可能直接引發強制平倉。<br><br><strong>四、 止盈止損（TP / SL）與訂單保護</strong><br>• <strong>觸發條件</strong>：交易者可自主選擇以“標記價格”或“最新成交價”作為觸發基準。達到設定目標價後，系統將自動向訂單簿提交市價單或限價單。<br>• <strong>執行與滑點風險</strong>：止盈止損單屬於條件委託。在市場流動性斷層、劇烈波動或斷崖式行情下：<br>&nbsp;&nbsp;1. 市價止盈止損單可能會以優於或劣於觸發價的價格成交（即產生滑點）；<br>&nbsp;&nbsp;2. 若設定的觸發價超出系統的“價格保護限幅（Price Protection Limit）”，為防止異常掛單，訂單可能會被系統拒絕或部分撤銷；<br>&nbsp;&nbsp;3. 若賬戶餘額在訂單觸發時不足以支付預扣手續費或已無對應持倉，條件單將自動失效。<br><br><strong>五、 強制平倉、穿倉與 ADL 機制</strong><br>當倉位觸及強平線時，系統強平引擎將按以下優先級處理：<br>1. <strong>階梯減倉（Partial Liquidation）</strong>：強平引擎優先對處於高階梯（Tier）的大額倉位執行部分減倉，將其降至較低階梯，降低維持保證金要求，盡量為交易者保留剩餘倉位。<br>2. <strong>風險準備金（Insurance Fund）</strong>：若強平平倉實際成交價優於破產價（Bankruptcy Price），產生的剩餘盈餘資金將注入風險準備金池。若強平平倉實際成交價劣於破產價（即產生穿倉虧損），虧損部分優先由風險準備金池全額墊付。<br>3. <strong>自動減倉（ADL - Auto-Deleveraging）</strong>：當風險準備金池不足以彌補穿仓虧損時，系統將啟動 ADL 機制。系統將根據“賬戶收益率 × 槓桿倍數”對全網反向盈利持倉進行實時排序。排名靠前的盈利賬戶將被系統以破產價格（Bankruptcy Price）強制對衝平倉，以確保系統整體賬目平衡。<br><br><strong>六、 鏈上風控與資產安全</strong><br>• <strong>預言機（Oracle）熔斷保護</strong>：若鏈上預言機價格更新延遲、數據中斷或異常偏離超限，系統將自動觸發熔斷保護機制——暫停開倉及強平觸發，僅保留平倉與撤單功能，防止異常價格引發誤強平。<br>• <strong>資產提現與劃轉校驗</strong>：交易者僅能提現已實現盈虧（Realized PnL）及可用保證金。發起提現或劃轉時，系統將動態校驗賬戶保證金率，確保提現後賬戶仍滿足初始保證金（IM）要求。<br><br><strong>風險提示與法律免責聲明</strong><br>高風險警告：加密資產及永續合約衍生品交易具有極高的財務風險。槓桿交易可能放大收益，亦可能導致您的全部本金快速虧損。極端市場行情下，鏈上預言機更新、網絡傳輸及訂單執行均可能產生不可抗力的延遲或滑點。<br><strong>MERDEX Perps 以及 Orderly Network 不承擔任何賠償義務，在您使用 MERDEX Perps 進行合約交易時，您就同意此公告。</strong>',
+        faqPerpsRulesA: '<strong>一、 價格機制</strong><br>系統引入三價機制，以確保交易的公平性與穩定性，防止極端行情下的惡意插針與市場操縱：<br>- <strong>最新成交價（Last Price）</strong>：訂單簿上最新一筆撮合成功的實際價格。僅用於繪製 K 線圖、深度展示及限價單撮合，不參與任何未實現盈虧計算與強制平倉決策。<br>- <strong>指數價格（Index Price）</strong>：基於多個主流現貨交易所（如 Binance, OKX, Coinbase 等）的現貨價格計算得到的加權平均價。經過異常值剔除（Outlier Filtering）與偏離限制保護，真實反映現貨市場價格。<br>- <strong>標記價格（Mark Price）</strong>：用於計算持倉未實現盈虧（uPnL）及觸發強制平倉（Liquidation）的唯一基準價格。結合了指數價格與訂單簿深度加權的基差（Basis）及資金費率，能有效避免因單一市場流動性不足導致的誤強平。<br><br><strong>二、 保證金與槓桿模式</strong><br>系統提供靈活的槓桿與保證金模式，滿足不同用戶的風險偏好：<br>- <strong>全倉模式（Cross Margin）</strong>：<br>&nbsp;&nbsp;- 規則：賬戶內的可用結算資產與所有全倉持倉共享同一個保證金池，多空持倉盈虧自動抵扣。<br>&nbsp;&nbsp;- 強平條件：當賬戶整體權益（Balance + uPnL）低於或等於賬戶整體維持保證金（Total Maintenance Margin），即賬戶保證金率 ≤ 100% 時觸發。<br>- <strong>逐倉模式（Isolated Margin）</strong>：<br>&nbsp;&nbsp;- 規則：各持倉保證金獨立劃轉與隔離，單筆持倉的虧損上限僅限於該持倉分配的獨立保證金。<br>&nbsp;&nbsp;- 強平條件：當單筆持倉的當前保證金（含未實現盈虧）低於或等於該持倉在當前檔位所需的維持保證金（MM）時觸發。<br>- <strong>階梯持倉與維持保證金率（MMR）</strong>：系統實行動態階梯持倉制度。持倉名義價值（Position Value）越大，最高允許槓桿倍數越低，要求的維持保證金率（MMR）越高。設計目的在於降低大額倉位強平對訂單簿深度的衝擊，減少級聯爆倉風險。<br><br><strong>三、 資金費率（Funding Rate）</strong><br>資金費率用於錨定永續合約價格與現貨指數價格。資金費用在多空雙方之間直接劃轉，平台不收取任何手續費或抽成。<br>- <strong>結算週期</strong>：定時結算（預設每 8 小時或 1 小時結算一次，具體視標的參數配置而定）。<br>- <strong>支付方向</strong>：<br>&nbsp;&nbsp;- 資金費率為正 (&gt;0)：多頭持倉者向空頭持倉者支付。<br>&nbsp;&nbsp;- 資金費率為負 (&lt;0)：空頭持倉者向多頭持倉者支付。<br>- <strong>極端行情機制</strong>：當市場出現單邊暴漲暴跌時，資金費率可能觸及預設的上限/下限（Cap/Floor）。高額資金費用將直接從持倉保證金/賬戶餘額中扣除；若扣除後保證金不滿足維持保證金要求，可能直接引發強制平倉。<br><br><strong>四、 止盈止損（TP / SL）與訂單保護</strong><br>- <strong>觸發條件</strong>：交易者可自主選擇以“標記價格”或“最新成交價”作為觸發基準。達到設定目標價後，系統將自動向訂單簿提交市價單或限價單。<br>- <strong>執行與滑點風險</strong>：止盈止損單屬於條件委託。在市場流動性斷層、劇烈波動或斷崖式行情下：<br>&nbsp;&nbsp;1. 市價止盈止損單可能會以優於或劣於觸發價的價格成交（即產生滑點）；<br>&nbsp;&nbsp;2. 若設定的觸發價超出系統的“價格保護限幅（Price Protection Limit）”，為防止異常掛單，訂單可能會被系統拒絕或部分撤銷；<br>&nbsp;&nbsp;3. 若賬戶餘額在訂單觸發時不足以支付預扣手續費或已無對應持倉，條件單將自動失效。<br><br><strong>五、 強制平倉、穿倉與 ADL 機制</strong><br>當倉位觸及強平線時，系統強平引擎將按以下優先級處理：<br>1. <strong>階梯減倉（Partial Liquidation）</strong>：強平引擎優先對處於高階梯（Tier）的大額倉位執行部分減倉，將其降至較低階梯，降低維持保證金要求，盡量為交易者保留剩餘倉位。<br>2. <strong>風險準備金（Insurance Fund）</strong>：若強平平倉實際成交價優於破產價（Bankruptcy Price），產生的剩餘盈餘資金將注入風險準備金池。若強平平倉實際成交價劣於破產價（即產生穿倉虧損），虧損部分優先由風險準備金池全額墊付。<br>3. <strong>自動減倉（ADL - Auto-Deleveraging）</strong>：當風險準備金池不足以彌補穿仓虧損時，系統將啟動 ADL 機制。系統將根據“賬戶收益率 × 槓桿倍數”對全網反向盈利持倉進行實時排序。排名靠前的盈利賬戶將被系統以破產價格（Bankruptcy Price）強制對衝平倉，以確保系統整體賬目平衡。<br><br><strong>六、 鏈上風控與資產安全</strong><br>- <strong>預言機（Oracle）熔斷保護</strong>：若鏈上預言機價格更新延遲、數據中斷或異常偏離超限，系統將自動觸發熔斷保護機制——暫停開倉及強平觸發，僅保留平倉與撤單功能，防止異常價格引發誤強平。<br>- <strong>資產提現與劃轉校驗</strong>：交易者僅能提現已實現盈虧（Realized PnL）及可用保證金。發起提現或劃轉時，系統將動態校驗賬戶保證金率，確保提現後賬戶仍滿足初始保證金（IM）要求。<br><br><strong>風險提示與法律免責聲明</strong><br>高風險警告：加密資產及永續合約衍生品交易具有極高的財務風險。槓桿交易可能放大收益，亦可能導致您的全部本金快速虧損。極端市場行情下，鏈上預言機更新、網絡傳輸及訂單執行均可能產生不可抗力的延遲或滑點。<br><strong>MERDEX Perps 以及 Orderly Network 不承擔任何賠償義務，在您使用 MERDEX Perps 進行合約交易時，您就同意此公告。</strong>',
         faqRobinhoodLaunchQ: '關於MERDEX正式上線Robinhood Chain的正式公告2026年9月10號',
         faqRobinhoodLaunchA: '親愛的MERDEX用戶！您好！MER很榮幸的正式宣布，我們已經正式上線並支援Robinhood Chain，您現在可以在MERDEX，隨時交易Robinhood的現貨交易，溫馨提示：加密貨幣存在巨大風險，您隨時有可能虧損您全部的投資本金，在投資加密貨幣時，您應該審慎判斷您投資的幣種，以及您承擔虧損的投資能力，謹慎以及慎重購買任何加密貨幣的幣種，MER Global祝您交易愉快！<br><br>MER Global<br>MER Service<br>2026年9月10號',
         faqRobinhoodQ: 'MERDEX已支援Robinhood Chain 2026年9月9日',
@@ -933,7 +922,7 @@
         faq0Q: 'MER提醒您謹防加密貨幣投資騙局2026年9月8日',
         faq0A: '1. 無限授權陷阱：騙子誘導您點擊惡意智能合約或去中心化應用鏈接，在您不知情的情況下獲取錢包中USDT/USDC“無限授權”，隨後隨時劃走您的資產。<br><br>2. 高額分紅誘餌：承諾“購買某種代幣即可享受高額分紅”或“穩賺不賠”，利用虛構的高收益吸引您投入本金。<br><br>3. 拉人頭與付費解鎖賬戶：騙子會誘導您充值到資金盤或詐騙平台進行交易，當您在資金盤或詐騙平台進行交易您獲得了收益後卻無法進行提現，您的賬戶被凍結，騙子會要求您邀請您的好友或以服務條款為由讓您以解封賬戶繳納USDT/USDC/BTC/ETH/SOL/等主流資產後才可以解封您的賬戶當您繳納了對應資產後您的賬戶依然無法解封，因為騙子就沒想給您錢，您看中的是資金盤或詐騙平台的高額利率而騙子看中的是您的本金<br><br>4. 撤銷流動性：騙子發行新代幣並在去中心化交易所上建立交易池，通過虛假宣傳吸引投資者購買。當池子裏積攢了USDT、SOL、ETH等主流資產後，騙子突然撤銷並移除全部流動性資金並銷聲匿跡。代幣價格瞬間歸零，導致投資者手中代幣無法賣出兌現。<br><br>5. 貔貅盤（只準買不許賣）：這些騙局常發生在這些區塊鏈網絡設施中，Ethereum包含但不僅限於二層網絡（L2）SOL BNB Chain X Layer 詐騙團隊會在代幣合約中設置後門，例如：可增發、修改您的代幣餘額、設置100%買賣稅、凍結您的地址、或通過各種手段讓您只許買不許賣，導致您的投資本金全部損失。<br><br>6. 多簽錢包騙局：騙子會在各種社交平台例如：Telegram等平台發布助記詞，但裏面沒有對應公鏈的燃料（Gas）您發現這個助記詞裏面有很多USDT/USDC，然後騙子會誘導您去交易所或通過您自己的錢包轉賬燃料（Gas）轉賬後卻發現您仍然無法提現，因為多簽錢包通常需要多個地址確認發起轉賬才能進行交易，而騙子利用不懂區塊鏈技術或加密貨幣公鏈原理來欺騙您。<br><br>7. MER希望您在加密貨幣投資交易時，免受欺詐風險，建議您在每一次投資，以及授權智能合約，均保持高度警惕，審慎投資，慎重授權智能合約，加密貨幣存在巨大風險，您在加密貨幣市場中進行的交易，隨時可能導致您虧損您投資的全部本金，您應保持理性判斷您的風險承受能力後在考慮是否進入加密貨幣市場進行投資交易。',
         faqUpgradeQ: 'MERDEX升級公告2026年9月5日',
-        faqUpgradeA: 'MERDEX全場景功能升級包含：Swap Perps 升級時間為2026年9月5日UTC至2026年9月5日晚上8:45分，在此期間給您带来的不便我們真誠的向您致歉。',
+        faqUpgradeA: 'MERDEX全場景功能升級包含：Swap Perps 升級時間為2026年9月5日UTC至2026年9月5日晚上8:45分，在此期間給您帶來的不便我們真誠的向您致歉。',
         faq1Q: '為什麼選擇 MERDEX Perps 來進行加密貨幣及股票合約交易？',
         faq1A: 'MERDEX Perps 是由 Orderly 搭建的去中心化合約交易平台，我們利用 Orderly 的共享流動性訂單簿實現優質流動性，為您高效撮合加密貨幣與股票合約訂單。',
         faq2Q: 'MERDEX Perps 如何賺錢？為什麼選擇使用 MERDEX Perps？',
@@ -971,7 +960,7 @@
         faqSwapUpgradeQ: 'MERDEX Upgrade Announcement (Sep 10, 2026)',
         faqSwapUpgradeA: 'Valued MERDEX users, we upgraded the MERDEX Swap feature on Sep 10, 2026. You may experience temporary instability accessing the Swap page. MERDEX Perps (Perpetual Contracts) is not affected.<br><br><strong>Estimated Completion Time:</strong> 3–30 minutes<br><strong>Main Purpose:</strong> Boost speed and resolve lagging issues.',
         faqPerpsRulesQ: 'MER DEX Perpetual Contracts (Perps) System Rules Guide',
-        faqPerpsRulesA: '<strong>I. Price Mechanism</strong><br>The system employs a triple-price mechanism to ensure fairness and prevent market manipulation:<br>• <strong>Last Price</strong>: The latest matched trade price on the order book. Used only for charts, depth, and limit order matching.<br>• <strong>Index Price</strong>: Weighted average price calculated from multiple spot exchanges (Binance, OKX, Coinbase, etc.).<br>• <strong>Mark Price</strong>: The sole benchmark for calculating uPnL and triggering liquidations.<br><br><strong>II. Margin & Leverage Modes</strong><br>• <strong>Cross Margin</strong>: Shared margin pool for all cross positions.<br>• <strong>Isolated Margin</strong>: Isolated margin dedicated to single positions.<br><br><strong>III. Funding Rate</strong><br>Used to anchor perpetual futures prices to spot index prices. Transferred directly between longs and shorts.<br><br><strong>IV. TP / SL Protection</strong><br>Traders can select Mark Price or Last Price as the trigger benchmark.<br><br><strong>Risk Warning & Legal Disclaimer</strong><br>Trading crypto assets and perpetual derivatives involves significant financial risks.<br><strong>MERDEX Perps and Orderly Network bear no liability for financial losses.</strong>',
+        faqPerpsRulesA: '<strong>I. Price Mechanism</strong><br>The system employs a triple-price mechanism to ensure fairness and prevent market manipulation:<br>- <strong>Last Price</strong>: The latest matched trade price on the order book. Used only for charts, depth, and limit order matching.<br>- <strong>Index Price</strong>: Weighted average price calculated from multiple spot exchanges (Binance, OKX, Coinbase, etc.).<br>- <strong>Mark Price</strong>: The sole benchmark for calculating uPnL and triggering liquidations.<br><br><strong>II. Margin & Leverage Modes</strong><br>- <strong>Cross Margin</strong>: Shared margin pool for all cross positions.<br>- <strong>Isolated Margin</strong>: Isolated margin dedicated to single positions.<br><br><strong>III. Funding Rate</strong><br>Used to anchor perpetual futures prices to spot index prices. Transferred directly between longs and shorts.<br><br><strong>IV. TP / SL Protection</strong><br>Traders can select Mark Price or Last Price as the trigger benchmark.<br><br><strong>Risk Warning & Legal Disclaimer</strong><br>Trading crypto assets and perpetual derivatives involves significant financial risks.<br><strong>MERDEX Perps and Orderly Network bear no liability for financial losses.</strong>',
         faqRobinhoodLaunchQ: 'Official Announcement on Robinhood Chain Launch (Sep 10, 2026)',
         faqRobinhoodLaunchA: 'Dear MERDEX users! MER is proud to officially announce our support for Robinhood Chain. You can now trade Robinhood spot assets on MERDEX.<br><br>MER Global<br>MER Service<br>Sep 10, 2026',
         faqRobinhoodQ: 'MERDEX Supports Robinhood Chain (Sep 9, 2026)',
