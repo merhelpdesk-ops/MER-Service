@@ -87,7 +87,6 @@
       align-items: center;
     }
 
-    /* 顶部新 Logo 图片样式调整 */
     .brand-logo {
       height: 28px;
       width: auto;
@@ -339,7 +338,7 @@
       bottom: calc(76px + env(safe-area-inset-bottom, 0px));
       box-shadow: 0 5px 18px rgba(21, 149, 173, 0.4);
       color: #fff;
-      cursor: grab;
+      cursor: pointer;
       display: flex;
       height: 48px;
       justify-content: center;
@@ -357,15 +356,6 @@
     #mobile-tawk-widget:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 22px rgba(21, 149, 173, 0.6);
-    }
-
-    #mobile-tawk-widget.is-dragging {
-      cursor: grabbing;
-      transform: scale(0.96);
-    }
-
-    #mobile-tawk-widget.is-hidden {
-      display: none !important;
     }
 
     @media (min-width: 1001px) {
@@ -649,7 +639,7 @@
     <span data-i18n="copyright">© MER Global 2023-2026</span>
   </footer>
 
-  <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget"
+  <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget" onclick="openTawkChat()"
     class="tawk-custom-color tawk-custom-border-color tawk-outline tawk-button tawk-button-circle tawk-button-large">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" height="32" width="32" role="img"
       aria-labelledby="tawk-open-icon-title tawk-open-icon-description" class="tawk-min-chat-icon">
@@ -809,8 +799,7 @@
         card4Desc: '이익 실현, 손절매 및 미체결 트랜잭션 취소',
         faqTitle: '자주 묻는 질문',
         faqPerpsRulesQ: 'MER DEX 무기한 선물 (Perps) 거래 시스템 규칙',
-        faqPerpsRulesA: '<h4>I. 가격 메커니즘</h4><p>시스템은 공정성과 안정성을 확보하고 극심한 시장 변동성에서의 가격 조작을 방지하기 위해 3가지 가격 메커니즘을 도입합니다:</p><ul><li><strong>최신 체결가 (Last Price)</strong>: 오더북에서 가장 최근 체결된 실제 가격. K-라인 차트, 호가창 깊이 및 지정가 체결에만 사용되며, 미실현 손익이나 강제 청산 결정에는 <strong>참여하지 않습니다</strong>.</li><li><strong>지수 가격 (Index Price)</strong>: 주요 현물 거래소의 가격을 기반으로 계산된 가중 평균 가격입니다. 이상값 제거 및 편차 제한 보호를 통해 실제 현물 시장 수준을 반영합니다.</li><li><strong>표시 가격 (Mark Price)</strong>: 미실현 손익(uPnL) 계산 및 강제 청산(Liquidation) 실행을 위한 <strong>유일한 기준 가격</strong>입니다. 지수 가격과 깊이 가중 오더북 베이시스 및 펀딩 비율을 결합하여 일시적 유동성 부족으로 인한 청산을 방지합니다.</li></ul><h4>II. 증거금 및 레버리지 모드</h4><p>유연한 증거금 및 레버리지 옵션을 제공합니다:</p><ol><li><strong>교차 증거금 모드 (Cross Margin)</strong><ul><li><strong>규칙</strong>: 계정 내 잔액을 모든 교차 포지션이 공유하며, 포지션 간 손익이 자동으로 상계됩니다.</li><li><strong>청산 조건</strong>: 총 계정 순자산이 유지 증거금 요구량 이하(MMR &le; 100%)로 떨어질 때 실행됩니다.</li></ul></li><li><strong>격리 증거금 모드 (Isolated Margin)</strong><ul><li><strong>규칙</strong>: 포지션별 증거금이 완전히 격리됩니다. 해당 포지션에 할당된 증거금 내에서만 손실이 제한됩니다.</li><li><strong>청산 조건</strong>: 포지션 증거금이 해당 구간의 유지 증거금(MM) 이하로 떨어질 때 실행됩니다.</li></ul></li><li><strong>구간별 포지션 및 유지 증거금률 (MMR)</strong><ul><li>포지션 규모가 클수록 최대 레버리지는 낮아지고 요구 유지 증거금률(MMR)은 높아지는 동적 구간제가 적용됩니다.</li></ul></li></ol><h4>III. 펀딩 비율 (Funding Rate)</h4><p>펀딩 비율은 무기한 선물 가격을 현물 지수 가격에 고정합니다. 펀딩 수수료는 롱/숏 포지션 간에 직접 주고받으며, <strong>플랫폼은 수수료를 수취하지 않습니다</strong>.</p><ul><li><strong>정산 주기</strong>: 정기 정산 (시장 설정에 따라 8시간 또는 1시간 마다 정산).</li><li><strong>지급 방향</strong>:<ul><li><strong>펀딩 비율 양수 (&gt;0)</strong>: 롱 포지션이 숏 포지션에 지급.</li><li><strong>펀딩 비율 음수 (&lt;0)</strong>: 숏 포지션이 롱 포지션에 지급.</li></ul></li><li><strong>극단적 시장 메커니즘</strong>: 한쪽으로 쏠린 기습 폭등/폭락 시 펀딩 비율이 상한/하한선에 도달할 수 있으며, 증거금 차감 후 잔액 부족 시 <strong>강제 청산이 발생할 수 있습니다</strong>.</li></ul><h4>IV. 이익 실현 / 손절매 (TP/SL) 및 주문 보호</h4><ul><li><strong>트리거 조건</strong>: "표시 가격" 또는 "최신 체결가"를 기준 가격으로 선택할 수 있습니다.</li><li><strong>슬리피지 위험</strong>: 극심한 변동성 상황에서는 지정가보다 불리한 가격으로 체결(<strong>슬리피지</strong>)되거나, 보호 한도를 초과할 경우 주문이 <strong>거부/취소</strong>될 수 있습니다.</li></ul>#### V. 강제 청산, 미수금 및 ADL 메커니즘
-<p>포지션이 청산선에 도달하면 강제 청산 엔진이 다음 순서로 처리합니다:</p><ol><li><strong>구간별 부분 청산 (Partial Liquidation)</strong><br>대형 포지션을 하위 구간으로 단계적으로 축소하여 MMR 요구량을 낮추고 남은 잔액을 최대한 보존합니다.</li><li><strong>리스크 준비금 (Insurance Fund)</strong><ul><li>파산 가격보다 유리하게 청산되면 여유 자금이 준비금으로 적립됩니다.</li><li>파산 가격보다 불리하게 청산되어 미수금이 발생하면 <strong>리스크 준비금이 우선 보충</strong>합니다.</li></ul></li><li><strong>자동 감산 (ADL - Auto-Deleveraging)</strong><br>준비금이 부족할 경우, <strong>"수익률 &times; 레버리지"</strong> 순위가 높은 반대편 수익 계정과 파산 가격으로 <strong>강제 상계 청산</strong>됩니다.</li></ol><h4>VI. 온체인 리스크 관리 및 자산 보안</h4><ul><li><strong>오라클 서킷 브레이커</strong>: 오라클 가격 지연/지급 중단 시 서킷 브레이커가 작동하여 <strong>신규 오픈 및 청산이 일시 중지</strong>됩니다.</li><li><strong>출금 및 이체 검증</strong>: <strong>실현 손익(Realized PnL)</strong> 및 가능 증거금만 출금할 수 있습니다.</li></ul><blockquote><p><strong>고위험 경고</strong>: 암호화폐 선물 거래는 높은 재무적 위험을 동반합니다. 극심한 변동성 상황에서는 지연 및 슬리피지가 발생할 수 있습니다.</p><p><strong>면책 조항</strong>: <strong>MER DEX Perps 및 Orderly Network는 거래 손실에 대해 책임을 지지 않으며, MER DEX Perps 이용 시 본 약관에 동의한 것으로 간주됩니다.</strong></p></blockquote>',
+        faqPerpsRulesA: '<h4>I. 가격 메커니즘</h4><p>시스템은 공정성과 안정성을 확보하고 극심한 시장 변동성에서의 가격 조작을 방지하기 위해 3가지 가격 메커니즘을 도입합니다:</p><ul><li><strong>최신 체결가 (Last Price)</strong>: 오더북에서 가장 최근 체결된 실제 가격. K-라인 차트, 호가창 깊이 및 지정가 체결에만 사용되며, 미실현 손익이나 강제 청산 결정에는 <strong>참여하지 않습니다</strong>.</li><li><strong>지수 가격 (Index Price)</strong>: 주요 현물 거래소의 가격을 기반으로 계산된 가중 평균 가격입니다. 이상값 제거 및 편차 제한 보호를 통해 실제 현물 시장 수준을 반영합니다.</li><li><strong>표시 가격 (Mark Price)</strong>: 미실현 손익(uPnL) 계산 및 강제 청산(Liquidation) 실행을 위한 <strong>유일한 기준 가격</strong>입니다. 지수 가격과 깊이 가중 오더북 베이시스 및 펀딩 비율을 결합하여 일시적 유동성 부족으로 인한 청산을 방지합니다.</li></ul><h4>II. 증거금 및 레버리지 모드</h4><p>유연한 증거금 및 레버리지 옵션을 제공합니다:</p><ol><li><strong>교차 증거금 모드 (Cross Margin)</strong><ul><li><strong>규칙</strong>: 계정 내 잔액을 모든 교차 포지션이 공유하며, 포지션 간 손익이 자동으로 상계됩니다.</li><li><strong>청산 조건</strong>: 총 계정 순자산이 유지 증거금 요구량 이하(MMR &le; 100%)로 떨어질 때 실행됩니다.</li></ul></li><li><strong>격리 증거금 모드 (Isolated Margin)</strong><ul><li><strong>규칙</strong>: 포지션별 증거금이 완전히 격리됩니다. 해당 포지션에 할당된 증거금 내에서만 손실이 제한됩니다.</li><li><strong>청산 조건</strong>: 포지션 증거금이 해당 구간의 유지 증거금(MM) 이하로 떨어질 때 실행됩니다.</li></ul></li><li><strong>구간별 포지션 및 유지 증거금률 (MMR)</strong><ul><li>포지션 규모가 클수록 최대 레버리지는 낮아지고 요구 유지 증거금률(MMR)은 높아지는 동적 구간제가 적용됩니다.</li></ul></li></ol><h4>III. 펀딩 비율 (Funding Rate)</h4><p>펀딩 비율은 무기한 선물 가격을 현물 지수 가격에 고정합니다. 펀딩 수수료는 롱/숏 포지션 간에 직접 주고받으며, <strong>플랫폼은 수수료를 수취하지 않습니다</strong>.</p><ul><li><strong>정산 주기</strong>: 정기 정산 (시장 설정에 따라 8시간 또는 1시간 마다 정산).</li><li><strong>지급 방향</strong>:<ul><li><strong>펀딩 비율 양수 (&gt;0)</strong>: 롱 포지션이 숏 포지션에 지급.</li><li><strong>펀딩 비율 음수 (&lt;0)</strong>: 숏 포지션이 롱 포지션에 지급.</li></ul></li><li><strong>극단적 시장 메커니즘</strong>: 한쪽으로 쏠린 기습 폭등/폭락 시 펀딩 비율이 상한/하한선에 도달할 수 있으며, 증거금 차감 후 잔액 부족 시 <strong>강제 청산이 발생할 수 있습니다</strong>.</li></ul>#### IV. 이익 실현 / 손절매 (TP/SL) 및 주문 보호</h4><ul><li><strong>트리거 조건</strong>: "표시 가격" 또는 "최신 체결가"를 기준 가격으로 선택할 수 있습니다.</li><li><strong>슬리피지 위험</strong>: 극심한 변동성 상황에서는 지정가보다 불리한 가격으로 체결(<strong>슬리피지</strong>)되거나, 보호 한도를 초과할 경우 주문이 <strong>거부/취소</strong>될 수 있습니다.</li></ul>#### V. 강제 청산, 미수금 및 ADL 메커니즘</h4><p>포지션이 청산선에 도달하면 강제 청산 엔진이 다음 순서로 처리합니다:</p><ol><li><strong>구간별 부분 청산 (Partial Liquidation)</strong><br>대형 포지션을 하위 구간으로 단계적으로 축소하여 MMR 요구량을 낮추고 남은 잔액을 최대한 보존합니다.</li><li><strong>리스크 준비금 (Insurance Fund)</strong><ul><li>파산 가격보다 유리하게 청산되면 여유 자금이 준비금으로 적립됩니다.</li><li>파산 가격보다 불리하게 청산되어 미수금이 발생하면 <strong>리스크 준비금이 우선 보충</strong>합니다.</li></ul></li><li><strong>자동 감산 (ADL - Auto-Deleveraging)</strong><br>준비금이 부족할 경우, <strong>"수익률 &times; 레버리지"</strong> 순위가 높은 반대편 수익 계정과 파산 가격으로 <strong>강제 상계 청산</strong>됩니다.</li></ol><h4>VI. 온체인 리스크 관리 및 자산 보안</h4><ul><li><strong>오라클 서킷 브레이커</strong>: 오라클 가격 지연/지급 중단 시 서킷 브레이커가 작동하여 <strong>신규 오픈 및 청산이 일시 중지</strong>됩니다.</li><li><strong>출금 및 이체 검증</strong>: <strong>실현 손익(Realized PnL)</strong> 및 가능 증거금만 출금할 수 있습니다.</li></ul><blockquote><p><strong>고위험 경고</strong>: 암호화폐 선물 거래는 높은 재무적 위험을 동반합니다. 극심한 변동성 상황에서는 지연 및 슬리피지가 발생할 수 있습니다.</p><p><strong>면책 조항</strong>: <strong>MER DEX Perps 및 Orderly Network는 거래 손실에 대해 책임을 지지 않으며, MER DEX Perps 이용 시 본 약관에 동의한 것으로 간주됩니다.</strong></p></blockquote>',
         faqRobinhoodLaunchQ: 'MERDEX Robinhood Chain 공식 출시 공지 (2026년 9월 10일)',
         faqRobinhoodLaunchA: 'MERDEX 사용자 여러분, MER에서 Robinhood Chain을 공식 지원하게 되었음을 알려드립니다. 이제 MERDEX에서 Robinhood 현물 거래를 자유롭게 이용하실 수 있습니다. 투자 유의사항: 암호화폐 투자에는 높은 위험이伴随되며 투자 원금 전액 손실 가능성이 있습니다. 신중하게 위험을 평가하신 후 거래하시기 바랍니다. MER Global이 여러분의 성공적인 거래를 기원합니다.<br><br>MER Global<br>MER Service<br>2026년 9월 10일',
         faqRobinhoodQ: 'MERDEX Robinhood Chain 지원 안내 (2026년 9월 9일)',
@@ -842,11 +831,14 @@
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
       });
-      document.getElementById(`btn-${lang}`).classList.add('active');
+      const targetBtn = document.getElementById(`btn-${lang}`);
+      if (targetBtn) targetBtn.classList.add('active');
 
       document.documentElement.lang = lang;
 
       const data = i18nData[lang];
+      if (!data) return;
+
       if (data.docTitle) {
         document.title = data.docTitle;
       }
@@ -863,133 +855,27 @@
       });
     }
 
+    // Tawk.to 交互集成
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    Tawk_API.lang = 'en';
-    var mobileTawkPositionKey = 'merdex-mobile-tawk-position';
-
-    function getMobileTawkWidget() {
-      return document.getElementById('mobile-tawk-widget');
-    }
-
-    function restoreMobileTawkPosition() {
-      var widget = getMobileTawkWidget();
-      if (!widget) return;
-      try {
-        var position = JSON.parse(localStorage.getItem(mobileTawkPositionKey));
-        if (position && Number.isFinite(position.left) && Number.isFinite(position.top)) {
-          widget.style.left = position.left + 'px';
-          widget.style.top = position.top + 'px';
-          widget.style.right = 'auto';
-          widget.style.bottom = 'auto';
-        }
-      } catch (error) { }
-    }
+    Tawk_API.lang = 'zh-cn';
 
     function openTawkChat() {
-      if (typeof Tawk_API.maximize === 'function') {
-        Tawk_API.maximize();
-      } else if (typeof Tawk_API.start === 'function') {
-        Tawk_API.start();
+      if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
+        window.Tawk_API.maximize();
+      } else if (window.Tawk_API && typeof window.Tawk_API.toggle === 'function') {
+        window.Tawk_API.toggle();
+      } else {
+        alert('在线客服正在加载，请稍等片刻...');
       }
     }
 
-    Tawk_API.onLoad = function() {
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-    };
-
-    Tawk_API.onChatMaximized = function () {
-      var widget = getMobileTawkWidget();
-      if (widget) widget.classList.add('is-hidden');
-    };
-
-    Tawk_API.onChatMinimized = function () {
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-      var widget = getMobileTawkWidget();
-      if (widget) widget.classList.remove('is-hidden');
-    };
-
-    Tawk_API.onChatHidden = function () {
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-      var widget = getMobileTawkWidget();
-      if (widget) widget.classList.remove('is-hidden');
-    };
-
-    document.addEventListener('DOMContentLoaded', function () {
-      restoreMobileTawkPosition();
-
-      var widget = getMobileTawkWidget();
-      var drag = null;
-
-      if (!widget) return;
-
-      widget.addEventListener('pointerdown', function (event) {
-        var rect = widget.getBoundingClientRect();
-        drag = {
-          pointerId: event.pointerId,
-          startX: event.clientX,
-          startY: event.clientY,
-          startLeft: rect.left,
-          startTop: rect.top,
-          moved: false
-        };
-        widget.setPointerCapture(event.pointerId);
-        widget.classList.add('is-dragging');
-        event.preventDefault();
-      });
-
-      widget.addEventListener('pointermove', function (event) {
-        if (!drag || drag.pointerId !== event.pointerId) return;
-        var deltaX = event.clientX - drag.startX;
-        var deltaY = event.clientY - drag.startY;
-        if (Math.hypot(deltaX, deltaY) > 5) drag.moved = true;
-        var left = Math.max(0, Math.min(drag.startLeft + deltaX, window.innerWidth - widget.offsetWidth));
-        var top = Math.max(0, Math.min(drag.startTop + deltaY, window.innerHeight - widget.offsetHeight));
-        widget.style.left = left + 'px';
-        widget.style.top = top + 'px';
-        widget.style.right = 'auto';
-        widget.style.bottom = 'auto';
-      });
-
-      widget.addEventListener('pointerup', function (event) {
-        if (!drag || drag.pointerId !== event.pointerId) return;
-        widget.releasePointerCapture(event.pointerId);
-        widget.classList.remove('is-dragging');
-        if (drag.moved) {
-          try {
-            localStorage.setItem(mobileTawkPositionKey, JSON.stringify({
-              left: widget.offsetLeft,
-              top: widget.offsetTop
-            }));
-          } catch (error) { }
-        } else {
-          openTawkChat();
-        }
-        drag = null;
-      });
-
-      widget.addEventListener('pointercancel', function () {
-        widget.classList.remove('is-dragging');
-        drag = null;
-      });
-
-      widget.addEventListener('click', function (event) {
-        if (event.detail === 0) openTawkChat();
-      });
-    });
-
-    (function () {
+    (function(){
       var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
       s1.async = true;
-      s1.src = 'https://embed.tawk.to/6a98b268451e133447599dcc/1k1l6h0rv';
+      s1.src = 'https://embed.tawk.to/65e94b2a8d261e1b5f63b2f8/default'; // 您配置的 Tawk.to 客户端，若失效需更换为您的实际 Property ID
       s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
     })();
   </script>
 </body>
