@@ -119,6 +119,8 @@
     .brand {
       display: flex;
       align-items: center;
+      cursor: default; /* 已改为默认箭头光标，隐藏手型提示 */
+      user-select: none;
     }
 
     .brand-logo {
@@ -577,7 +579,7 @@
   <div class="glow-bg"></div>
 
   <header>
-    <div class="brand">
+    <div class="brand" onclick="window.location.reload()">
       <img src="MERHelpDesk_Poster.png" alt="MER Help Desk Logo" class="brand-logo">
     </div>
     <div class="lang-switcher">
@@ -937,7 +939,7 @@
         faqSwapCompleted20260911Q: 'MERDEX Swap於2026年9月11日升級完畢的公告',
         faqSwapCompleted20260911A: 'MERDEX Swap於2026年9月11日進行了升級優化，優化了以下功能：移動端 App 於 MERDEX Swap 下方按鈕側啟用交易功能時的不兼容問題，現已完成優化並升級。在此期間我們維護了約 15 分鐘，在優化與升級期間給您帶來的不便，我們深感抱歉。現已升級完畢，MER 將持續為您帶來最優質的產品和最好的服務體驗，感謝您的支持與理解。<br><br>MER Service<br>2026年9月11日',
         faqSwapCompletedQ: 'MERDEX 升級完畢公告（2026年9月10日）',
-        faqSwapCompletedA: '尊貴的 MERDEX 用戶，我們於 2026 年 9 月 10 日完成了對 MERDEX Swap 的升級，您可以通過：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 直接訪問 MERDEX Swap 界面，期間給您帶來的不便我們深表歉意。<br><br>MER Global<br>MER Service<br>2026年9月10日',
+        faqSwapCompletedA: '尊貴的 MERDEX 用戶，我們於 2026 年 9 月 10 日完成了對 MERDEX Swap 的升級，您可以通過：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 直接訪問 MERDEX Swap 頁面，期間給您帶來的不便我們深表歉意。<br><br>MER Global<br>MER Service<br>2026年9月10日',
         faqSwapUpgradeQ: 'MERDEX 升級公告（2026年9月10日）',
         faqSwapUpgradeA: '尊貴的 MERDEX 用戶，我們於 2026 年 9 月 10 日升級 MERDEX Swap 功能，其間您可能暫時無法訪問 Swap 頁面，MERDEX Perps（永續合約）不受此影響。<br><br><strong>升級結束時間：</strong>預計 3-30 分鐘<br><strong>主要升級原因：</strong>提升訪問速度，修復卡頓問題。',
         faqPerpsRulesQ: 'MER DEX 永續合約（Perps）交易系統規則指南',
