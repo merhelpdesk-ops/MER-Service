@@ -119,7 +119,7 @@
     .brand {
       display: flex;
       align-items: center;
-      cursor: default; /* 已改为默认箭头光标，隐藏手型提示 */
+      cursor: default;
       user-select: none;
     }
 
@@ -620,7 +620,18 @@
 
     <div class="section-title" data-i18n="faqTitle">常见问题</div>
 
-    <!-- 2026年9月11日 升级完毕公告（新添加） -->
+    <!-- 2026年9月11日 UI升级预告公告（新添加） -->
+    <div class="faq-wrapper">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span data-i18n="faqUiUpgrade20260911Q">MERDEX Swap Perps UI 升级公告2026年9月11日</span>
+        <span class="faq-arrow">▲</span>
+      </div>
+      <div class="faq-body" data-i18n="faqUiUpgrade20260911A">
+        尊贵的 MERDEX Swap Perps 用户您好！为了增强您的使用体验，我们决定进行 UI 界面升级，我们预告在 2026 年 9 月 11 日至 2026 年 9 月 12 日完成升级。
+      </div>
+    </div>
+
+    <!-- 2026年9月11日 升级完毕公告 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
         <span data-i18n="faqSwapCompleted20260911Q">MERDEX Swap于2026年9月11日升级完毕的公告</span>
@@ -888,6 +899,8 @@
         card4Title: '订单与持仓',
         card4Desc: '止盈止损与取消未完成交易',
         faqTitle: '常见问题',
+        faqUiUpgrade20260911Q: 'MERDEX Swap Perps UI 升级公告2026年9月11日',
+        faqUiUpgrade20260911A: '尊贵的 MERDEX Swap Perps 用户您好！为了增强您的使用体验，我们决定进行 UI 界面升级，我们预告在 2026 年 9 月 11 日至 2026 年 9 月 12 日完成升级。',
         faqSwapCompleted20260911Q: 'MERDEX Swap于2026年9月11日升级完毕的公告',
         faqSwapCompleted20260911A: 'MERDEX Swap于2026年9月11日进行了升级优化，优化了以下功能：移动端 App 于 MERDEX Swap 下方按钮侧启用交易功能时的不兼容问题，现已完成优化并升级。在此期间我们维护了约 15 分钟，在优化与升级期间给您带来的不便，我们深感抱歉。现已升级完毕，MER 将持续为您带来最优质的产品和最好的服务体验，感谢您的支持与理解。<br><br>MER Service<br>2026年9月11日',
         faqSwapCompletedQ: 'MERDEX 升级完毕公告（2026年9月10日）',
@@ -936,6 +949,8 @@
         card4Title: '訂單與持倉',
         card4Desc: '止盈止損與取消未完成交易',
         faqTitle: '常見問題',
+        faqUiUpgrade20260911Q: 'MERDEX Swap Perps UI 升級公告2026年9月11日',
+        faqUiUpgrade20260911A: '尊貴的 MERDEX Swap Perps 用戶您好！為了增強您的使用體驗，我們決定進行 UI 界面升級，我們預告在 2026 年 9 月 11 日至 2026 年 9 月 12 日完成升級。',
         faqSwapCompleted20260911Q: 'MERDEX Swap於2026年9月11日升級完畢的公告',
         faqSwapCompleted20260911A: 'MERDEX Swap於2026年9月11日進行了升級優化，優化了以下功能：移動端 App 於 MERDEX Swap 下方按鈕側啟用交易功能時的不兼容問題，現已完成優化並升級。在此期間我們維護了約 15 分鐘，在優化與升級期間給您帶來的不便，我們深感抱歉。現已升級完畢，MER 將持續為您帶來最優質的產品和最好的服務體驗，感謝您的支持與理解。<br><br>MER Service<br>2026年9月11日',
         faqSwapCompletedQ: 'MERDEX 升級完畢公告（2026年9月10日）',
@@ -984,6 +999,8 @@
         card4Title: 'Orders & Positions',
         card4Desc: 'Take Profit / Stop Loss & cancelling active orders',
         faqTitle: 'Frequently Asked Questions',
+        faqUiUpgrade20260911Q: 'MERDEX Swap Perps UI Upgrade Notice (Sep 11, 2026)',
+        faqUiUpgrade20260911A: 'Dear valued MERDEX Swap Perps users, to enhance your user experience, we have decided to perform a UI interface upgrade. The upgrade is scheduled to take place from September 11, 2026, to September 12, 2026.',
         faqSwapCompleted20260911Q: 'MERDEX Swap Upgrade Completion Announcement (Sep 11, 2026)',
         faqSwapCompleted20260911A: 'MERDEX Swap performed an upgrade and optimization on Sep 11, 2026, fixing the incompatibility issue when enabling the trading feature on the bottom button side of the mobile app. Maintenance took approx 15 minutes. We sincerely apologize for any inconvenience caused during the upgrade. The upgrade is now complete, and MER will continue to bring you top-quality products and service.<br><br>MER Service<br>Sep 11, 2026',
         faqSwapCompletedQ: 'MERDEX Upgrade Completion Announcement (Sep 10, 2026)',
@@ -1032,6 +1049,8 @@
         card4Title: '주문 및 포지션',
         card4Desc: '익절/손절 설정 및 미체결 주문 취소',
         faqTitle: '자주 묻는 질문',
+        faqUiUpgrade20260911Q: 'MERDEX Swap Perps UI 업그레이드 공지 (2026년 9월 11일)',
+        faqUiUpgrade20260911A: 'MERDEX Swap Perps 사용자 여러분, 안녕하세요! 사용자 경험을 향상시키기 위해 UI 인터페이스 업그레이드를 진행하기로 결정하였습니다. 업그레이드는 2026년 9월 11일부터 2026년 9월 12일까지 완료될 예정입니다.',
         faqSwapCompleted20260911Q: 'MERDEX Swap 업그레이드 완료 공지 (2026년 9월 11일)',
         faqSwapCompleted20260911A: '2026년 9월 11일 MERDEX Swap의 업그레이드 및 최적화가 완료되었습니다. 모바일 앱 하단 버튼 거래 호환성 오류가 수정되었으며, 서비스 이용에 불편을 드려 죄송합니다.<br><br>MER Service<br>2026년 9월 11일',
         faqSwapCompletedQ: 'MERDEX 업그레이드 완료 안내 (2026년 9월 10일)',
