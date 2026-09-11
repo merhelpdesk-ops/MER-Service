@@ -455,10 +455,17 @@
 
     function openMobileTawkChat() {
       showMobileTawkWidget(false);
-      if (typeof Tawk_API.maximize === 'function') {
-        Tawk_API.maximize();
-      } else if (typeof Tawk_API.start === 'function') {
-        Tawk_API.start();
+      if (typeof Tawk_API !== 'undefined') {
+        if (typeof Tawk_API.showWidget === 'function') {
+          Tawk_API.showWidget();
+        }
+        if (typeof Tawk_API.maximize === 'function') {
+          Tawk_API.maximize();
+        } else if (typeof Tawk_API.popup === 'function') {
+          Tawk_API.popup();
+        } else if (typeof Tawk_API.start === 'function') {
+          Tawk_API.start();
+        }
       }
     }
 
@@ -513,7 +520,6 @@
         };
         widget.setPointerCapture(event.pointerId);
         widget.classList.add('is-dragging');
-        event.preventDefault();
       });
 
       widget.addEventListener('pointermove', function (event) {
@@ -549,10 +555,6 @@
       widget.addEventListener('pointercancel', function () {
         widget.classList.remove('is-dragging');
         drag = null;
-      });
-
-      widget.addEventListener('click', function (event) {
-        if (event.detail === 0) openMobileTawkChat();
       });
     });
 
