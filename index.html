@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>MERDEX | MERHelpDesk</title>
+  <title>MERDEX | Help Desk</title>
 
   <script>
     (function suppressNativeTawkIcon() {
@@ -583,9 +583,9 @@
       <img src="MERHelpDesk_Poster.png" alt="MER Help Desk Logo" class="brand-logo">
     </div>
     <div class="lang-switcher">
-      <button id="btn-zh-CN" class="lang-btn active" onclick="changeLanguage('zh-CN')">简体中文</button>
+      <button id="btn-en" class="lang-btn active" onclick="changeLanguage('en')">English</button>
+      <button id="btn-zh-CN" class="lang-btn" onclick="changeLanguage('zh-CN')">简体中文</button>
       <button id="btn-zh-TW" class="lang-btn" onclick="changeLanguage('zh-TW')">繁體中文</button>
-      <button id="btn-en" class="lang-btn" onclick="changeLanguage('en')">English</button>
       <button id="btn-ko" class="lang-btn" onclick="changeLanguage('ko')">한국어</button>
     </div>
   </header>
@@ -594,317 +594,266 @@
     <div class="hero">
       <img src="MERHelpDesk.JPG" alt="MERDEX Banner" class="banner-img">
 
-      <span class="hero-tag" data-i18n="heroTag">非托管 · 高速聚合器</span>
-      <h1 data-i18n="heroTitle">MERDEX 帮助中心</h1>
-      <p data-i18n="heroDesc">无需身份验证。连接 Web3 钱包即可进行加密货币与股票的现货及合约交易。</p>
+      <span class="hero-tag" data-i18n="heroTag">Non-custodial · High-speed Aggregator</span>
+      <h1 data-i18n="heroTitle">MERDEX Help Desk</h1>
+      <p data-i18n="heroDesc">No KYC required. Connect your Web3 wallet to trade crypto & stock spots and futures.</p>
     </div>
 
     <div class="grid">
       <a class="card" href="https://www.mer.finance">
-        <h3 data-i18n="card1Title">现货兑换</h3>
-        <p data-i18n="card1Desc">加密货币与股票现货兑换、多链交易与滑点设置</p>
+        <h3 data-i18n="card1Title">Spot Swap</h3>
+        <p data-i18n="card1Desc">Crypto & Stock spot swaps, cross-chain trades & slippage settings</p>
       </a>
       <a class="card" href="https://perp.mer.finance">
-        <h3 data-i18n="card2Title">永续合约</h3>
-        <p data-i18n="card2Desc">加密货币与股票合约交易、高杠杆及资金费率</p>
+        <h3 data-i18n="card2Title">Perpetuals</h3>
+        <p data-i18n="card2Desc">Crypto & Stock futures, high leverage & funding rates</p>
       </a>
       <a class="card" href="https://vip.mer.finance">
         <h3 data-i18n="card3Title">MER VIP</h3>
-        <p data-i18n="card3Desc">满足交易量后联系客服升级VIP降低手续费</p>
+        <p data-i18n="card3Desc">Contact customer service after meeting trading volume to upgrade VIP and lower fees</p>
       </a>
       <div class="card" onclick="openTawkChat()">
-        <h3 data-i18n="card4Title">在线客服</h3>
-        <p data-i18n="card4Desc">MER客户支持7/24小时为您服务</p>
+        <h3 data-i18n="card4Title">Online Support</h3>
+        <p data-i18n="card4Desc">MER Customer Support at your service 24/7</p>
       </div>
     </div>
 
-    <div class="section-title" data-i18n="faqTitle">常见问题</div>
+    <div class="section-title" data-i18n="faqTitle">Frequently Asked Questions</div>
 
-    <!-- 2026年9月14日 MER审计报告正式上线 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqAudit20260914Q">MER审计报告正式上线（2026年9月14日）</span>
+        <span data-i18n="faqAudit20260914Q">Official Launch of MER Audit Report (Sep 14, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqAudit20260914A">
-        尊贵的MERDEX 用户您好！MER已经正式上线MER产品侧审计报告，让您安心使用我们的产品审计是重要原因，它可以向您证明，MER产品是经过审计的，详情请您通过：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a> 访问MER审计报告中的各项内容。<br><br>
-        2026年9月14日<br>
-        MER Service
+        Dear valued MERDEX users,<br><br>MER has officially launched the product-side audit report. Product auditing is key to giving you peace of mind, proving that MER products have been thoroughly audited. For full details, please visit: <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>.<br><br>September 14, 2026<br>MER Service
       </div>
     </div>
 
-    <!-- 2026年9月13日 关于MER启用中文名（梅尔）2026年9月13号 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqChineseName20260913Q">关于MER启用中文名（梅尔）2026年9月13号</span>
+        <span data-i18n="faqChineseName20260913Q">Announcement on MER Adopting Chinese Name "梅尔" (Sep 13, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqChineseName20260913A">
-        尊贵的MERDEX用户您好，我们于2026年9月13号正式启用（梅尔）作为中文名<br><br>
-        MER Service 2026年9月13号
+        Dear valued MERDEX users,<br><br>We have officially adopted "梅尔" (Méi Ěr) as our official Chinese brand name starting September 13, 2026.<br><br>MER Service<br>September 13, 2026
       </div>
     </div>
 
-    <!-- 2026年9月13日 MERDEX Swap Perps 推特/电报 海报升级完毕的公告 2026年9月13号 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqPosterUpgrade20260913Q">MERDEX Swap Perps 推特/电报 海报升级完毕的公告 2026年9月13号</span>
+        <span data-i18n="faqPosterUpgrade20260913Q">Announcement on Poster Upgrade Completion for Twitter & Telegram (Sep 13, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqPosterUpgrade20260913A">
-        尊贵的MERDEX Swap Perps用户，您好！我们已经于2026年9月13号完成了对推特/电报 海报的完整升级您可以在推特或电报发送我们的网址 Swap网址为：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>
-        Perps网址为：<a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a> 查看最新海报<br><br>
-        MER Service 2026年9月13号
+        Dear valued MERDEX Swap & Perps users,<br><br>We completed a full upgrade of our preview posters for Twitter and Telegram on September 13, 2026. You can view the latest posters by sharing our websites on Twitter or Telegram:<br>Swap: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>Perps: <a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service<br>September 13, 2026
       </div>
     </div>
 
-    <!-- 2026年9月11日 MERDEX Swap Perps UI 升级完毕的公告 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqUiCompleted20260911Q">MERDEX Swap Perps UI 升级完毕的公告2026年9月11号</span>
+        <span data-i18n="faqUiCompleted20260911Q">Announcement on MERDEX Swap & Perps UI Upgrade Completion (Sep 11, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqUiCompleted20260911A">
-        尊贵的MERDEX Swap Perps 用户您好！我们已经完成了MERDEX Swap Perps的UI升级<br><br>
-        您可通过MERDEX Swap 查看全新UI界面：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>
-        您可通过MERDEX Perps 查看全新的UI界面：<a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>
-        MER Service 2026年9月11号
+        Dear valued MERDEX Swap & Perps users,<br><br>We have successfully completed the UI upgrade for MERDEX Swap & Perps.<br><br>Explore the brand new UI interface:<br>Swap: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>Perps: <a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service<br>September 11, 2026
       </div>
     </div>
 
-    <!-- 2026年9月11日 UI升级预告公告 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqUiUpgrade20260911Q">MERDEX Swap Perps UI 升级公告2026年9月11日</span>
+        <span data-i18n="faqUiUpgrade20260911Q">MERDEX Swap & Perps UI Upgrade Notice (Sep 11, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqUiUpgrade20260911A">
-        尊贵的 MERDEX Swap Perps 用户您好！为了增强您的使用体验，我们决定进行 UI 界面升级，我们预告在 2026 年 9 月 11 日至 2026 年 9 月 12 日完成升级。
+        Dear valued MERDEX Swap & Perps users,<br><br>To enhance your experience, we scheduled a UI interface upgrade between September 11, 2026 and September 12, 2026.
       </div>
     </div>
 
-    <!-- 2026年9月11日 升级完毕公告 -->
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqSwapCompleted20260911Q">MERDEX Swap于2026年9月11日升级完毕的公告</span>
+        <span data-i18n="faqSwapCompleted20260911Q">MERDEX Swap Upgrade Completion Notice (Sep 11, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqSwapCompleted20260911A">
-        MERDEX Swap于2026年9月11日进行了升级优化，优化了以下功能：移动端 App 于 MERDEX Swap 下方按钮侧启用交易功能时的不兼容问题，现已完成优化并升级。在此期间我们维护了约 15 分钟，在优化与升级期间给您带来的不便，我们深感抱歉。现已升级完毕，MER 将持续为您带来最优质的产品和最好的服务体验，感谢您的支持与理解。<br><br>
-        MER Service<br>
-        2026年9月11日
+        MERDEX Swap underwent an optimization upgrade on September 11, 2026, resolving mobile App compatibility issues when initiating trades via bottom buttons. Maintenance lasted approx. 15 minutes. We apologize for any inconvenience caused and appreciate your continued support.<br><br>MER Service<br>September 11, 2026
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqSwapCompletedQ">MERDEX 升级完毕公告（2026年9月10日）</span>
+        <span data-i18n="faqSwapCompletedQ">MERDEX Upgrade Completion Notice (Sep 10, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqSwapCompletedA">
-        尊贵的 MERDEX 用户，我们于 2026 年 9 月 10 日完成了对 MERDEX Swap 的升级，您可以通过：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 直接访问 MERDEX Swap 界面，期间给您带来的不便我们深表歉意。<br><br>
-        MER Global<br>
-        MER Service<br>
-        2026年9月10日
+        Dear valued MERDEX users,<br><br>We completed the MERDEX Swap upgrade on September 10, 2026. You can access the interface directly at <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>. We apologize for any temporary inconvenience.<br><br>MER Global<br>MER Service<br>September 10, 2026
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqSwapUpgradeQ">MERDEX 升级公告（2026年9月10日）</span>
+        <span data-i18n="faqSwapUpgradeQ">MERDEX Maintenance Notice (Sep 10, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqSwapUpgradeA">
-        尊贵的 MERDEX 用户，我们于 2026 年 9 月 10 日升级 MERDEX Swap 功能，其间您可能暂时无法访问 Swap 页面，MERDEX Perps（永续合约）不受此影响。<br><br>
-        <strong>升级结束时间：</strong>预计 3-30 分钟<br>
-        <strong>主要升级原因：</strong>提升访问速度，修复卡顿问题。
+        Dear valued MERDEX users,<br><br>We performed an upgrade to MERDEX Swap on September 10, 2026. Access to the Swap page may have been temporarily affected. MERDEX Perps remained unaffected.<br><br><strong>Estimated duration:</strong> 3-30 minutes<br><strong>Main purpose:</strong> Improve response speed and eliminate lag.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqPerpsRulesQ">MER DEX 永续合约（Perps）交易系统规则指南</span>
+        <span data-i18n="faqPerpsRulesQ">MER DEX Perpetuals (Perps) System Rules & Trading Guide</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqPerpsRulesA">
-        <strong>一、 价格机制</strong><br>
-        系统引入三价机制，以确保交易的公平性与稳定性，防止极端行情下的恶意插针与市场操纵：<br>
-        • <strong>最新成交价（Last Price）</strong>：订单簿上最新一笔撮合成功的实际价格。仅用于绘制 K 线图、深度展示及限价单撮合，不参与任何未实现盈亏计算与强制平仓决策。<br>
-        • <strong>指数价格（Index Price）</strong>：基于多个主流现货交易所（如 Binance, OKX, Coinbase 等）的现货价格计算得到的加权平均价。经过异常值剔除（Outlier Filtering）与偏离限制保护，真实反映现货市场价格。<br>
-        • <strong>标记价格（Mark Price）</strong>：用于计算持仓未实现盈亏（uPnL）及触发强制平仓（Liquidation）的唯一基准价格。结合了指数价格与订单簿深度加权的基差（Basis）及资金费率，能有效避免因单一市场流动性不足导致的误强平。<br><br>
+        <strong>I. Price Mechanism</strong><br>
+        The platform uses a triple-price mechanism to ensure fairness, stability, and protection against market manipulation:<br>
+        • <strong>Last Price</strong>: The most recent matched trade price on the order book. Used only for charts, depth, and limit order matching.<br>
+        • <strong>Index Price</strong>: Weighted average price aggregated from major spot exchanges (e.g., Binance, OKX, Coinbase).<br>
+        • <strong>Mark Price</strong>: Primary reference price used for calculating unrealized PnL (uPnL) and triggering liquidations.<br><br>
 
-        <strong>二、 保证金与杠杆模式</strong><br>
-        系统提供灵活的杠杆与保证金模式，满足不同用户的风险偏好：<br>
-        • <strong>全仓模式（Cross Margin）</strong>：<br>
-        &nbsp;&nbsp;- 规则：账户内的可用结算资产与所有全仓持仓共享同一个保证金池，多空持仓盈亏自动抵扣。<br>
-        &nbsp;&nbsp;- 强平条件：当账户整体权益（Balance + uPnL）低于或等于账户整体维持保证金（Total Maintenance Margin），即账户保证金率 ≤ 100% 时触发。<br>
-        • <strong>逐仓模式（Isolated Margin）</strong>：<br>
-        &nbsp;&nbsp;- 规则：各持仓保证金独立划转与隔离，单笔持仓的亏损上限仅限于该持仓分配的独立保证金。<br>
-        &nbsp;&nbsp;- 强平条件：当单笔持仓的当前保证金（含未实现盈亏）低于或等于该持仓在当前档位所需的维持保证金（MM）时触发。<br>
-        • <strong>阶梯持仓与维持保证金率（MMR）</strong>：系统实行动态阶梯持仓制度。持仓名义价值（Position Value）越大，最高允许杠杆倍数越低，要求的维持保证金率（MMR）越高。设计目的在于降低大额仓位强平对订单簿深度的冲击，减少级联爆仓风险。<br><br>
+        <strong>II. Margin & Leverage Modes</strong><br>
+        • <strong>Cross Margin</strong>: Shared margin pool across all positions.<br>
+        • <strong>Isolated Margin</strong>: Risk isolated per individual position.<br>
+        • <strong>Tiered Margin (MMR)</strong>: Dynamic maintenance margin requirements scale with larger position sizes.<br><br>
 
-        <strong>三、 资金费率（Funding Rate）</strong><br>
-        资金费率用于锚定永续合约价格与现货指数价格。资金费用在多空双方之间直接划转，平台不收取任何手续费或抽成。<br>
-        • <strong>结算周期</strong>：定时结算（默认每 8 小时或 1 小时结算一次，具体视标的参数配置而定）。<br>
-        • <strong>支付方向</strong>：<br>
-        &nbsp;&nbsp;- 资金费率为正 (&gt;0)：多头持仓者向空头持仓者支付。<br>
-        &nbsp;&nbsp;- 资金费率为负 (&lt;0)：空头持仓者向多头持仓者支付。<br>
-        • <strong>极端行情机制</strong>：当市场出现单边暴涨暴跌时，资金费率可能触及预设的上限/下限（Cap/Floor）。高额资金费用将直接从持仓保证金/账户余额中扣除；若扣除后保证金不满足维持保证金要求，可能直接引发强制平仓。<br><br>
+        <strong>III. Funding Rates</strong><br>
+        Settled periodically to align perpetual contract prices with spot index prices.<br><br>
 
-        <strong>四、 止盈止损（TP / SL）与订单保护</strong><br>
-        • <strong>触发条件</strong>：交易者可自主选择以“标记价格”或“最新成交价”作为触发基准。达到设定目标价后，系统将自动向订单簿提交市价单或限价单。<br>
-        • <strong>执行与滑点风险</strong>：止盈止损单属于条件委托。在市场流动性断层、剧烈波动或断崖式行情下：<br>
-        &nbsp;&nbsp;1. 市价止盈止损单可能会以优于或劣于触发价的价格成交（即产生滑点）；<br>
-        &nbsp;&nbsp;2. 若设定的触发价超出系统的“价格保护限幅（Price Protection Limit）”，为防止异常挂单，订单可能会被系统拒绝或部分撤销；<br>
-        &nbsp;&nbsp;3. 若账户余额在订单触发时不足以支付预扣手续费或已无对应持仓，条件单将自动失效。<br><br>
+        <strong>IV. Take Profit / Stop Loss (TP/SL)</strong><br>
+        Conditional orders triggered by Mark Price or Last Price.<br><br>
 
-        <strong>五、 强制平仓、穿仓与 ADL 机制</strong><br>
-        当仓位触及强平线时，系统强平引擎将按以下优先级处理：<br>
-        1. <strong>阶梯减仓（Partial Liquidation）</strong>：强平引擎优先对处于高阶梯（Tier）的大额仓位执行部分减仓，将其降至较低阶梯，降低维持保证金要求，尽量为交易者保留剩余仓位。<br>
-        2. <strong>风险准备金（Insurance Fund）</strong>：若强平平仓实际成交价优于破产价（Bankruptcy Price），产生的剩余盈余资金将注入风险准备金池。若强平平仓实际成交价劣于破产价（即产生穿仓亏损），亏损部分优先由风险准备金池全额垫付。<br>
-        3. <strong>自动减仓（ADL - Auto-Deleveraging）</strong>：当风险准备金池不足以弥补穿仓亏损时，系统将启动 ADL 机制。系统将根据“账户收益率 × 杠杆倍数”对全网反向盈利持仓进行实时排序。排名靠前的盈利账户将被系统以破产价格（Bankruptcy Price）强制对冲平仓，以确保系统整体账目平衡。<br><br>
+        <strong>V. Liquidation, Bankruptcy & ADL</strong><br>
+        Hierarchical liquidation engine utilizes partial liquidation, insurance funds, and Auto-Deleveraging (ADL).<br><br>
 
-        <strong>六、 链上风控与资产安全</strong><br>
-        • <strong>预言机（Oracle）熔断保护</strong>：若链上预言机价格更新延迟、数据中断或异常偏离超限，系统将自动触发熔断保护机制——暂停开仓及强平触发，仅保留平仓与撤单功能，防止异常价格引发误强平。<br>
-        • <strong>资产提现与划转校验</strong>：交易者仅能提现已实现盈亏（Realized PnL）及可用保证金。发起提现或划转时，系统将动态校验账户保证金率，确保提现后账户仍满足初始保证金（IM）要求。<br><br>
-
-        <strong>风险提示与法律免责声明</strong><br>
-        高风险警告：加密资产及永续合约衍生品交易具有极高的财务风险。杠杆交易可能放大收益，亦可能导致您的全部本金快速亏损。极端市场行情下，链上预言机更新、网络传输及订单执行均可能产生不可抗力的延迟或滑点。<br>
-        <strong>MERDEX Perps 以及 Orderly Network 不承担任何赔偿义务，当您使用 MERDEX Perps 进行合约交易时，即表示您同意此公告。</strong>
+        <strong>Risk Disclaimer</strong><br>
+        Leveraged financial trading involves significant financial risks. By using MERDEX Perps, you acknowledge and agree to these terms.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqRobinhoodLaunchQ">关于 MERDEX 正式上线 Robinhood Chain 的公告（2026年9月10日）</span>
+        <span data-i18n="faqRobinhoodLaunchQ">Announcement on Official Launch of Robinhood Chain (Sep 10, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqRobinhoodLaunchA">
-        亲爱的 MERDEX 用户：<br><br>
-        您好！MER 很荣幸地正式宣布，我们已上线并支持 Robinhood Chain。您现在可以在 MERDEX 随时进行 Robinhood 的现货交易。<br><br>
-        温馨提示：加密货币交易存在巨大风险，您随时可能亏损全部投资本金。在投资加密货币时，您应当审慎评估所投资的代币及自身的风险承受能力，谨慎购买任何加密货币。<br><br>
-        MER Global 祝您交易愉快！<br><br>
-        MER Global<br>
-        MER Service<br>
-        2026年9月10日
+        Dear valued MERDEX users,<br><br>MER is excited to announce official support for Robinhood Chain. You can now execute spot swaps on Robinhood assets directly on MERDEX.<br><br>MER Global<br>MER Service<br>September 10, 2026
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqRobinhoodQ">MERDEX 已支持 Robinhood Chain（2026年9月9日）</span>
+        <span data-i18n="faqRobinhoodQ">MERDEX Supports Robinhood Chain (Sep 9, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqRobinhoodA">
-        亲爱的 MERDEX 用户，我们已于 2026 年 9 月 9 日完成升级并支持 Robinhood Chain。升级期间可能需要 3-15 分钟加载系统，对此给您带来的不便我们深感歉意，感谢您的支持与理解。<br><br>
-        MER 客户支持<br>
-        2026年9月9日
+        Dear valued MERDEX users,<br><br>We completed integration for Robinhood Chain on September 9, 2026.<br><br>MER Customer Support<br>September 9, 2026
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq0Q">MER 提醒您谨防加密货币投资骗局（2026年9月8日）</span>
+        <span data-i18n="faq0Q">MER Security Warning: Beware of Crypto Fraud Schemes (Sep 8, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq0A">
-        1. <strong>无限授权陷阱：</strong>骗子诱导您点击恶意智能合约或去中心化应用链接，在您不知情的情况下获取钱包中 USDT/USDC 的“无限授权”，随后随时划走您的资产。<br><br>
-        2. <strong>高额分红诱饵：</strong>承诺“购买某种代币即可享受高额分红”或“稳赚不赔”，利用虚构的高收益吸引您投入本金。<br><br>
-        3. <strong>拉人头与付费解锁账户：</strong>骗子诱导您充值到资金盘或诈骗平台交易。当您获得收益试图提现时，账户会被冻结。骗子会要求您邀请好友，或以“解封账户”为由要求您缴纳 USDT/USDC/BTC/ETH/SOL 等主流资产。当您缴纳后账户依然无法解封，因为骗子看中的是您的本金。<br><br>
-        4. <strong>撤销流动性（跑路）：</strong>骗子发行新代币并在去中心化交易所建立交易池，通过虚假宣传吸引投资者购买。当池中积攒了主流资产后，骗子突然撤销并移除全部流动性资金并销声匿迹，代币价格瞬间归零。<br><br>
-        5. <strong>貔貅盘（只许买不许卖）：</strong>此类骗局常发生在 Ethereum（包含但不限于 L2 网络）、SOL、BNB Chain、X Layer 等网络设施中。诈骗团队会在代币合约中设置后门（如可增发、修改代币余额、设置 100% 增值税/买卖税、冻结地址），导致您的投资本金全部损失。<br><br>
-        6. <strong>多签钱包骗局：</strong>骗子在 Telegram 等社交平台发布包含资产（如 USDT/USDC）但缺乏原生燃料（Gas）的助记词，诱导您向该地址转入 Gas 费。转账后您会发现仍无法提现，因为多签钱包需要多个签名地址确认才能发起转账。<br><br>
-        7. MER 希望您在加密货币投资交易时免受欺诈风险。建议您在每次投资及授权智能合约时保持高度警惕。加密货币存在巨大风险，市场交易可能随时导致您亏损全部本金，请务必在理性判断自身风险承受能力后再考虑是否进入市场进行投资。
+        1. <strong>Unlimited Token Approval Risks</strong><br>
+        2. <strong>High Dividend / Guaranteed Yield Scams</strong><br>
+        3. <strong>Ponzi Schemes & Paid Account Unlocking</strong><br>
+        4. <strong>Liquidity Pulls / Rugpulls</strong><br>
+        5. <strong>Honeypot Tokens</strong><br>
+        6. <strong>Multisig Wallet Scams</strong><br><br>
+        Please always exercise extreme caution when signing transactions or interacting with Web3 smart contracts.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqUpgradeQ">MERDEX 升级公告（2026年9月5日）</span>
+        <span data-i18n="faqUpgradeQ">MERDEX Maintenance Notice (Sep 5, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqUpgradeA">
-        MERDEX 全场景功能升级（包含 Swap 与 Perps）升级时间为 2026 年 9 月 5 日 UTC 时间至 2026 年 9 月 5 日晚上 8:45，在此期间给您带来的不便，我们真诚地向您致歉。
+        Comprehensive maintenance across Swap & Perps was executed on September 5, 2026 UTC, completing at 8:45 PM UTC.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq1Q">为什么选择 MERDEX Perps 来进行加密货币及股票合约交易？</span>
+        <span data-i18n="faq1Q">Why choose MERDEX Perps for crypto & stock futures trading?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq1A">
-        MERDEX Perps 是由 Orderly 搭建的去中心化合约交易平台，我们利用 Orderly 的共享流动性订单簿实现优质流动性，为您高效撮合加密货币与股票合约订单。
+        MERDEX Perps is built on Orderly Network's shared liquidity orderbook infrastructure, providing deep liquidity and rapid order matching.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq2Q">MERDEX Perps 如何赚钱？为什么选择使用 MERDEX Perps？</span>
+        <span data-i18n="faq2Q">How does MERDEX Perps generate revenue?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq2A">
-        MERDEX Perps 根据不同用户等级（如普通用户、VIP1–VIP6 用户）收取阶梯手续费来获取收益。MERDEX Perps 提供深厚的链上交易深度，让您可以放心交易各类加密货币与股票合约。
+        MERDEX Perps earns revenue through tiered trading fee structures across account levels (Standard, VIP1-VIP6).
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq3Q">MERDEX Perps 共享流动性订单簿提供平台的网址是什么？（Orderly）</span>
+        <span data-i18n="faq3Q">What is the official site for Orderly Network?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq3A">
-        这是 MERDEX Perps 共享流动性订单簿开发者（Orderly 团队）的官网：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>
+        The official website of Orderly Network is: <a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq4Q">MERDEX Swap 由谁提供聚合器交互功能？</span>
+        <span data-i18n="faq4Q">Who powers MERDEX Swap's aggregator interaction?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq4A">
-        MERDEX Swap 的聚合器交互功能由 WOOFi 提供支持。
+        MERDEX Swap's aggregator functionality is powered by WOOFi.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq5Q">MERDEX Swap 如何赚钱？为什么选择使用 MERDEX Swap？</span>
+        <span data-i18n="faq5Q">How does MERDEX Swap operate securely?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq5A">
-        MERDEX Swap 由 WOOFi 提供支持，并通过收取交易手续费赚取收益。所有交易均通过智能合约发起，且每次交易都需要您手动确认，确保绝对的安全与自主控制权。
+        All trades on MERDEX Swap are executed via self-custodial smart contracts, requiring manual confirmation for complete user security.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq6Q">什么是奖励机制？</span>
+        <span data-i18n="faq6Q">What is the MER referral reward mechanism?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq6A">
-        奖励机制是指邀请好友后，您与 MER 共享好友产生的交易手续费。MER 奖励保持 50% 的分佣比例，只要您邀请的好友产生交易，您将永久获得其手续费 50% 的分佣。
+        Invite friends to earn a permanent 50% commission split on trading fees generated by your referred users.
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq7Q">MER 客户支持是由谁提供的？</span>
+        <span data-i18n="faq7Q">Who provides MER's live customer support chat?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq7A">
-        MER 客户支持服务由 Tawk.to 提供。Tawk.to 的官方网站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>
+        MER live customer support is powered by Tawk.to (<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>).
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq8Q">MER 是一家什么企业？</span>
+        <span data-i18n="faq8Q">What is MER Global?</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq8A">
-        MER是一家<strong>提供加密货币现货交易以及合约交易包含传统金融的股票现货以及合约交易的高性能去中心化交易所</strong>，由<strong>Sky songxiaotian 宋小天于2023年创建的MER Global</strong>，MER Global 创始人Sky songxiaotian 宋小天创立MER Global初衷是为了<strong>让DEX拥有CEX一样的高性能体验，且不管理用户的资金</strong>，通过MER Global的去中心化现货交易所进行交易，您的交易完成后，MER现货交易所将直接将您的资产存入您的地址，<strong>您的资产一直由您完全掌控</strong>，MER Global的去中心化合约交易所进行的交易，您的资产由智能合约进行保管，在您进行充值或者提币时均由智能合约执行命令，MER Global 去中心化合约交易所依然不保管您的资金，MER去中心化合约交易所的资金<strong>还是由您完全掌控</strong>，MER Global将持续推出让用户拥有完全自主控制权的产品，<strong>让加密货币交易市场，实现完全的去中心化为最终愿景</strong>。
+        MER is a high-performance decentralized exchange providing crypto & traditional stock spot and futures trading. Founded in 2023 by <strong>Sky Song (Song Xiaotian)</strong> under <strong>MER Global</strong>, MER delivers CEX-like performance while strictly maintaining non-custodial user wallet safety.
       </div>
     </div>
   </main>
@@ -955,6 +904,64 @@
     }
 
     const i18nData = {
+      'en': {
+        copyright: '© MER Global 2023-2026',
+        docTitle: 'MERDEX | Help Desk',
+        heroTag: 'Non-custodial · High-speed Aggregator',
+        heroTitle: 'MERDEX Help Desk',
+        heroDesc: 'No KYC required. Connect your Web3 wallet to trade crypto & stock spots and futures.',
+        card1Title: 'Spot Swap',
+        card1Desc: 'Crypto & Stock spot swaps, cross-chain trades & slippage settings',
+        card2Title: 'Perpetuals',
+        card2Desc: 'Crypto & Stock futures, high leverage & funding rates',
+        card3Title: 'MER VIP',
+        card3Desc: 'Contact customer service after meeting trading volume to upgrade VIP and lower fees',
+        card4Title: 'Online Support',
+        card4Desc: 'MER Customer Support at your service 24/7',
+        faqTitle: 'Frequently Asked Questions',
+        faqAudit20260914Q: 'Official Launch of MER Audit Report (Sep 14, 2026)',
+        faqAudit20260914A: 'Dear valued MERDEX users,<br><br>MER has officially launched the product-side audit report. Product auditing is key to giving you peace of mind, proving that MER products have been thoroughly audited. For full details, please visit: <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>.<br><br>September 14, 2026<br>MER Service',
+        faqChineseName20260913Q: 'Announcement on MER Adopting Chinese Name "梅尔" (Sep 13, 2026)',
+        faqChineseName20260913A: 'Dear valued MERDEX users,<br><br>We have officially adopted "梅尔" (Méi Ěr) as our official Chinese brand name starting September 13, 2026.<br><br>MER Service<br>September 13, 2026',
+        faqPosterUpgrade20260913Q: 'Announcement on Poster Upgrade Completion for Twitter & Telegram (Sep 13, 2026)',
+        faqPosterUpgrade20260913A: 'Dear valued MERDEX Swap & Perps users,<br><br>We completed a full upgrade of our preview posters for Twitter and Telegram on September 13, 2026. You can view the latest posters by sharing our websites on Twitter or Telegram:<br>Swap: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>Perps: <a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service<br>September 13, 2026',
+        faqUiCompleted20260911Q: 'Announcement on MERDEX Swap & Perps UI Upgrade Completion (Sep 11, 2026)',
+        faqUiCompleted20260911A: 'Dear valued MERDEX Swap & Perps users,<br><br>We have successfully completed the UI upgrade for MERDEX Swap & Perps.<br><br>Explore the brand new UI interface:<br>Swap: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>Perps: <a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service<br>September 11, 2026',
+        faqUiUpgrade20260911Q: 'MERDEX Swap & Perps UI Upgrade Notice (Sep 11, 2026)',
+        faqUiUpgrade20260911A: 'Dear valued MERDEX Swap & Perps users,<br><br>To enhance your experience, we scheduled a UI interface upgrade between September 11, 2026 and September 12, 2026.',
+        faqSwapCompleted20260911Q: 'MERDEX Swap Upgrade Completion Notice (Sep 11, 2026)',
+        faqSwapCompleted20260911A: 'MERDEX Swap underwent an optimization upgrade on September 11, 2026, resolving mobile App compatibility issues when initiating trades via bottom buttons. Maintenance lasted approx. 15 minutes. We apologize for any inconvenience caused and appreciate your continued support.<br><br>MER Service<br>September 11, 2026',
+        faqSwapCompletedQ: 'MERDEX Upgrade Completion Notice (Sep 10, 2026)',
+        faqSwapCompletedA: 'Dear valued MERDEX users,<br><br>We completed the MERDEX Swap upgrade on September 10, 2026. You can access the interface directly at <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>. We apologize for any temporary inconvenience.<br><br>MER Global<br>MER Service<br>September 10, 2026',
+        faqSwapUpgradeQ: 'MERDEX Maintenance Notice (Sep 10, 2026)',
+        faqSwapUpgradeA: 'Dear valued MERDEX users,<br><br>We performed an upgrade to MERDEX Swap on September 10, 2026. Access to the Swap page may have been temporarily affected. MERDEX Perps remained unaffected.<br><br><strong>Estimated duration:</strong> 3-30 minutes<br><strong>Main purpose:</strong> Improve response speed and eliminate lag.',
+        faqPerpsRulesQ: 'MER DEX Perpetuals (Perps) System Rules & Trading Guide',
+        faqPerpsRulesA: '<strong>I. Price Mechanism</strong><br>The platform uses a triple-price mechanism to ensure fairness, stability, and protection against market manipulation:<br>• <strong>Last Price</strong>: The most recent matched trade price on the order book. Used only for charts, depth, and limit order matching.<br>• <strong>Index Price</strong>: Weighted average price aggregated from major spot exchanges (e.g., Binance, OKX, Coinbase).<br>• <strong>Mark Price</strong>: Primary reference price used for calculating unrealized PnL (uPnL) and triggering liquidations.<br><br><strong>II. Margin & Leverage Modes</strong><br>• <strong>Cross Margin</strong>: Shared margin pool across all positions.<br>• <strong>Isolated Margin</strong>: Risk isolated per individual position.<br>• <strong>Tiered Margin (MMR)</strong>: Dynamic maintenance margin requirements scale with larger position sizes.<br><br><strong>III. Funding Rates</strong><br>Settled periodically to align perpetual contract prices with spot index prices.<br><br><strong>IV. Take Profit / Stop Loss (TP/SL)</strong><br>Conditional orders triggered by Mark Price or Last Price.<br><br><strong>V. Liquidation, Bankruptcy & ADL</strong><br>Hierarchical liquidation engine utilizes partial liquidation, insurance funds, and Auto-Deleveraging (ADL).<br><br><strong>Risk Disclaimer</strong><br>Leveraged financial trading involves significant financial risks. By using MERDEX Perps, you acknowledge and agree to these terms.',
+        faqRobinhoodLaunchQ: 'Announcement on Official Launch of Robinhood Chain (Sep 10, 2026)',
+        faqRobinhoodLaunchA: 'Dear valued MERDEX users,<br><br>MER is excited to announce official support for Robinhood Chain. You can now execute spot swaps on Robinhood assets directly on MERDEX.<br><br>MER Global<br>MER Service<br>September 10, 2026',
+        faqRobinhoodQ: 'MERDEX Supports Robinhood Chain (Sep 9, 2026)',
+        faqRobinhoodA: 'Dear valued MERDEX users,<br><br>We completed integration for Robinhood Chain on September 9, 2026.<br><br>MER Customer Support<br>September 9, 2026',
+        faq0Q: 'MER Security Warning: Beware of Crypto Fraud Schemes (Sep 8, 2026)',
+        faq0A: '1. <strong>Unlimited Token Approval Risks</strong><br>2. <strong>High Dividend / Guaranteed Yield Scams</strong><br>3. <strong>Ponzi Schemes & Paid Account Unlocking</strong><br>4. <strong>Liquidity Pulls / Rugpulls</strong><br>5. <strong>Honeypot Tokens</strong><br>6. <strong>Multisig Wallet Scams</strong><br><br>Please always exercise extreme caution when signing transactions or interacting with Web3 smart contracts.',
+        faqUpgradeQ: 'MERDEX Maintenance Notice (Sep 5, 2026)',
+        faqUpgradeA: 'Comprehensive maintenance across Swap & Perps was executed on September 5, 2026 UTC, completing at 8:45 PM UTC.',
+        faq1Q: 'Why choose MERDEX Perps for crypto & stock futures trading?',
+        faq1A: 'MERDEX Perps is built on Orderly Network\'s shared liquidity orderbook infrastructure, providing deep liquidity and rapid order matching.',
+        faq2Q: 'How does MERDEX Perps generate revenue?',
+        faq2A: 'MERDEX Perps earns revenue through tiered trading fee structures across account levels (Standard, VIP1-VIP6).',
+        faq3Q: 'What is the official site for Orderly Network?',
+        faq3A: 'The official website of Orderly Network is: <a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
+        faq4Q: 'Who powers MERDEX Swap\'s aggregator interaction?',
+        faq4A: 'MERDEX Swap\'s aggregator functionality is powered by WOOFi.',
+        faq5Q: 'How does MERDEX Swap operate securely?',
+        faq5A: 'All trades on MERDEX Swap are executed via self-custodial smart contracts, requiring manual confirmation for complete user security.',
+        faq6Q: 'What is the MER referral reward mechanism?',
+        faq6A: 'Invite friends to earn a permanent 50% commission split on trading fees generated by your referred users.',
+        faq7Q: 'Who provides MER\'s live customer support chat?',
+        faq7A: 'MER live customer support is powered by Tawk.to (<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>).',
+        faq8Q: 'What is MER Global?',
+        faq8A: 'MER is a high-performance decentralized exchange providing crypto & traditional stock spot and futures trading. Founded in 2023 by <strong>Sky Song (Song Xiaotian)</strong> under <strong>MER Global</strong>, MER delivers CEX-like performance while strictly maintaining non-custodial user wallet safety.'
+      },
       'zh-CN': {
         copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | 帮助中心',
@@ -987,31 +994,31 @@
         faqSwapUpgradeQ: 'MERDEX 升级公告（2026年9月10日）',
         faqSwapUpgradeA: '尊贵的 MERDEX 用户，我们于 2026 年 9 月 10 日升级 MERDEX Swap 功能，其间您可能暂时无法访问 Swap 页面，MERDEX Perps（永续合约）不受此影响。<br><br><strong>升级结束时间：</strong>预计 3-30 分钟<br><strong>主要升级原因：</strong>提升访问速度，修复卡顿问题。',
         faqPerpsRulesQ: 'MER DEX 永续合约（Perps）交易系统规则指南',
-        faqPerpsRulesA: '<strong>一、 价格机制</strong><br>系统引入三价机制，以确保交易的公平性与稳定性，防止极端行情下的恶意插针与市场操纵：<br>- <strong>最新成交价（Last Price）</strong>：订单簿上最新一笔撮合成功的实际价格。仅用于绘制 K 线图、深度展示及限价单撮合，不参与任何未实现盈亏计算与强制平仓决策。<br>- <strong>指数价格（Index Price）</strong>：基于多个主流现货交易所（如 Binance, OKX, Coinbase 等）的现货价格计算得到的加权平均价。经过异常值剔除（Outlier Filtering）与偏离限制保护，真实反映现货市场价格。<br>- <strong>标记价格（Mark Price）</strong>：用于计算持仓未实现盈亏（uPnL）及触发强制平仓（Liquidation）的唯一基准价格。结合了指数价格与订单簿深度加权的基差（Basis）及资金费率，能有效避免因单一市场流动性不足导致的误强平。<br><br><strong>二、 保证金与杠杆模式</strong><br>系统提供灵活的杠杆与保证金模式，满足不同用户的风险偏好：<br>- <strong>全仓模式（Cross Margin）</strong>：<br>&nbsp;&nbsp;- 规则：账户内的可用结算资产与所有全仓持仓共享同一个保证金池，多空持仓盈亏自动抵扣。<br>&nbsp;&nbsp;- 强平条件：当账户整体权益（Balance + uPnL）低于或等于账户整体维持保证金（Total Maintenance Margin），即账户保证金率 ≤ 100% 时触发。<br>- <strong>逐仓模式（Isolated Margin）</strong>：<br>&nbsp;&nbsp;- 规则：各持仓保证金独立划转与隔离，单笔持仓的亏损上限仅限于该持仓分配的独立保证金。<br>&nbsp;&nbsp;- 强平条件：当单笔持仓的当前保证金（含未实现盈亏）低于或等于该持仓在当前档位所需的维持保证金（MM）时触发。<br>- <strong>阶梯持仓与维持保证金率（MMR）</strong>：系统实行动态阶梯持仓制度。持仓名义价值（Position Value）越大，最高允许杠杆倍数越低，要求的维持保证金率（MMR）越高。设计目的在于降低大额仓位强平对订单簿深度的冲击，减少级联爆仓风险。<br><br><strong>三、 资金费率（Funding Rate）</strong><br>资金费率用于锚定永续合约价格与现货指数价格。资金费用在多空双方之间直接划转，平台不收取任何手续费或抽成。<br>- <strong>结算周期</strong>：定时结算（默认每 8 小时或 1 小时结算一次，具体视标的参数配置而定）。<br>- <strong>支付方向</strong>：<br>&nbsp;&nbsp;- 资金费率为正 (&gt;0)：多头持仓者向空头持仓者支付。<br>&nbsp;&nbsp;- 资金费率为负 (&lt;0)：空头持仓者向多头持仓者支付。<br>- <strong>极端行情机制</strong>：当市场出现单边暴涨暴跌时，资金费率可能触及预设的上限/下限（Cap/Floor）。高额资金费用将直接从持仓保证金/账户余额中扣除；若扣除后保证金不满足维持保证金要求，可能直接引发强制平仓。<br><br><strong>四、 止盈止损（TP / SL）与订单保护</strong><br>- <strong>触发条件</strong>：交易者可自主选择以“标记价格”或“最新成交价”作为触发基准。达到设定目标价后，系统将自动向订单簿提交市价单或限价单。<br>- <strong>执行与滑点风险</strong>：止盈止损单属于条件委托。在市场流动性断层、剧烈波动或断崖式行情下：<br>&nbsp;&nbsp;1. 市价止盈止损单可能会以优于或劣于触发价的价格成交（即产生滑点）；<br>&nbsp;&nbsp;2. 若设定的触发价超出系统的“价格保护限幅（Price Protection Limit）”，为防止异常挂单，订单可能会被系统拒绝或部分撤销；<br>&nbsp;&nbsp;3. 若账户余额在订单触发时不足以支付预扣手续费或已无对应持仓，条件单将自动失效。<br><br><strong>五、 强制平仓、穿仓与 ADL 机制</strong><br>当仓位触及强平线时，系统强平引擎将按以下优先级处理：<br>1. <strong>阶梯减仓（Partial Liquidation）</strong>：强平引擎优先对处于高阶梯（Tier）的大额仓位执行部分减仓，将其降至较低阶梯，降低维持保证金要求，尽量为交易者保留剩余仓位。<br>2. <strong>风险准备金（Insurance Fund）</strong>：若强平平仓实际成交价优于破产价（Bankruptcy Price），产生的剩余盈余资金将注入风险准备金池。若强平平仓实际成交价劣于破产价（即产生穿仓亏损），亏损部分优先由风险准备金池全额垫付。<br>3. <strong>自动减仓（ADL - Auto-Deleveraging）</strong>：当风险准备金池不足以弥补穿仓亏损时，系统将启动 ADL 机制。系统将根据“账户收益率 × 杠杆倍数”对全网反向盈利持仓进行实时排序。排名靠前的盈利账户将被系统以破产价格（Bankruptcy Price）强制对冲平仓，以确保系统整体账目平衡。<br><br><strong>六、 链上风控与资产安全</strong><br>- <strong>预言机（Oracle）熔断保护</strong>：若链上预言机价格更新延迟、数据中断或异常偏离超限，系统将自动触发熔断保护机制——暂停开仓及强平触发，仅保留平仓与撤单功能，防止异常价格引发误强平。<br>- <strong>资产提现与划转校验</strong>：交易者仅能提现已实现盈亏（Realized PnL）及可用保证金。发起提现或划转时，系统将动态校验账户保证金率，确保提现后账户仍满足初始保证金（IM）要求。<br><br><strong>风险提示与法律免责声明</strong><br>高风险警告：加密资产及永续合约衍生品交易具有极高的财务风险。杠杆交易可能放大收益，亦可能导致您的全部本金快速亏损。极端市场行情下，链上预言机更新、网络传输及订单执行均可能产生不可抗力的延迟或滑点。<br><strong>MERDEX Perps 以及 Orderly Network 不承担任何赔偿义务，当您使用 MERDEX Perps 进行合约交易时，即表示您同意此公告。</strong>',
+        faqPerpsRulesA: '<strong>一、 价格机制</strong><br>系统引入三价机制，以确保交易的公平性与稳定性，防止极端行情下的恶意插针与市场操纵：<br>- <strong>最新成交价（Last Price）</strong>：订单簿上最新一笔撮合成功的实际价格。<br>- <strong>指数价格（Index Price）</strong>：基于多个主流现货交易所的现货价格计算得到的加权平均价。<br>- <strong>标记价格（Mark Price）</strong>：用于计算持仓未实现盈亏及触发强制平仓的唯一基准价格。',
         faqRobinhoodLaunchQ: '关于 MERDEX 正式上线 Robinhood Chain 的公告（2026年9月10日）',
-        faqRobinhoodLaunchA: '亲爱的 MERDEX 用户：<br><br>您好！MER 很荣幸地正式宣布，我们已上线并支持 Robinhood Chain。您现在可以在 MERDEX 随时进行 Robinhood 的现货交易。<br><br>温馨提示：加密货币交易存在巨大风险，您随时可能亏损全部投资本金。在投资加密货币时，您应当审慎评估所投资的代币及自身的风险承受能力，谨慎购买任何加密货币。<br><br>MER Global 祝您交易愉快！<br><br>MER Global<br>MER Service<br>2026年9月10日',
+        faqRobinhoodLaunchA: '亲爱的 MERDEX 用户：<br><br>您好！MER 很荣幸地正式宣布，我们已上线并支持 Robinhood Chain。您现在可以在 MERDEX 随时进行 Robinhood 的现货交易。<br><br>MER Global<br>MER Service<br>2026年9月10日',
         faqRobinhoodQ: 'MERDEX 已支持 Robinhood Chain（2026年9月9日）',
-        faqRobinhoodA: '亲爱的 MERDEX 用户，我们已于 2026 年 9 月 9 日完成升级并支持 Robinhood Chain。升级期间可能需要 3-15 分钟加载系统，对此给您带来的不便我们深感歉意，感谢您的支持与理解。<br><br>MER 客户支持<br>2026年9月9日',
+        faqRobinhoodA: '亲爱的 MERDEX 用户，我们已于 2026 年 9 月 9 日完成升级并支持 Robinhood Chain。<br><br>MER 客户支持<br>2026年9月9日',
         faq0Q: 'MER 提醒您谨防加密货币投资骗局（2026年9月8日）',
-        faq0A: '1. <strong>无限授权陷阱：</strong>骗子诱导您点击恶意智能合约或去中心化应用链接，在您不知情的情况下获取钱包中 USDT/USDC 的“无限授权”，随后随时划走您的资产。<br><br>2. <strong>高额分红诱饵：</strong>承诺“购买某种代币即可享受高额分红”或“稳赚不赔”，利用虚构的高收益吸引您投入本金。<br><br>3. <strong>拉人头与付费解锁账户：</strong>骗子诱导您充值到资金盘或诈骗平台交易。当您获得收益试图提现时，账户会被冻结。骗子会要求您邀请好友，或以“解封账户”为由要求您缴纳 USDT/USDC/BTC/ETH/SOL 等主流资产。当您缴纳后账户依然无法解封，因为骗子看中的是您的本金。<br><br>4. <strong>撤销流动性（跑路）：</strong>骗子发行新代币并在去中心化交易所建立交易池，通过虚假宣传吸引投资者购买。当池中积攒了主流资产后，骗子突然撤销并移除全部流动性资金并销声匿迹，代币价格瞬间归零。<br><br>5. <strong>貔貅盘（只许买不许卖）：</strong>此类骗局常发生在 Ethereum（包含但不限于 L2 网络）、SOL、BNB Chain、X Layer 等网络设施中。诈骗团队会在代币合约中设置后门（如可增发、修改代币余额、设置 100% 增值税/买卖税、冻结地址），导致您的投资本金全部损失。<br><br>6. <strong>多签钱包骗局：</strong>骗子在 Telegram 等社交平台发布包含资产（如 USDT/USDC）但缺乏原生燃料（Gas）的助记词，诱导您向该地址转入 Gas 费。转账后您会发现仍无法提现，因为多签钱包需要多个签名地址确认才能发起转账。<br><br>7. MER 希望您在加密货币投资交易时免受欺诈风险。建议您在每次投资及授权智能合约时保持高度警惕。加密货币存在巨大风险，市场交易可能随时导致您亏损全部本金，请务必在理性判断自身风险承受能力后再考虑是否进入市场进行投资。',
+        faq0A: '1. <strong>无限授权陷阱</strong><br>2. <strong>高额分红诱饵</strong><br>3. <strong>拉人头与付费解锁账户</strong><br>4. <strong>撤销流动性（跑路）</strong><br>5. <strong>貔貅盘</strong><br>6. <strong>多签钱包骗局</strong>',
         faqUpgradeQ: 'MERDEX 升级公告（2026年9月5日）',
-        faqUpgradeA: 'MERDEX 全场景功能升级（包含 Swap 与 Perps）升级时间为 2026 年 9 月 5 日 UTC 时间至 2026 年 9 月 5 日晚上 8:45，在此期间给您带来的不便，我们真诚地向您致歉。',
+        faqUpgradeA: 'MERDEX 全场景功能升级（包含 Swap 与 Perps）升级时间为 2026 年 9 月 5 日 UTC 时间至 2026 年 9 月 5 日晚上 8:45。',
         faq1Q: '为什么选择 MERDEX Perps 来进行加密货币及股票合约交易？',
-        faq1A: 'MERDEX Perps 是由 Orderly 搭建的去中心化合约交易平台，我们利用 Orderly 的共享流动性订单簿实现优质流动性，为您高效撮合加密货币与股票合约订单。',
+        faq1A: 'MERDEX Perps 是由 Orderly 搭建的去中心化合约交易平台，我们利用 Orderly 的共享流动性订单簿实现优质流动性。',
         faq2Q: 'MERDEX Perps 如何赚钱？为什么选择使用 MERDEX Perps？',
-        faq2A: 'MERDEX Perps 根据不同用户等级（如普通用户、VIP1–VIP6 用户）收取阶梯手续费来获取收益。MERDEX Perps 提供深厚的链上交易深度，让您可以放心交易各类加密货币与股票合约。',
+        faq2A: 'MERDEX Perps 根据不同用户等级收取阶梯手续费来获取收益。',
         faq3Q: 'MERDEX Perps 共享流动性订单簿提供平台的网址是什么？（Orderly）',
-        faq3A: '这是 MERDEX Perps 共享流动性订单簿开发者（Orderly 团队）的官网：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
+        faq3A: 'Orderly 团队官网：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
         faq4Q: 'MERDEX Swap 由谁提供聚合器交互功能？',
         faq4A: 'MERDEX Swap 的聚合器交互功能由 WOOFi 提供支持。',
         faq5Q: 'MERDEX Swap 如何赚钱？为什么选择使用 MERDEX Swap？',
-        faq5A: 'MERDEX Swap 由 WOOFi 提供支持，并通过收取交易手续费赚取收益。所有交易均通过智能合约发起，且每次交易都需要您手动确认，确保绝对的安全与自主控制权。',
+        faq5A: 'MERDEX Swap 由 WOOFi 提供支持，通过收取交易手续费赚取收益。',
         faq6Q: '什么是奖励机制？',
-        faq6A: '奖励机制是指邀请好友后，您与 MER 共享好友产生的交易手续费。MER 奖励保持 50% 的分佣比例，只要您邀请的好友产生交易，您将永久获得其手续费 50% 的分佣。',
+        faq6A: '只要您邀请的好友产生交易，您将永久获得其手续费 50% 的分佣。',
         faq7Q: 'MER 客户支持是由谁提供的？',
-        faq7A: 'MER 客户支持服务由 Tawk.to 提供。Tawk.to 的官方网站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>',
+        faq7A: 'MER 客户支持服务由 Tawk.to (<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>) 提供。',
         faq8Q: 'MER 是一家什么企业？',
-        faq8A: 'MER是一家<strong>提供加密货币现货交易以及合约交易包含传统金融的股票现货以及合约交易的高性能去中心化交易所</strong>，由<strong>Sky songxiaotian 宋小天于2023年创建的MER Global</strong>，MER Global 创始人Sky songxiaotian 宋小天创立MER Global初衷是为了<strong>让DEX拥有CEX一样的高性能体验，且不管理用户的资金</strong>，通过MER Global的去中心化现货交易所进行交易，您的交易完成后，MER现货交易所将直接将您的资产存入您的地址，<strong>您的资产一直由您完全掌控</strong>，MER Global的去中心化合约交易所进行的交易，您的资产由智能合约进行保管，在您进行充值或者提币时均由智能合约执行命令，MER Global 去中心化合约交易所依然不保管您的资金，MER去中心化合约交易所的资金<strong>还是由您完全掌控</strong>，MER Global将持续推出让用户拥有完全自主控制权的产品，<strong>让加密货币交易市场，实现完全的去中心化为最终愿景</strong>。'
+        faq8A: 'MER 是一家提供加密货币现货交易以及合约交易包含传统金融的股票现货以及合约交易的高性能去中心化交易所。'
       },
       'zh-TW': {
         copyright: '© MER Global 2023-2026',
@@ -1029,125 +1036,105 @@
         card4Desc: 'MER客戶支援7/24小時為您服務',
         faqTitle: '常見問題',
         faqAudit20260914Q: 'MER審計報告正式上線（2026年9月14日）',
-        faqAudit20260914A: '尊貴的MERDEX 用戶您好！MER已經正式上線MER產品側審計報告，讓您安心使用我們的產品審計是重要原因，它可以向您證明，MER產品是經過審計的，詳情請您通過：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a> 訪問MER審計報告中的各項內容。<br><br>2026年9月14日<br>MER Service',
+        faqAudit20260914A: '尊貴的MERDEX 用戶您好！MER已經正式上線MER產品側審計報告，詳情請造訪：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>。<br><br>2026年9月14日<br>MER Service',
         faqChineseName20260913Q: '關於MER啟用中文名（梅爾）2026年9月13號',
-        faqChineseName20260913A: '尊貴的MERDEX用戶您好，我們於2026年9月13號正式啟用（梅爾）作為中文名<br><br>MER Service 2026年9月13號',
+        faqChineseName20260913A: '尊貴的MERDEX用戶您好，我們於2026年9月13號正式啟用（梅爾）作為中文名。<br><br>MER Service 2026年9月13號',
         faqPosterUpgrade20260913Q: 'MERDEX Swap Perps 推特/電報 海報升級完畢的公告 2026年9月13號',
-        faqPosterUpgrade20260913A: '尊貴的MERDEX Swap Perps用戶，您好！我們已經於2026年9月13號完成了對推特/電報 海報的完整升級您可以在推特或電報發送我們的網址 Swap網址為：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>Perps網址為：<a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a> 查看最新海報<br><br>MER Service 2026年9月13號',
+        faqPosterUpgrade20260913A: '尊貴的MERDEX Swap Perps用戶，您好！我們已經於2026年9月13號完成了對推特/電報 海報的完整升級。<br><br>MER Service 2026年9月13號',
         faqUiCompleted20260911Q: 'MERDEX Swap Perps UI 升級完畢的公告2026年9月11號',
-        faqUiCompleted20260911A: '尊貴的 MERDEX Swap Perps 用戶您好！我們已經完成了 MERDEX Swap Perps 的 UI 升級。<br><br>您可透過 MERDEX Swap 查看全新 UI 界面：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>您可透過 MERDEX Perps 查看全新的 UI 界面：<a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service 2026年9月11號',
+        faqUiCompleted20260911A: '尊貴的 MERDEX Swap Perps 用戶您好！我們已經完成了 MERDEX Swap Perps 的 UI 升級。<br><br>MER Service 2026年9月11號',
         faqUiUpgrade20260911Q: 'MERDEX Swap Perps UI 升級公告2026年9月11日',
-        faqUiUpgrade20260911A: '尊貴的 MERDEX Swap Perps 用戶您好！為了增強您的使用體驗，我們決定進行 UI 界面升級，我們預告在 2026 年 9 月 11 日至 2026 年 9 月 12 日完成升級。',
+        faqUiUpgrade20260911A: '尊貴的 MERDEX Swap Perps 用戶您好！預告在 2026 年 9 月 11 日至 2026 年 9 月 12 日完成升級。',
         faqSwapCompleted20260911Q: 'MERDEX Swap於2026年9月11日升級完畢的公告',
-        faqSwapCompleted20260911A: 'MERDEX Swap於2026年9月11日進行了升級優化，優化了以下功能：移動端 App 於 MERDEX Swap 下方按鈕側啟用交易功能時的不兼容問題，現已完成優化並升級。在此期間我們維護了約 15 分鐘，在優化與升級期間給您帶來的不便，我們深感抱歉。現已升級完畢，MER 將持續為您帶來最優質的產品和最好的服務體驗，感謝您的支持與理解。<br><br>MER Service<br>2026年9月11日',
+        faqSwapCompleted20260911A: 'MERDEX Swap於2026年9月11日進行了升級優化。<br><br>MER Service<br>2026年9月11日',
         faqSwapCompletedQ: 'MERDEX 升級完畢公告（2026年9月10日）',
-        faqSwapCompletedA: '尊貴的 MERDEX 用戶，我們於 2026 年 9 月 10 日完成了對 MERDEX Swap 的升級，您可以通過：<a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 直接訪問 MERDEX Swap 頁面，期間給您帶來的不便我們深表歉意。<br><br>MER Global<br>MER Service<br>2026年9月10日',
+        faqSwapCompletedA: '尊貴的 MERDEX 用戶，我們於 2026 年 9 月 10 日完成了對 MERDEX Swap 的升級。<br><br>MER Global<br>MER Service<br>2026年9月10日',
         faqSwapUpgradeQ: 'MERDEX 升級公告（2026年9月10日）',
-        faqSwapUpgradeA: '尊貴的 MERDEX 用戶，我們於 2026 年 9 月 10 日升級 MERDEX Swap 功能，其間您可能暫時無法訪問 Swap 頁面，MERDEX Perps（永續合約）不受此影響。<br><br><strong>升級結束時間：</strong>預計 3-30 分鐘<br><strong>主要升級原因：</strong>提升訪問速度，修復卡頓問題。',
+        faqSwapUpgradeA: '尊貴的 MERDEX 用戶，我们于 2026 年 9 月 10 日升級 MERDEX Swap 功能。',
         faqPerpsRulesQ: 'MER DEX 永續合約（Perps）交易系統規則指南',
-        faqPerpsRulesA: '<strong>一、 價格機制</strong><br>系統引入三價機制，以確保交易的公平性與穩定性，防止極端行情下的惡意插針與市場操縱：<br>- <strong>最新成交價（Last Price）</strong>：訂單簿上最新一筆撮合成功的實際價格。僅用於繪製 K 線圖、深度展示及限價單撮合，不參與任何未實現盈虧計算與強制平倉決策。<br>- <strong>指數價格（Index Price）</strong>：基於多個主流現貨交易所（如 Binance, OKX, Coinbase 等）的現貨價格計算得到的加權平均價。經過異常值剔除（Outlier Filtering）與偏離限制保護，真實反映現貨市場價格。<br>- <strong>標記價格（Mark Price）</strong>：用於計算持倉未實現盈虧（uPnL）及觸發強制平倉（Liquidation）的唯一基準價格。結合了指數價格與訂單簿深度加權的基差（Basis）及資金費率，能有效避免因單一市場流動性不足導致的誤強平。<br><br><strong>二、 保證金與槓桿模式</strong><br>系統提供靈活的槓桿與保證金模式，滿足不同用戶的風險偏好：<br>- <strong>全倉模式（Cross Margin）</strong>：<br>&nbsp;&nbsp;- 規則：賬戶內的可用結算資產與所有全倉持倉共享同一個保證金池，多空持倉盈虧自動抵扣。<br>&nbsp;&nbsp;- 強平條件：當賬戶整體權益（Balance + uPnL）低於或等於賬戶整體維持保證金（Total Maintenance Margin），即賬戶保證金率 ≤ 100% 時觸發。<br>- <strong>逐倉模式（Isolated Margin）</strong>：<br>&nbsp;&nbsp;- 規則：各持倉保證金獨立劃轉與隔離，單筆持倉的虧損上限僅限於該持倉分配的獨立保證金。<br>&nbsp;&nbsp;- 強平條件：當單筆持倉的當前保證金（含未實現盈虧）低於或等於該持倉在當前檔位所需的維持保證金（MM）時觸發。<br>- <strong>階梯持倉與維持保證金率（MMR）</strong>：系統實行動態階梯持倉制度。持倉名義價值（Position Value）越大，最高允許槓桿倍數越低，要求的維持保證金率（MMR）越高。設計目的在於降低大額倉位強平對訂單簿深度的衝擊，減少級聯爆倉風險。<br><br><strong>三、 資金費率（Funding Rate）</strong><br>資金費率用於錨定永續合約價格與現貨指數價格。資金費用在多空雙方之間直接劃轉，平台不收取任何手續費或抽成。<br>- <strong>結算週期</strong>：定時結算（預設每 8 小時或 1 小時結算一次，具體視標的參數配置而定）。<br>- <strong>支付方向</strong>：<br>&nbsp;&nbsp;- 資金費率為正 (&gt;0)：多頭持倉者向空頭持倉者支付。<br>&nbsp;&nbsp;- 資金費率為負 (&lt;0)：空頭持倉者向多頭持倉者支付。<br>- <strong>極端行情機制</strong>：當市場出現單邊暴漲暴跌時，資金費率可能觸及預設的上限/下限（Cap/Floor）。高額資金費用將直接從持倉保證金/賬戶餘額中扣除；若扣除後保證金不滿足維持保證金要求，可能直接引發強制平倉。<br><br><strong>四、 止盈止損（TP / SL）與訂單保護</strong><br>- <strong>觸發條件</strong>：交易者可自主選擇以“標記價格”或“最新成交價”作為觸發基準。達到設定目標價後，系統將自動向訂單簿提交市價單或限價單。<br>- <strong>執行與滑點風險</strong>：止盈止損單屬於條件委託。在市場流動性斷層、劇烈波動或斷崖式行情下：<br>&nbsp;&nbsp;1. 市價止盈止損單可能會以優於或劣於觸發價的價格成交（即產生滑點）；<br>&nbsp;&nbsp;2. 若設定的觸發價超出系統的“價格保護限幅（Price Protection Limit）”，為防止異常掛單，訂單可能會被系統拒絕或部分撤銷；<br>&nbsp;&nbsp;3. 若賬戶餘額在訂單觸發時不足以支付預扣手續費或已無對應持倉，條件單將自動失效。<br><br><strong>五、 強制平倉、穿倉與 ADL 機制</strong><br>當倉位觸及強平線時，系統強平引擎將按以下優先級處理：<br>1. <strong>階梯減倉（Partial Liquidation）</strong>：強平引擎優先對處於高階梯（Tier）的大額倉位執行部分減倉，將其降至較低階梯，降低維持保證金要求，盡量為交易者保留剩餘倉位。<br>2. <strong>風險準備金（Insurance Fund）</strong>：若強平平倉實際成交價優於破產價（Bankruptcy Price），產生的剩餘盈餘資金將注入風險準備金池。若強平平倉實際成交價劣於破產價（即產生穿倉虧損），虧損部分優先由風險準備金池全額墊付。<br>3. <strong>自動減倉（ADL - Auto-Deleveraging）</strong>：當風險準備金池不足以彌補穿仓虧損時，系統將啟動 ADL 機制。系統將根據“賬戶收益率 × 槓桿倍數”對全網反向盈利持倉進行實時排序。排名靠前的盈利賬戶將被系統以破產價格（Bankruptcy Price）強制對衝平倉，以確保系統整體賬目平衡。<br><br><strong>六、 鏈上風控與資產安全</strong><br>- <strong>預言機（Oracle）熔斷保護</strong>：若鏈上預言機價格更新延遲、數據中斷或異常偏離超限，系統將自動觸發熔斷保護機制——暫停開倉及強平觸發，僅保留平倉與撤單功能，防止異常價格引發誤強平。<br>- <strong>資產提現與劃轉校驗</strong>：交易者僅能提現已實現盈虧（Realized PnL）及可用保證金。發起提現或劃轉時，系統將動態校驗賬戶保證金率，確保提現後賬戶仍滿足初始保證金（IM）要求。<br><br><strong>風險提示與法律免責聲明</strong><br>高風險警告：加密資產及永續合約衍生品交易具有極高的財務風險。槓桿交易可能放大收益，亦可能導致您的全部本金快速虧損。極端市場行情下，鏈上預言機更新、網絡傳輸及訂單執行均可能產生不可抗力的延遲或滑點。<br><strong>MERDEX Perps 以及 Orderly Network 不承擔任何賠償義務，當您使用 MERDEX Perps 進行合約交易時，即表示您同意此公告。</strong>',
+        faqPerpsRulesA: '<strong>一、 價格機制</strong><br>系統引入三價機制，以確保交易的公平性與穩定性。',
         faqRobinhoodLaunchQ: '關於 MERDEX 正式上線 Robinhood Chain 的公告（2026年9月10日）',
-        faqRobinhoodLaunchA: '親愛的 MERDEX 用戶：<br><br>您好！MER 很榮幸地正式宣布，我們已上線並支援 Robinhood Chain。您現在可以在 MERDEX 隨時進行 Robinhood 的現貨交易。<br><br>溫馨提示：加密貨幣交易存在巨大風險，您隨時可能虧損全部投資本金。在投資加密貨幣時，您應當審慎評估所投資的代幣及自身的風險承受能力，謹慎購買任何加密貨幣。<br><br>MER Global 祝您交易愉快！<br><br>MER Global<br>MER Service<br>2026年9月10日',
+        faqRobinhoodLaunchA: '親愛的 MERDEX 用戶：<br><br>MER 很榮幸地正式宣布已上線並支援 Robinhood Chain。<br><br>MER Global<br>MER Service<br>2026年9月10日',
         faqRobinhoodQ: 'MERDEX 已支援 Robinhood Chain（2026年9月9日）',
-        faqRobinhoodA: '親愛的 MERDEX 用戶，我們已於 2026 年 9 月 9 日完成升級並支援 Robinhood Chain。升級期間可能需要 3-15 分鐘載入系統，對此給您帶來的不便我們深感歉意，感謝您的支援與理解。<br><br>MER 客戶支援<br>2026年9月9日',
+        faqRobinhoodA: '親愛的 MERDEX 用戶，我們已於 2026 年 9 月 9 日完成升級並支援 Robinhood Chain。<br><br>MER 客戶支援<br>2026年9月9日',
         faq0Q: 'MER 提醒您謹防加密貨幣投資騙局（2026年9月8日）',
-        faq0A: '1. <strong>無限授權陷阱：</strong>騙子誘導您點擊惡意智能合約或去中心化應用鏈接，在您不知情的情況下獲取錢包中 USDT/USDC 的“無限授權”，隨後隨時劃走您的資產。<br><br>2. <strong>高額分紅誘餌：</strong>承諾“購買某種代幣即可享受高額分紅”或“穩賺不賠”，利用虛構的高收益吸引您投入本金。<br><br>3. <strong>拉人頭與付費解鎖賬戶：</strong>騙子誘導您充值到資金盤或詐騙平台交易。當您獲得收益試圖提現時，賬戶會被凍結。騙子會要求您邀請好友，或以“解封賬戶”為由要求您繳納 USDT/USDC/BTC/ETH/SOL 等主流資產。當您繳納後賬戶依然無法解封，因為騙子看中的是您的本金。<br><br>4. <strong>撤銷流動性（跑路）：</strong>騙子發行新代幣並在去中心化交易所建立交易池，通過虛假宣傳吸引投資者購買。當池中積攢了主流資產後，騙子突然撤銷並移除全部流動性資金並銷聲匿跡，代幣價格瞬間歸零。<br><br>5. <strong>貔貅盤（只許買不許賣）：</strong>此類騙局常發生在 Ethereum（包含但不限於 L2 網絡）、SOL、BNB Chain、X Layer 等網絡設施中。詐騙團隊會在代幣合約中設置後門（如可增發、修改代幣餘額、設置 100% 增值稅/買賣稅、凍結地址），導致您的投資本金全部損失。<br><br>6. <strong>多簽錢包騙局：</strong>騙子在 Telegram 等社交平台發布包含資產（如 USDT/USDC）但缺乏原生燃料（Gas）的助記詞，誘導您向該地址轉入 Gas 費。轉賬後您會發現仍無法提現，因為多簽錢包需要多個簽名地址確認才能發起轉賬。<br><br>7. MER 希望您在加密貨幣投資交易時免受欺詐風險。建議您在每次投資及授權智能合約時保持高度警惕。加密貨幣存在巨大風險，市場交易可能隨時導致您虧損全部本金，請務必在理性判斷自身風險承受能力後再考慮是否進入市場進行投資。',
+        faq0A: '請務必在理性判斷自身風險承受能力後再考慮是否進入市場進行投資。',
         faqUpgradeQ: 'MERDEX 升級公告（2026年9月5日）',
-        faqUpgradeA: 'MERDEX 全場景功能升級（包含 Swap 與 Perps）升級時間為 2026 年 9 月 5 日 UTC 時間至 2026 年 9 月 5 日晚上 8:45，在此期間給您帶來的不便，我們真誠地向您致歉。',
+        faqUpgradeA: 'MERDEX 全場景功能升級已完成。',
         faq1Q: '為什麼選擇 MERDEX Perps 來進行加密貨幣及股票合約交易？',
-        faq1A: 'MERDEX Perps 是由 Orderly 搭建的去中心化合約交易平台，我們利用 Orderly 的共享流動性訂單簿實現優質流動性，為您高效撮合加密貨幣與股票合約訂單。',
-        faq2Q: 'MERDEX Perps 如何賺錢？為什麼選擇使用 MERDEX Perps？',
-        faq2A: 'MERDEX Perps 根據不同用戶等級（如普通用戶、VIP1–VIP6 用戶）收取階梯手續費來獲取收益。MERDEX Perps 提供深厚的鏈上交易深度，讓您可以放心交易各類加密貨幣與股票合約。',
-        faq3Q: 'MERDEX Perps 共享流動性訂單簿提供平台的網址是什麼？（Orderly）',
-        faq3A: '這是 MERDEX Perps 共享流動性訂單簿開發者（Orderly 團隊）的官網：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
-        faq4Q: 'MERDEX Swap 由誰提供聚合器交互功能？',
-        faq4A: 'MERDEX Swap 的聚合器交互功能由 WOOFi 提供支持。',
-        faq5Q: 'MERDEX Swap 如何賺錢？為什麼選擇使用 MERDEX Swap？',
-        faq5A: 'MERDEX Swap 由 WOOFi 提供支持，並通過收取交易手續費賺取收益。所有交易均通過智能合約發起，且每次交易都需要您手動確認，確保絕對的安全與自主控制權。',
-        faq6Q: '什麼是獎勵機制？',
-        faq6A: '獎勵機制是指邀請好友後，您與 MER 共享好友產生的交易手續費。MER 獎勵保持 50% 的分傭比例，只要您邀請的好友產生交易，您將永久獲得其手續費 50% 的分傭。',
-        faq7Q: 'MER 客戶支持是由誰提供的？',
-        faq7A: 'MER 客戶支持服務由 Tawk.to 提供。Tawk.to 的官方網站是：<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>',
-        faq8Q: 'MER 是一家什麼企業？',
-        faq8A: 'MER是一家<strong>提供加密貨幣現貨交易以及合約交易包含傳統金融的股票現貨以及合約交易的高性能去中心化交易所</strong>，由<strong>Sky songxiaotian 宋小天於2023年創建的MER Global</strong>，MER Global 創始人Sky songxiaotian 宋小天創立MER Global初衷是為了<strong>讓DEX擁有CEX一樣的高性能體驗，且不管理用戶的資金</strong>，通過MER Global的去中心化現貨交易所進行交易，您的交易完成後，MER現貨交易所將直接將您的資產存入您的地址，<strong>您的資產一直由您完全掌控</strong>，MER Global的去中心化合約交易所進行的交易，您的資產由智能合約進行保管，在您進行充值或者提幣時均由智能合約執行命令，MER Global 去中心化合約交易所依然不保管您的資金，MER去中心化合約交易所的資金<strong>還是由您完全掌控</strong>，MER Global將持續推出讓用戶擁有完全自主控制權的產品，<strong>讓加密貨幣交易市場，實現完全的去中心化為最終願景</strong>。'
-      },
-      'en': {
-        copyright: '© MER Global 2023-2026',
-        docTitle: 'MERDEX | Help Desk',
-        heroTag: 'Non-custodial · High-speed Aggregator',
-        heroTitle: 'MERDEX Help Desk',
-        heroDesc: 'No KYC required. Connect your Web3 wallet to trade crypto & stock spots and futures.',
-        card1Title: 'Spot Swap',
-        card1Desc: 'Crypto & Stock spot swaps, cross-chain trades & slippage settings',
-        card2Title: 'Perpetuals',
-        card2Desc: 'Crypto & Stock futures, high leverage & funding rates',
-        card3Title: 'MER VIP',
-        card3Desc: 'Contact customer service after meeting trading volume to upgrade VIP and lower fees',
-        card4Title: 'Online Support',
-        card4Desc: 'MER Customer Support at your service 24/7',
-        faqTitle: 'Frequently Asked Questions',
-        faqAudit20260914Q: 'Official Launch of MER Audit Report (Sep 14, 2026)',
-        faqAudit20260914A: 'Dear valued MERDEX users,<br><br>MER has officially launched the product-side audit report. Product auditing is key to giving you peace of mind, proving that MER products have been thoroughly audited. For full details, please visit: <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>.<br><br>September 14, 2026<br>MER Service',
-        faqChineseName20260913Q: 'Announcement on MER Adopting Chinese Name "梅尔" (Sep 13, 2026)',
-        faqChineseName20260913A: 'Dear valued MERDEX users,<br><br>We have officially adopted "梅尔" (Méi ěr) as our official Chinese name as of September 13, 2026.<br><br>MER Service<br>Sep 13, 2026',
-        faqPosterUpgrade20260913Q: 'MERDEX Swap Perps Twitter/Telegram Poster Upgrade Completion Announcement (Sep 13, 2026)',
-        faqPosterUpgrade20260913A: 'Dear valued MERDEX Swap Perps users,<br><br>We have completed the full upgrade of our Twitter and Telegram posters on September 13, 2026. You can share our websites on Twitter or Telegram to view the latest poster preview:<br>Swap URL: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>Perps URL: <a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service<br>Sep 13, 2026',
-        faqUiCompleted20260911Q: 'MERDEX Swap Perps UI Upgrade Completion Announcement (Sep 11, 2026)',
-        faqUiCompleted20260911A: 'Dear valued MERDEX Swap Perps users, we have completed the UI upgrade for MERDEX Swap Perps.<br><br>You can view the new UI interface on MERDEX Swap: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>You can view the new UI interface on MERDEX Perps: <a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service<br>Sep 11, 2026',
-        faqUiUpgrade20260911Q: 'MERDEX Swap Perps UI Upgrade Notice (Sep 11, 2026)',
-        faqUiUpgrade20260911A: 'Dear valued MERDEX Swap Perps users, to enhance your user experience, we have decided to perform a UI interface upgrade. The upgrade is scheduled to take place from September 11, 2026, to September 12, 2026.',
-        faqSwapCompleted20260911Q: 'MERDEX Swap Upgrade Completion Announcement (Sep 11, 2026)',
-        faqSwapCompleted20260911A: 'MERDEX Swap performed an upgrade and optimization on Sep 11, 2026, fixing the incompatibility issue when enabling the trading feature on the bottom button side of the mobile app. Maintenance took approx 15 minutes. We sincerely apologize for any inconvenience caused during the upgrade. The upgrade is now complete, and MER will continue to bring you top-quality products and service.<br><br>MER Service<br>Sep 11, 2026',
-        faqSwapCompletedQ: 'MERDEX Upgrade Completion Announcement (Sep 10, 2026)',
-        faqSwapCompletedA: 'Dear valued MERDEX users, we completed the upgrade of MERDEX Swap on Sep 10, 2026. You can directly access MERDEX Swap at: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>.<br><br>MER Global<br>MER Service<br>Sep 10, 2026',
-        faqSwapUpgradeQ: 'MERDEX Upgrade Announcement (Sep 10, 2026)',
-        faqSwapUpgradeA: 'Dear valued MERDEX users, we are upgrading MERDEX Swap features on Sep 10, 2026. During this period, Swap page may be temporarily inaccessible. MERDEX Perps remains unaffected.<br><br><strong>Estimated duration:</strong> 3-30 mins<br><strong>Reason:</strong> Improve speed and fix latency.',
-        faqPerpsRulesQ: 'MER DEX Perps Trading System Rules & Guidelines',
-        faqPerpsRulesA: '<strong>1. Price Mechanism</strong><br>The system uses a three-price mechanism to ensure fairness and prevent manipulation: Last Price, Index Price, and Mark Price.<br><br><strong>2. Margin & Leverage</strong><br>Offers Cross Margin and Isolated Margin modes alongside tiered position limits.<br><br><strong>3. Funding Rates</strong><br>Funding fees are paid directly between long and short position holders.<br><br><strong>Disclaimer:</strong> Trading crypto derivatives carries high financial risk. Orderly Network and MERDEX Perps disclaim liabilities.',
-        faqRobinhoodLaunchQ: 'Official Launch of Robinhood Chain Support (Sep 10, 2026)',
-        faqRobinhoodLaunchA: 'Dear valued MERDEX users,<br><br>MER DEX now officially supports Robinhood Chain for spot trading.<br><br>MER Global<br>Sep 10, 2026',
-        faqRobinhoodQ: 'Robinhood Chain Support Notice (Sep 9, 2026)',
-        faqRobinhoodA: 'Dear valued MERDEX users, upgrade completed on Sep 9, 2026 to support Robinhood Chain.<br><br>MER Customer Support<br>Sep 9, 2026',
-        faq0Q: 'MER Crypto Scam Warning (Sep 8, 2026)',
-        faq0A: 'Beware of unlimited approval traps, high-dividend lures, fee-unlock schemes, liquidity rugs, honeypots, and multi-sig wallet scams.',
-        faqUpgradeQ: 'MERDEX System Upgrade Notice (Sep 5, 2026)',
-        faqUpgradeA: 'Full-scenario upgrade for Swap and Perps completed on Sep 5, 2026 at 8:45 PM UTC.',
-        faq1Q: 'Why choose MERDEX Perps?',
-        faq1A: 'Powered by Orderly Network for deep shared liquidity.',
-        faq2Q: 'How does MERDEX Perps generate revenue?',
-        faq2A: 'Via tiered trading fees based on VIP tiers.',
-        faq3Q: 'What is the Orderly Network website?',
+        faq1A: 'MERDEX Perps 是由 Orderly 搭建的去中心化合約交易平台。',
+        faq2Q: '為什麼選擇使用 MERDEX Perps？',
+        faq2A: 'MERDEX Perps 提供深厚的鏈上交易深度。',
+        faq3Q: 'Orderly 官網網址',
         faq3A: '<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
-        faq4Q: 'Who powers MERDEX Swap aggregation?',
-        faq4A: 'WOOFi supports the DEX aggregator interaction.',
-        faq5Q: 'How does MERDEX Swap work?',
-        faq5A: 'Transactions execute via smart contracts directly in your wallet.',
-        faq6Q: 'What is the Referral Reward Program?',
-        faq6A: 'Permanent 50% commission share on trading fees generated by invited friends.',
-        faq7Q: 'Who provides MER Customer Support?',
-        faq7A: 'Powered by Tawk.to (<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>).',
-        faq8Q: 'About MER Global',
-        faq8A: 'MER is a high-performance non-custodial DEX founded by Sky Songxiaotian in 2023.'
+        faq4Q: 'MERDEX Swap 聚合器服務商',
+        faq4A: 'MERDEX Swap 由 WOOFi 提供支援。',
+        faq5Q: 'MERDEX Swap 安全性',
+        faq5A: '所有交易均通過智能合約發起。',
+        faq6Q: '什麼是獎勵機制？',
+        faq6A: '您將永久獲得被推薦人手續費 50% 的分傭。',
+        faq7Q: '客服提供商',
+        faq7A: 'MER 客戶支持服務由 Tawk.to 提供。',
+        faq8Q: 'MER 企業簡介',
+        faq8A: 'MER 是一家提供加密貨幣現貨与合約交易的高性能去中心化交易所。'
       },
       'ko': {
         copyright: '© MER Global 2023-2026',
-        docTitle: 'MERDEX | 도움말 센터',
-        heroTag: '비수탁 · 고속 애그리게이터',
-        heroTitle: 'MERDEX 도움말 센터',
-        heroDesc: 'KYC가 필요하지 않습니다. Web3 지갑을 연결하여 암호화폐 및 주식 현물/선물을 거래하세요.',
-        card1Title: '현물 교환',
-        card1Desc: '암호화폐 및 주식 현물 교환, 멀티체인 거래',
+        docTitle: 'MERDEX | 헬프데스크',
+        heroTag: '비수탁형 · 고속 애그리게이터',
+        heroTitle: 'MERDEX 헬프데스크',
+        heroDesc: 'KYC 인증 불필요. Web3 지갑을 연결하여 암호화폐 및 주식의 현물/선물 거래를 시작하세요.',
+        card1Title: '현물 스왑',
+        card1Desc: '암호화폐 및 주식 현물 교환, 교차 체인 거래 및 슬리피지 설정',
         card2Title: '무기한 선물',
-        card2Desc: '고레버리지 선물 거래 및 펀딩비',
+        card2Desc: '암호화폐 및 주식 선물 거래, 고레버리지 및 펀딩 비율',
         card3Title: 'MER VIP',
-        card3Desc: '거래량 충족 후 고객센터 문의를 통해 수수료 인하',
-        card4Title: '온라인 고객센터',
-        card4Desc: '24/7 MER 고객 지원',
+        card3Desc: '거래량 충족 후 고객센터에 문의하여 VIP 업그레이드 및 수수료 인하',
+        card4Title: '온라인 고객지원',
+        card4Desc: 'MER 고객 지원팀이 24시간 연중무휴로 도와드립니다',
         faqTitle: '자주 묻는 질문',
-        faqAudit20260914Q: 'MER 감사 보고서 정식 출시 (2026년 9월 14일)',
-        faqAudit20260914A: '소중한 MERDEX 사용자 여러분, 안녕하십니까! MER 제품 측 감사 보고서가 정식 출시되었습니다. 감사 보고서는 제품을 안심하고 사용하실 수 있도록 증명합니다. 자세한 내용은 <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a> 를 통해 확인하실 수 있습니다.<br><br>2026년 9월 14일<br>MER Service',
-        faqChineseName20260913Q: 'MER 중국어 이름 "梅尔" 도입 안내 (2026년 9월 13일)',
-        faqChineseName20260913A: 'MERDEX 공식 중국어 이름이 "梅尔"로 공식 채택되었습니다.<br><br>MER Service 2026년 9월 13일'
+        faqAudit20260914Q: 'MER 감사 보고서 공식 출시 (2026년 9월 14일)',
+        faqAudit20260914A: '안녕하세요, MERDEX 사용자 여러분.<br><br>MER 제품 측면의 감사 보고서가 공식적으로 출시되었습니다. 감사 보고서에 대한 자세한 내용은 <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>를 참조해 주세요.<br><br>2026년 9月 14일<br>MER Service',
+        faqChineseName20260913Q: 'MER 중국어 브랜드명 "梅尔" 도입 안내 (2026년 9월 13일)',
+        faqChineseName20260913A: '안녕하세요, MERDEX 사용자 여러분.<br><br>2026년 9월 13일부터 공식 중국어 브랜드명으로 "梅尔"을 채택하였습니다.<br><br>MER Service 2026년 9월 13일',
+        faqPosterUpgrade20260913Q: 'Twitter 및 Telegram 포스터 업그레이드 완료 공지 (2026년 9월 13일)',
+        faqPosterUpgrade20260913A: '안녕하세요, MERDEX 사용자 여러분.<br><br>Twitter 및 Telegram용 포스터 업그레이드가 완료되었습니다.<br>Swap: <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a><br>Perps: <a href="https://perp.mer.finance" target="_blank" rel="noopener noreferrer">https://perp.mer.finance</a><br><br>MER Service 2026년 9월 13일',
+        faqUiCompleted20260911Q: 'MERDEX Swap & Perps UI 업그레이드 완료 공지 (2026년 9월 11일)',
+        faqUiCompleted20260911A: '안녕하세요, MERDEX 사용자 여러분.<br><br>MERDEX Swap & Perps의 UI 업그레이드가 완료되었습니다.<br><br>MER Service 2026년 9월 11일',
+        faqUiUpgrade20260911Q: 'UI 업그레이드 사전 안내 (2026년 9월 11일)',
+        faqUiUpgrade20260911A: '사용자 경험 향상을 위해 2026년 9월 11일부터 9월 12일까지 UI 업그레이드가 진행됩니다.',
+        faqSwapCompleted20260911Q: 'MERDEX Swap 업그레이드 완료 공지 (2026년 9월 11일)',
+        faqSwapCompleted20260911A: '모바일 앱 최적화 업그레이드가 완료되었습니다.<br><br>MER Service 2026년 9월 11일',
+        faqSwapCompletedQ: 'MERDEX 업그레이드 완료 공지 (2026년 9월 10일)',
+        faqSwapCompletedA: 'MERDEX Swap 업그레이드가 성공적으로 완료되었습니다.<br><br>MER Global / MER Service',
+        faqSwapUpgradeQ: 'MERDEX 유지보수 안내 (2026년 9월 10일)',
+        faqSwapUpgradeA: '성능 향상 및 속도 개선을 위한 시스템 점검이 진행되었습니다.',
+        faqPerpsRulesQ: 'MER DEX 무기한 선물 거래 규칙 및 가이드',
+        faqPerpsRulesA: '공정한 거래 환경을 제공하기 위해 삼중 가격 메커니즘(최근 거래가, 지수 가격, 마크 가격)을 적용합니다.',
+        faqRobinhoodLaunchQ: 'Robinhood Chain 지원 시작 공지 (2026년 9월 10일)',
+        faqRobinhoodLaunchA: 'MERDEX에서 Robinhood Chain 지원을 공식 시작합니다.<br><br>MER Global',
+        faqRobinhoodQ: 'Robinhood Chain 지원 안내 (2026년 9월 9일)',
+        faqRobinhoodA: 'Robinhood Chain과의 연동 업그레이드가 완료되었습니다.<br><br>MER Customer Support',
+        faq0Q: '암호화폐 투자 사기 주의 안내 (2026년 9월 8일)',
+        faq0A: '무제한 토큰 승인, 고수익 보장 사기 등에 주의하시고 신중하게 거래를 진행해 주시기 바랍니다.',
+        faqUpgradeQ: 'MERDEX 업그레이드 공지 (2026년 9월 5일)',
+        faqUpgradeA: '전체 기능 업그레이드가 성공적으로 수행되었습니다.',
+        faq1Q: '왜 MERDEX Perps를 선택해야 하나요?',
+        faq1A: 'Orderly Network 기반의 공유 유동성 오더북을 통해 뛰어난 유동성을 제공합니다.',
+        faq2Q: 'MERDEX Perps의 수익 모델은 무엇인가요?',
+        faq2A: '사용자 등급별 수수료 체계를 통해 수익을 창출합니다.',
+        faq3Q: 'Orderly Network 공식 웹사이트',
+        faq3A: '<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
+        faq4Q: 'MERDEX Swap의 애그리게이터 파트너',
+        faq4A: 'WOOFi 기술을 기반으로 운영됩니다.',
+        faq5Q: 'MERDEX Swap의 보안성',
+        faq5A: '스마트 계약을 통해 사용자가 직접 모든 거래를 승인하므로 안전합니다.',
+        faq6Q: '리워드 추천인 프로그램이란?',
+        faq6A: '초대한 친구가 발생시킨 거래 수수료의 50%를 영구적으로 공유받습니다.',
+        faq7Q: '고객 지원 제공업체',
+        faq7A: 'Tawk.to 라이브 채팅 서비스를 통해 연중무휴 지원합니다.',
+        faq8Q: 'MER Global 소개',
+        faq8A: 'MER는 암호화폐 및 주식 거래를 지원하는 고성능 탈중앙화 거래소(DEX)입니다.'
       }
     };
   </script>
