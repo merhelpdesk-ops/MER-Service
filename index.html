@@ -809,16 +809,6 @@
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq2Q">How does MERDEX Perps generate revenue?</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq2A">
-        MERDEX Perps earns revenue through tiered trading fee structures across account levels (Standard, VIP1-VIP6).
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
         <span data-i18n="faq3Q">What is the official site for Orderly Network?</span>
         <span class="faq-arrow">▲</span>
       </div>
@@ -879,7 +869,7 @@
   </main>
 
   <footer>
-    <span data-i18n="copyright">© MER Global 2023-2026</span>
+    <span>© MER Global 2023-2026</span>
   </footer>
 
   <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget">
@@ -925,7 +915,6 @@
 
     const i18nData = {
       'en': {
-        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | Help Desk',
         heroTag: 'Non-custodial · High-speed Aggregator',
         heroTitle: 'MERDEX Help Desk',
@@ -971,8 +960,6 @@
         faqUpgradeA: 'Comprehensive maintenance across Swap & Perps was executed on September 5, 2026 UTC, completing at 8:45 PM UTC.',
         faq1Q: 'Why choose MERDEX Perps for crypto & stock futures trading?',
         faq1A: 'MERDEX Perps is built on Orderly Network\'s shared liquidity orderbook infrastructure, providing deep liquidity and rapid order matching.',
-        faq2Q: 'How does MERDEX Perps generate revenue?',
-        faq2A: 'MERDEX Perps earns revenue through tiered trading fee structures across account levels (Standard, VIP1-VIP6).',
         faq3Q: 'What is the official site for Orderly Network?',
         faq3A: 'The official website of Orderly Network is: <a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
         faq4Q: 'Who powers MERDEX Swap\'s aggregator interaction?',
@@ -987,7 +974,6 @@
         faq8A: 'MER is a high-performance decentralized exchange providing crypto & traditional stock spot and futures trading. Founded in 2023 by <strong>Sky Song (Song Xiaotian)</strong> under <strong>MER Global</strong>, MER delivers CEX-like performance while strictly maintaining non-custodial user wallet safety.'
       },
       'zh-CN': {
-        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | 帮助中心',
         heroTag: '非托管 · 高速聚合器',
         heroTitle: 'MERDEX 帮助中心',
@@ -1033,8 +1019,6 @@
         faqUpgradeA: 'MERDEX 全场景功能升级（包含 Swap 与 Perps）升级时间为 2026 年 9 月 5 日 UTC 时间至 2026 年 9 月 5 日晚上 8:45。',
         faq1Q: '为什么选择 MERDEX Perps 来进行加密货币及股票合约交易？',
         faq1A: 'MERDEX Perps 是由 Orderly 搭建的去中心化合约交易平台，我们利用 Orderly 的共享流动性订单簿实现优质流动性。',
-        faq2Q: 'MERDEX Perps 如何赚钱？为什么选择使用 MERDEX Perps？',
-        faq2A: 'MERDEX Perps 根据不同用户等级收取阶梯手续费来获取收益。',
         faq3Q: 'MERDEX Perps 共享流动性订单簿提供平台的网址是什么？（Orderly）',
         faq3A: 'Orderly 团队官网：<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
         faq4Q: 'MERDEX Swap 由谁提供聚合器交互功能？',
@@ -1049,7 +1033,6 @@
         faq8A: 'MER 是一家提供加密货币现货交易以及合约交易包含传统金融的股票现货以及合约交易的高性能去中心化交易所。'
       },
       'zh-TW': {
-        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | 幫助中心',
         heroTag: '非託管 · 高速聚合器',
         heroTitle: 'MERDEX 幫助中心',
@@ -1095,8 +1078,6 @@
         faqUpgradeA: 'MERDEX 全場景功能升級已完成。',
         faq1Q: '為什麼選擇 MERDEX Perps 來進行加密貨幣及股票合約交易？',
         faq1A: 'MERDEX Perps 是由 Orderly 搭建的去中心化合約交易平台。',
-        faq2Q: '為什麼選擇使用 MERDEX Perps？',
-        faq2A: 'MERDEX Perps 提供深厚的鏈上交易深度。',
         faq3Q: 'Orderly 官網網址',
         faq3A: '<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
         faq4Q: 'MERDEX Swap 聚合器服務商',
@@ -1111,7 +1092,6 @@
         faq8A: 'MER 是一家提供加密貨幣現貨与合約交易的高性能去中心化交易所。'
       },
       'ko': {
-        copyright: '© MER Global 2023-2026',
         docTitle: 'MERDEX | 헬프데스크',
         heroTag: '비수탁형 · 고속 애그리게이터',
         heroTitle: 'MERDEX 헬프데스크',
@@ -1157,8 +1137,6 @@
         faqUpgradeA: '전체 기능 업그레이드가 성공적으로 수행되었습니다.',
         faq1Q: '왜 MERDEX Perps를 선택해야 하나요?',
         faq1A: 'Orderly Network 기반의 공유 유동성 오더북을 통해 뛰어난 유동성을 제공합니다.',
-        faq2Q: 'MERDEX Perps의 수익 모델은 무엇인가요?',
-        faq2A: '사용자 등급별 수수료 체계를 통해 수익을 창출합니다.',
         faq3Q: 'Orderly Network 공식 웹사이트',
         faq3A: '<a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
         faq4Q: 'MERDEX Swap의 애그리게이터 파트너',
