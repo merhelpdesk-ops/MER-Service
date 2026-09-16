@@ -110,11 +110,11 @@
       -webkit-backdrop-filter: blur(12px);
       background: rgba(11, 15, 23, 0.75);
       border-bottom: 1px solid var(--card-border);
-      padding: 14px 20px;
+      padding: 12px 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
 
     .brand {
@@ -122,10 +122,11 @@
       align-items: center;
       cursor: default;
       user-select: none;
+      flex-shrink: 0;
     }
 
     .brand-logo {
-      height: 28px;
+      height: 26px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -133,16 +134,17 @@
 
     .lang-switcher {
       display: flex;
-      gap: 5px;
-      flex-wrap: wrap;
+      gap: 4px;
+      flex-wrap: nowrap;
       justify-content: flex-end;
+      align-items: center;
     }
 
     .lang-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
       color: var(--text-sub);
-      padding: 5px 8px;
+      padding: 4px 6px;
       border-radius: 6px;
       font-size: 11px;
       cursor: pointer;
@@ -587,10 +589,10 @@
       <img src="MERHelpDesk_Poster.png" alt="MERDEXHelpDesk Logo" class="brand-logo">
     </div>
     <div class="lang-switcher">
-      <button id="btn-en" class="lang-btn" onclick="changeLanguage('en')">English</button>
+      <button id="btn-en" class="lang-btn active" onclick="changeLanguage('en')">English</button>
       <button id="btn-zh-CN" class="lang-btn" onclick="changeLanguage('zh-CN')">简体中文</button>
       <button id="btn-zh-TW" class="lang-btn" onclick="changeLanguage('zh-TW')">繁體中文</button>
-      <button id="btn-ko" class="lang-btn active" onclick="changeLanguage('ko')">한국어</button>
+      <button id="btn-ko" class="lang-btn" onclick="changeLanguage('ko')">한국어</button>
     </div>
   </header>
 
@@ -699,7 +701,7 @@
         <span data-i18n="faqSwapCompleted20260911Q">MER DEX Swap Upgrade Completion Notice (September 11, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
-      <div class="faq-body" data-i18n="faqSwapCompleted20260911A">
+      <div class="faq-body" data-i18n="faqSwapCompletedA">
         MER DEX Swap underwent an optimization upgrade on September 11, 2026, resolving mobile app compatibility issues when initiating transactions via bottom buttons. Maintenance lasted approximately 15 minutes. We apologize for any inconvenience caused and thank you for your continued support.<br><br>MER Services<br>September 11, 2026
       </div>
     </div>
@@ -1095,7 +1097,7 @@
         faq7Q: '誰提供梅爾的即時線上客服？',
         faq7A: '梅爾即時線上客服由官方線上客服系統（<a href="https://www.tawk.to/" target="_blank" rel="noopener noreferrer">https://www.tawk.to/</a>）提供支援。',
         faq8Q: '什麼是梅爾全球？',
-        faq8A: '梅爾是一家提供加密貨幣現貨與永續合約的去中心化交易所、同時包括傳統金融股票現貨及永續合約交易的去中心化交易所、由 <strong>宋小天</strong> 於 2023 年創建的<strong>梅爾全球</strong>，<strong>宋小天</strong> 是<strong>梅爾全球</strong>的創辦人。',
+        faq8A: '梅爾是一家提供加密貨幣現貨與永續合約的去中心化交易所、同時包括傳統金融股票現貨及永续合约交易的去中心化交易所、由 <strong>宋小天</strong> 於 2023 年創建的<strong>梅爾全球</strong>，<strong>宋小天</strong> 是<strong>梅爾全球</strong>的創辦人。',
         footerCopy: '© 梅爾全球 2023-2026'
       },
       'ko': {
@@ -1146,7 +1148,7 @@
         faq1A: '메르 탈중앙화 거래소 선물은 공유 유동성 호가창 인프라를 기반으로 구축되어 깊은 유동성과 빠른 주문 체결을 제공합니다.',
         faq3Q: '공식 제휴 유동성 네트워크의 공식 웹사이트는 무엇인가요?',
         faq3A: '공식 제휴 유동성 네트워크의 공식 웹사이트는 다음과 같습니다: <a href="https://orderly.network/" target="_blank" rel="noopener noreferrer">https://orderly.network/</a>',
-        faq4Q: '메르 탈중앙화 거래소 스왑의 집약 거래를 지원하는 곳은 어디인가요?',
+        faq4Q: '메르 탈중앙化 거래소 스왑의 집약 거래를 지원하는 곳은 어디인가요?',
         faq4A: '메르 탈중앙화 거래소 스왑의 거래 집약 기능은 공식 탈중앙화 유동성 프로토콜에서 지원합니다.',
         faq5Q: '메르 탈중앙화 거래소 스왑은 어떻게 안전하게 작동하나요?',
         faq5A: '메르 탈중앙화 거래소 스왑의 모든 거래는 비수탁형 스마트 계약을 통해 실행되며, 완전한 사용자 보안을 보장하기 위해 수동 확인이 필요합니다.',
