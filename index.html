@@ -1,8 +1,9 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>MER Decentralized Exchange Help Desk</title>
+  <title>梅尔去中心化交易所 | 帮助中心</title>
 
   <script>
     (function suppressNativeTawkIcon() {
@@ -36,8 +37,8 @@
   <link rel="icon" type="image/webp" href="favicon.webp">
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="MER Decentralized Exchange Help Desk" />
-  <meta property="og:description" content="The MER Decentralized Exchange Help Desk is an essential channel to help you understand the MER Decentralized Exchange platform and provide you with 24/7 customer support." />
+  <meta property="og:title" content="梅尔去中心化交易所帮助中心" />
+  <meta property="og:description" content="梅尔去中心化交易所帮助中心是帮助您了解梅尔去中心化交易所平台并为您提供 24/7 全天候客户服务支持的核心渠道。" />
   <meta property="og:image" content="https://service.mer.finance/MER_Poster.jpg" />
   <meta property="og:image:secure_url" content="https://service.mer.finance/MER_Poster.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -45,8 +46,8 @@
   <meta property="og:image:height" content="1260" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MER Decentralized Exchange Help Desk" />
-  <meta name="twitter:description" content="The MER Decentralized Exchange Help Desk is an essential channel to help you understand the MER Decentralized Exchange platform and provide you with 24/7 customer support." />
+  <meta name="twitter:title" content="梅尔去中心化交易所帮助中心" />
+  <meta name="twitter:description" content="梅尔去中心化交易所帮助中心是帮助您了解梅尔去中心化交易所平台并为您提供 24/7 全天候客户服务支持的核心渠道。" />
   <meta name="twitter:image" content="https://service.mer.finance/MER_Poster.jpg" />
 
   <style>
@@ -400,7 +401,7 @@
 
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    Tawk_API.lang = 'en';
+    Tawk_API.lang = 'zh-cn';
 
     var mobileTawkPositionKey = 'merdex-mobile-tawk-position';
 
@@ -563,6 +564,8 @@
         widget.classList.remove('is-dragging');
         drag = null;
       });
+
+      changeLanguage('zh-CN');
     });
 
     (function () {
@@ -585,13 +588,13 @@
 
   <header>
     <div class="brand" onclick="window.location.reload()">
-      <img src="MERHelpDesk_Poster.png" alt="MER Decentralized Exchange Help Desk Logo" class="brand-logo">
+      <img src="MERHelpDesk_Poster.png" alt="梅尔去中心化交易所帮助中心图标" class="brand-logo">
     </div>
     <div class="lang-switcher">
       <select id="lang-select" class="lang-select" onchange="changeLanguage(this.value)">
-        <option value="en" selected>English</option>
-        <option value="zh-CN">简体中文</option>
+        <option value="zh-CN" selected>简体中文</option>
         <option value="zh-TW">繁體中文</option>
+        <option value="en">English</option>
         <option value="ko">한국어</option>
       </select>
     </div>
@@ -599,144 +602,144 @@
 
   <main>
     <div class="hero">
-      <img src="MERHelpDesk.JPG" alt="MER Decentralized Exchange Help Desk Banner" class="banner-img">
+      <img src="MERHelpDesk.JPG" alt="梅尔去中心化交易所帮助中心横幅" class="banner-img">
 
-      <span class="hero-tag" data-i18n="heroTag">Non-Custodial · High-Speed Aggregator</span>
-      <h1 data-i18n="heroTitle">MER Decentralized Exchange Help Desk</h1>
-      <p data-i18n="heroDesc">Start your cryptocurrency trading journey through MER Decentralized Exchange</p>
+      <span class="hero-tag" data-i18n="heroTag">非托管 · 高速聚合器</span>
+      <h1 data-i18n="heroTitle">梅尔去中心化交易所帮助中心</h1>
+      <p data-i18n="heroDesc">通过梅尔去中心化交易所开始您的加密货币交易之旅</p>
     </div>
 
     <div class="grid">
       <a class="card" href="https://www.mer.finance">
-        <h3 data-i18n="card1Title">MER Decentralized Exchange Swap</h3>
-        <p data-i18n="card1Desc">Crypto & stock spot exchange, cross-chain trades, and slippage settings</p>
+        <h3 data-i18n="card1Title">梅尔去中心化交易所兑换</h3>
+        <p data-i18n="card1Desc">加密货币与股票现货兑换、跨链交易及滑点设置</p>
       </a>
       <a class="card" href="https://perp.mer.finance">
-        <h3 data-i18n="card2Title">MER Decentralized Exchange Contracts</h3>
-        <p data-i18n="card2Desc">Crypto & stock futures, high leverage, and funding rates</p>
+        <h3 data-i18n="card2Title">梅尔去中心化交易所合约</h3>
+        <p data-i18n="card2Desc">加密货币与股票期货、高杠杆及资金费率</p>
       </a>
       <a class="card" href="https://vip.mer.finance">
-        <h3 data-i18n="card3Title">MER VIP</h3>
-        <p data-i18n="card3Desc">Contact support after reaching trading volume to upgrade VIP & lower fees</p>
+        <h3 data-i18n="card3Title">梅尔 VIP</h3>
+        <p data-i18n="card3Desc">满足交易量后联系客服升级梅尔 VIP 并降低手续费</p>
       </a>
       <div class="card" onclick="openTawkChat()">
-        <h3 data-i18n="card4Title">Live Support</h3>
-        <p data-i18n="card4Desc">MER customer support is at your service 24/7</p>
+        <h3 data-i18n="card4Title">在线客服</h3>
+        <p data-i18n="card4Desc">梅尔客户服务团队全天候 24 小时为您服务</p>
       </div>
     </div>
 
-    <div class="section-title" data-i18n="faqTitle">Frequently Asked Questions</div>
+    <div class="section-title" data-i18n="faqTitle">常见问题</div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqFeaturesQ">MER Decentralized Exchange Feature Introduction (Swap & Contracts)</span>
+        <span data-i18n="faqFeaturesQ">梅尔去中心化交易所功能介绍（兑换 / 合约）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqFeaturesA">
-        <strong>Platform Features Overview:</strong><br><br>
-        1. <strong>MER Decentralized Exchange Swap</strong> is a trading platform that allows you to swap cryptocurrencies across supported blockchain networks with customizable slippage settings and standard platform service fees.<br><br>
-        2. <strong>MER Decentralized Exchange Contracts</strong> allows you to trade perpetual futures using cryptocurrency with customizable leverage multipliers. <strong>Risk Warning</strong>: Crypto futures trading carries significantly higher risk than spot swapping. The risk is determined by your leverage ratio. Higher leverage increases trading risk and amplifies both profits and losses, directly impacting position safety. Please choose responsibly based on your needs.<br><br>
-        3. <strong>Funding Rates in MER Decentralized Exchange Contracts</strong>:<br>
-        • <strong>Anchoring Spot Price</strong>: Encourages shorting/closing longs when futures trade at a premium, and longing/closing shorts when futures trade at a discount.<br>
-        • <strong>Balancing Long/Short Positions</strong>: Adjusts market position ratios through financial incentives (interest compensation).<br>
-        • <strong>Maintaining Market Health</strong>: Prevents price manipulation and excessive leverage accumulation in one-sided markets.<br>
-        • <strong>Funding Rate Payments</strong>: When positive (+), long positions pay short positions. When negative (-), short positions pay long positions. Settlements occur every 8 hours.<br><br>
-        4. <strong>Liquidation in MER Decentralized Exchange Contracts</strong>: When your margin is insufficient to support your perpetual futures position, MER Decentralized Exchange Contracts will execute a forced closure (liquidation).<br><br>
-        5. <strong>MER Risk Disclaimer</strong>: Crypto and derivatives trading carry extremely high risk. MER assumes no compensation liability or obligation. Please evaluate if you can bear such risks or consult professional advisors. MER solely provides trading platform services and assumes no liability.<br><br>
-        6. If you do not agree to the terms above, please immediately stop using the MER platform. Thank you for your support and understanding!
+        <strong>平台功能介绍：</strong><br><br>
+        1. <strong>梅尔去中心化交易所兑换</strong>是让您通过您的加密货币进行加密货币兑换的交易平台，它可以让您在梅尔去中心化交易所兑换支持的公链中完成加密货币交易，并且您可以设置对应滑点，平台收取对应服务费。<br><br>
+        2. <strong>梅尔去中心化交易所合约</strong>是让您通过您的加密货币进行合约交易，并且可以自由选择您的杠杆倍率。<strong>风险提醒</strong>：加密货币合约交易风险远高于加密货币兑换交易，具体风险由您的杠杆倍率决定，合约交易中的杠杆倍率越高，您的交易风险就越大，同时您的盈利及亏损将被杠杆倍率放大，越高倍率的合约交易将影响您的仓位安全，建议您根据自身需求进行选择。<br><br>
+        3. <strong>梅尔去中心化交易所合约中的资金费率</strong>：<br>
+        • <strong>锚定现货价格</strong>：当合约价格高于现货（溢价）时，通过资金费率鼓励做空/平多；当合约价格低于现货（折价）时，鼓励做多/平空。<br>
+        • <strong>平衡多空力量</strong>：通过经济激励（利息补偿），调节市场上多头与空头的持仓比例。<br>
+        • <strong>维持市场健康度</strong>：避免单边行情中合约价格被无限操纵或杠杆堆积过高。<br>
+        • <strong>多空资金费率支付介绍</strong>：资金费率为正(+)时，多头仓位将向空头仓位支付资金费率；资金费率为负(-)时，空头仓位将向多头仓位支付资金费率。资金费率结算周期为每 8 小时一次。<br><br>
+        4. <strong>梅尔去中心化交易所合约中的爆仓/清算</strong>：当您的保证金不足以支持您的合约仓位时，梅尔去中心化交易所合约将强制平仓，也就是爆仓。<br><br>
+        5. <strong>梅尔平台提醒您</strong>：加密货币交易以及加密货币衍生品交易存在极高风险，梅尔不承担任何赔偿责任以及赔偿义务，进行加密货币的交易及加密货币衍生品交易时，您应该审慎考虑您自身是否可以承担对应交易风险，若您不了解加密货币且想了解加密货币的交易及加密货币衍生品的内容，建议您聘请专业人士为您进行解答，梅尔只提供加密货币交易平台服务，不承担任何责任。<br><br>
+        6. 若您不同意上述内容，请您立即停止使用梅尔交易平台进行交易，感谢您对梅尔的支持与理解，祝您每天拥有一个好心情。
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqSecurity20260918Q">MER Security Warning Notice (September 18, 2026)</span>
+        <span data-i18n="faqSecurity20260918Q">梅尔安全保护提醒！（2026年9月18日）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqSecurity20260918A">
-        Dear MER Users,<br><br>The MER Address Security Team reminds you: Please do not share your seed phrases, private keys, or authorize multi-sig permissions with strangers, nor authorize smart contracts on unfamiliar platforms. Entering your seed phrases or private keys into unfamiliar DApps, Apps, or platforms is a high-risk operation that could result in your assets being completely stolen. Always exercise extreme caution when authorizing any smart contract to verify that the contract and corresponding platform are safe, and prefer using major platforms.<br><br>Friendly reminder: Regardless of the platform, even if a platform does not act maliciously, hacker attacks or force majeure events can still cause a total loss or zeroing of your assets. Factors beyond control such as earthquakes, tsunamis, apocalypses, and other force majeure events may lead to your assets dropping to zero. You must maintain absolute caution before investing in cryptocurrencies or participating in cryptocurrency derivatives trading.<br><br>MER Address Security Team wishes you happy trading<br>September 18, 2026
+        尊贵的梅尔用户，您好！梅尔地址安全团队提醒您：请勿将您的助记词、私钥或多重签名权限授权给陌生人，切勿在未知平台的内置浏览器或未知应用程序中输入您的助记词与私钥，或进行盲目授权。此类高风险操作极易导致您的资产被盗洗劫一空。在授权任何智能合约时，请务必谨慎核实智能合约及对应平台的安全性，优先选择大型官方平台进行智能合约等操作。温馨提示：无论任何平台，即使平台无主观恶意，在遭遇黑客恶意攻击或不可抗力因素时，均可能造成您的资产完全损失甚至归零；如地震、海啸、极极端事件及各种不可抗力因素均可能导致您的资产全部归零。在您投资加密货币之前或进行加密货币衍生品交易时，您应该保持绝对慎重才可以进行加密货币交易以及加密货币衍生品交易。<br><br>梅尔地址安全团队祝您交易愉快<br>2026年9月18日
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqOperation20260915Q">Announcement on the Normal Operation of MER Decentralized Exchange (September 15, 2026)</span>
+        <span data-i18n="faqOperation20260915Q">关于梅尔去中心化交易所正常运营的公告（2026年9月15日）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqOperation20260915A">
-        Dear MER Users,<br><br>All operations at MER Exchange have been running normally since 2023. Recently, we learned that some exchanges even ban withdrawals after shutting down. To let everyone know that our platform business is operating completely normally: MER is a decentralized exchange where user assets are stored in smart contract systems. There is no misappropriation of customer funds or shortage of funds. Therefore, there is no risk of closure or bankruptcy for the MER platform. MER does not manage user assets, please rest assured.<br><br>MER Services<br>September 15, 2026
+        尊贵的梅尔用户：<br><br>自 2023 年上线以来，梅尔交易所的所有运营一直保持完全正常。最近，我们了解到有些交易所在关闭后甚至禁止提现。为了让大家了解本平台的业务运营状况：梅尔是一个去中心化交易所，用户资产均存储在智能合约系统中，不存在任何挪用客户资金或资金短缺的情况。因此，梅尔平台绝不存在关闭或破产风险。梅尔不托管用户资产，请您放心使用。<br><br>梅尔服务团队<br>2026年9月15日
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqReserve20260915Q">MER Proof of Reserves Officially Launched (September 15, 2026)</span>
+        <span data-i18n="faqReserve20260915Q">梅尔储备金证明正式上线（2026年9月15日）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqReserve20260915A">
-        Dear MER Decentralized Exchange Users,<br><br>We have officially launched the MER Token Proof of Reserves to ensure that all MER tokens you purchase are fully backed 1:1 for redemption support. You can view the MER Proof of Reserves report at: <a href="https://reserve.mer.finance" target="_blank" rel="noopener noreferrer">https://reserve.mer.finance</a>.<br><br>September 15, 2026<br>MER Services
+        尊贵的梅尔去中心化交易所用户：<br><br>我们已正式推出梅尔代币储备金证明，以确保您购买的所有梅尔代币均获得 1:1 的充分担保与兑换支持。您可以通过以下网址查看梅尔储备金证明报告：<a href="https://reserve.mer.finance" target="_blank" rel="noopener noreferrer">https://reserve.mer.finance</a>。<br><br>2026年9月15日<br>梅尔服务团队
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqAudit20260914Q">MER Audit Report Officially Launched (September 14, 2026)</span>
+        <span data-i18n="faqAudit20260914Q">梅尔审计报告正式上线（2026年9月14日）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqAudit20260914A">
-        Dear MER Decentralized Exchange Users,<br><br>MER has officially launched the product-side audit report. Product auditing is key to your peace of mind, proving that MER products have been thoroughly audited. For full details, please visit: <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>.<br><br>September 14, 2026<br>MER Services
+        尊贵的梅尔去中心化交易所用户：<br><br>梅尔已正式上线产品端审计报告。产品审计是保障您安心交易的关键，证明梅尔产品已经过严格且彻底的审计。有关完整详情，请访问：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>。<br><br>2026年9月14日<br>梅尔服务团队
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqSwapCompleted20260911Q">MER Decentralized Exchange Swap Upgrade Completion Notice (September 11, 2026)</span>
+        <span data-i18n="faqSwapCompleted20260911Q">梅尔去中心化交易所兑换升级完成通知（2026年9月11日）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqSwapCompleted20260911A">
-        MER Decentralized Exchange Swap underwent an optimization upgrade on September 11, 2026, resolving mobile app compatibility issues when initiating transactions via bottom buttons. Maintenance lasted approximately 15 minutes. We apologize for any inconvenience caused and thank you for your continued support.<br><br>MER Services<br>September 11, 2026
+        梅尔去中心化交易所兑换于 2026 年 9 月 11 日完成了一项优化升级，解决了通过底部按钮发起交易时在移动设备及网页端上的兼容性问题。维护持续约 15 分钟。对于由此带来的不便，我们深表歉意，并感谢您的持续支持。<br><br>梅尔服务团队<br>2026年9月11日
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqSwapCompletedQ">MER Decentralized Exchange Upgrade Completion Notice (September 10, 2026)</span>
+        <span data-i18n="faqSwapCompletedQ">梅尔去中心化交易所升级完成通知（2026年9月10日）</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqSwapCompletedA">
-        Dear MER Decentralized Exchange Users,<br><br>We completed the MER Decentralized Exchange Swap upgrade on September 10, 2026. You can directly access the interface at <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>. We apologize for any temporary inconvenience caused.<br><br>MER Global<br>MER Services<br>September 10, 2026
+        尊贵的梅尔去中心化交易所用户：<br><br>我们于 2026 年 9 月 10 日完成了梅尔去中心化交易所兑换升级。您可以直接访问 <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 进入界面。对于带来的临时不便，我们深表歉意。<br><br>梅尔全球<br>梅尔服务团队<br>2026年9月10日
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq6Q">What is the MER referral reward program?</span>
+        <span data-i18n="faq6Q">什么是梅尔推荐奖励计划？</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq6A">
-        Invite friends and earn a permanent 50% commission share of the trading fees generated by your referred users.
+        邀请好友即可永久获得您推荐用户所产生交易手续费的 50% 佣金分成。
       </div>
     </div>
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq8Q">What is MER Global?</span>
+        <span data-i18n="faq8Q">什么是梅尔全球？</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faq8A">
-        MER is a decentralized exchange offering cryptocurrency spot and perpetual contracts, as well as traditional financial stock spot and perpetual contract trading, under <strong>MER Global</strong>, which was created in 2023 by <strong>Sky Song Xiao Tian</strong>. <strong>Sky Song Xiao Tian</strong> is the founder of MER Global.
+        梅尔是一家提供加密货币现货与永续合约，以及传统金融股票现货与永续合约交易的去中心化交易所，隶属于由 <strong>宋小天</strong> 于 2023 年创立的<strong>梅尔全球</strong>。<strong>宋小天</strong> 是<strong>梅尔全球</strong>的创始人。
       </div>
     </div>
   </main>
 
   <footer>
-    <span data-i18n="footerCopy">© MER Global 2023-2026</span>
+    <span data-i18n="footerCopy">© 梅尔全球 2023-2026</span>
   </footer>
 
-  <button id="mobile-tawk-widget" type="button" aria-label="Chat widget" title="Chat widget">
+  <button id="mobile-tawk-widget" type="button" aria-label="打开客服对话" title="打开客服对话">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" height="32" width="32" role="img"
       aria-labelledby="tawk-open-icon-title tawk-open-icon-description">
-      <title id="tawk-open-icon-title">Open Chat</title>
-      <desc id="tawk-open-icon-description">This icon opens the chat window.</desc>
+      <title id="tawk-open-icon-title">打开在线客服</title>
+      <desc id="tawk-open-icon-description">点击图标打开客服窗口。</desc>
       <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"
         d="M400 26.2c-193.3 0-350 156.7-350 350 0 136.2 77.9 254.3 191.5 312.1 15.4 8.1 31.4 15.1 48.1 20.8l-16.5 63.5c-2 7.8 5.4 14.7 13 12.1l229.8-77.6c14.6-5.3 28.8-11.6 42.4-18.7C672 630.6 750 512.5 750 376.2c0-193.3-156.7-350-350-350zm211.1 510.7c-10.8 26.5-41.9 77.2-121.5 77.2-79.9 0-110.9-51-121.6-77.4-2.8-6.8 5-13.4 13.8-11.8 76.2 13.7 147.7 13 215.3.3 8.9-1.8 16.8 4.8 14 11.7z" />
     </svg>
@@ -763,6 +766,8 @@
       const data = i18nData[lang];
       if (!data) return;
 
+      document.documentElement.lang = lang;
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (data[key]) {
@@ -775,8 +780,76 @@
     }
 
     const i18nData = {
+      'zh-CN': {
+        docTitle: '梅尔去中心化交易所 | 帮助中心',
+        heroTag: '非托管 · 高速聚合器',
+        heroTitle: '梅尔去中心化交易所帮助中心',
+        heroDesc: '通过梅尔去中心化交易所开启您的加密货币交易之旅',
+        card1Title: '梅尔去中心化交易所兑换',
+        card1Desc: '加密货币与股票现货兑换、跨链交易及滑点设置',
+        card2Title: '梅尔去中心化交易所合约',
+        card2Desc: '加密货币与股票期货、高杠杆及资金费率',
+        card3Title: '梅尔 VIP',
+        card3Desc: '满足交易量后联系客服升级梅尔 VIP 并降低手续费',
+        card4Title: '在线客服',
+        card4Desc: '梅尔客户服务团队全天候 24 小时为您服务',
+        faqTitle: '常见问题',
+        faqFeaturesQ: '梅尔去中心化交易所功能介绍（兑换 / 合约）',
+        faqFeaturesA: '<strong>平台功能介绍：</strong><br><br>1. <strong>梅尔去中心化交易所兑换</strong>是让您通过您的加密货币进行加密货币兑换的交易平台，它可以让您在梅尔去中心化交易所兑换支持的公链中完成加密货币交易，并且您可以设置对应滑点，平台收取对应服务费。<br><br>2. <strong>梅尔去中心化交易所合约</strong>是让您通过您的加密货币进行合约交易，并且可以自由选择您的杠杆倍率。<strong>风险提醒</strong>：加密货币合约交易风险远高于加密货币兑换交易，具体风险由您的杠杆倍率决定，合约交易中的杠杆倍率越高，您的交易风险就越大，同时您的盈利及亏损将被杠杆倍率放大，越高倍率的合约交易将影响您的仓位安全，建议您根据自身需求进行选择。<br><br>3. <strong>梅尔去中心化交易所合约中的资金费率</strong>：<br>• <strong>锚定现货价格</strong>：当合约价格高于现货（溢价）时，通过资金费率鼓励做空/平多；当合约价格低于现货（折价）时，鼓励做多/平空。<br>• <strong>平衡多空力量</strong>：通过经济激励（利息补偿），调节市场上多头与空头的持仓比例。<br>• <strong>维持市场健康度</strong>：避免单边行情中合约价格被无限操纵或杠杆堆积过高。<br>• <strong>多空资金费率支付介绍</strong>：资金费率为正(+)时，多头仓位将向空头仓位支付资金费率；资金费率为负(-)时，空头仓位将向多头仓位支付资金费率。资金费率结算周期为每 8 小时一次。<br><br>4. <strong>梅尔去中心化交易所合约中的爆仓/清算</strong>：当您的保证金不足以支持您的合约仓位时，梅尔去中心化交易所合约将强制平仓，也就是爆仓。<br><br>5. <strong>梅尔平台提醒您</strong>：加密货币交易以及加密货币衍生品交易存在极高风险，梅尔不承担任何赔偿责任以及赔偿义务，进行加密货币的交易及加密货币衍生品交易时，您应该审慎考虑您自身是否可以承担对应交易风险，若您不了解加密货币且想了解加密货币的交易及加密货币衍生品的内容，建议您聘请专业人士为您进行解答，梅尔只提供加密货币交易平台服务，不承担任何责任。<br><br>6. 若您不同意上述内容，请您立即停止使用梅尔交易平台进行交易，感谢您对梅尔的支持与理解，祝您每天拥有一个好心情。',
+        faqSecurity20260918Q: '梅尔安全保护提醒！（2026年9月18日）',
+        faqSecurity20260918A: '尊贵的梅尔用户，您好！梅尔地址安全团队提醒您：请勿将您的助记词、私钥或多重签名权限授权给陌生人，切勿在未知平台的内置浏览器或未知应用程序中输入您的助记词与私钥，或进行盲目授权。此类高风险操作极易导致您的资产被盗洗劫一空。在授权任何智能合约时，请务必谨慎核实智能合约及对应平台的安全性，优先选择大型官方平台进行智能合约等操作。温馨提示：无论任何平台，即使平台无主观恶意，在遭遇黑客恶意攻击或不可抗力因素时，均可能造成您的资产完全损失甚至归零；如地震、海啸、极极端事件及各种不可抗力因素均可能导致您的资产全部归零。在您投资加密货币之前或进行加密货币衍生品交易时，您应该保持绝对慎重才可以进行加密货币交易以及加密货币衍生品交易。<br><br>梅尔地址安全团队祝您交易愉快<br>2026年9月18日',
+        faqOperation20260915Q: '关于梅尔去中心化交易所正常运营的公告（2026年9月15日）',
+        faqOperation20260915A: '尊贵的梅尔用户：<br><br>自 2023 年上线以来，梅尔交易所的所有运营一直保持完全正常。最近，我们了解到有些交易所在关闭后甚至禁止提现。为了让大家了解本平台的业务运营状况：梅尔是一个去中心化交易所，用户资产均存储在智能合约系统中，不存在任何挪用客户资金或资金短缺的情况。因此，梅尔平台绝不存在关闭或破产风险。梅尔不托管用户资产，请您放心使用。<br><br>梅尔服务团队<br>2026年9月15日',
+        faqReserve20260915Q: '梅尔储备金证明正式上线（2026年9月15日）',
+        faqReserve20260915A: '尊贵的梅尔去中心化交易所用户：<br><br>我们已正式推出梅尔代币储备金证明，以确保您购买的所有梅尔代币均获得 1:1 的充分担保与兑换支持。您可以通过以下网址查看梅尔储备金证明报告：<a href="https://reserve.mer.finance" target="_blank" rel="noopener noreferrer">https://reserve.mer.finance</a>。<br><br>2026年9月15日<br>梅尔服务团队',
+        faqAudit20260914Q: '梅尔审计报告正式上线（2026年9月14日）',
+        faqAudit20260914A: '尊贵的梅尔去中心化交易所用户：<br><br>梅尔已正式上线产品端审计报告。产品审计是保障您安心交易的关键，证明梅尔产品已经过严格且彻底的审计。有关完整详情，请访问：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>。<br><br>2026年9月14日<br>梅尔服务团队',
+        faqSwapCompleted20260911Q: '梅尔去中心化交易所兑换升级完成通知（2026年9月11日）',
+        faqSwapCompleted20260911A: '梅尔去中心化交易所兑换于 2026 年 9 月 11 日完成了一项优化升级，解决了通过底部按钮发起交易时在移动设备及网页端上的兼容性问题。维护持续约 15 分钟。对于由此带来的不便，我们深表歉意，并感谢您的持续支持。<br><br>梅尔服务团队<br>2026年9月11日',
+        faqSwapCompletedQ: '梅尔去中心化交易所升级完成通知（2026年9月10日）',
+        faqSwapCompletedA: '尊贵的梅尔去中心化交易所用户：<br><br>我们于 2026 年 9 月 10 日完成了梅尔去中心化交易所兑换升级。您可以直接访问 <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 进入界面。对于带来的临时不便，我们深表歉意。<br><br>梅尔全球<br>梅尔服务团队<br>2026年9月10日',
+        faq6Q: '什么是梅尔推荐奖励计划？',
+        faq6A: '邀请好友即可永久获得您推荐用户所产生交易手续费的 50% 佣金分成。',
+        faq8Q: '什么是梅尔全球？',
+        faq8A: '梅尔是一家提供加密货币现货与永续合约，以及传统金融股票现货与永续合约交易的去中心化交易所，隶属于由 <strong>宋小天</strong> 于 2023 年创立的<strong>梅尔全球</strong>。<strong>宋小天</strong> 是<strong>梅尔全球</strong>的创始人。',
+        footerCopy: '© 梅尔全球 2023-2026'
+      },
+      'zh-TW': {
+        docTitle: '梅爾去中心化交易所 | 幫助中心',
+        heroTag: '非託管 · 高速聚合器',
+        heroTitle: '梅爾去中心化交易所幫助中心',
+        heroDesc: '透過梅爾去中心化交易所開啟您的加密貨幣交易之旅',
+        card1Title: '梅爾去中心化交易所兌換',
+        card1Desc: '加密貨幣與股票現貨兌換、跨鏈交易及滑點設定',
+        card2Title: '梅爾去中心化交易所合約',
+        card2Desc: '加密貨幣與股票期貨、高槓桿及資金費率',
+        card3Title: '梅爾 VIP',
+        card3Desc: '達到交易量門檻後可聯繫客服升級梅爾 VIP 並享有手續費折扣',
+        card4Title: '線上客服',
+        card4Desc: '梅爾客戶服務團隊全天候 24 小時為您服務',
+        faqTitle: '常見問題',
+        faqFeaturesQ: '梅爾去中心化交易所功能介紹（兌換 / 合約）',
+        faqFeaturesA: '<strong>平台功能介紹：</strong><br><br>1. <strong>梅爾去中心化交易所兌換</strong>是讓您透過您的加密貨幣進行加密貨幣兌換的交易平台，它可以讓您在梅爾去中心化交易所兌換支援的公鏈中完成加密貨幣交易，並且您可以設定對應滑點，平台收取對應服務費。<br><br>2. <strong>梅爾去中心化交易所合約</strong>是讓您透過您的加密貨幣進行合約交易，並且可以自由選擇您的槓桿倍率。<strong>風險提醒</strong>：加密貨幣合約交易風險遠高於加密貨幣兌換交易，具體風險由您的槓桿倍率決定，合約交易中的槓桿倍率越高，您的交易風險就越大，同時您的盈利及虧損將被槓桿倍率放大，越高倍率的合約交易將影響您的倉位安全，建議您根據自身需求進行選擇。<br><br>3. <strong>梅爾去中心化交易所合約中的資金費率</strong>：<br>• <strong>錨定現貨價格</strong>：當合約價格高於現貨（溢價）時，透過資金費率鼓勵做空/平多；當合約價格低於現貨（折價）時，鼓勵做多/平空。<br>• <strong>平衡多空力量</strong>：透過經濟激勵（利息補償），調節市場上多頭與空頭的持倉比例。<br>• <strong>維持市場健康度</strong>：避免單邊行情中合約價格被無限操縱或槓桿堆積過高。<br>• <strong>多空資金費率支付介紹</strong>：資金費率為正(+)時，多頭倉位將向空頭倉位支付資金費率；資金費率為負(-)時，空頭倉位將向多頭倉位支付資金費率。資金費率結算週期為每 8 小時一次。<br><br>4. <strong>梅爾去中心化交易所合約中的爆倉/清算</strong>：當您的保證金不足以支持您的合約倉位時，梅爾去中心化交易所合約將強制平倉，也就是爆倉。<br><br>5. <strong>梅爾平台提醒您</strong>：加密貨幣交易以及加密貨幣衍生品交易存在極高風險，梅爾不承擔任何賠償責任以及賠償義務，進行加密貨幣的交易及加密貨幣衍生品交易時，您應該審慎考慮您自身是否可以承擔對應交易風險，若您不了解加密貨幣且想了解加密貨幣的交易及加密貨幣衍生品內容，建議您聘請專業人士為您進行解答，梅爾僅提供加密貨幣交易平台服務，不承擔任何責任。<br><br>6. 若您不同意上述內容，請您立即停止使用梅爾交易平台進行交易，感謝您對梅爾的支持與理解，祝您每天擁有一個好心情。',
+        faqSecurity20260918Q: '梅爾安全保護提醒！（2026年9月18日）',
+        faqSecurity20260918A: '尊貴的梅爾用戶，您好！梅爾地址安全團隊提醒您：請勿將您的助記詞、私鑰或多重簽名權限授權給陌生人，切勿在未知平台的內置瀏覽器或未知應用程式中輸入您的助記詞與私鑰，或進行盲目授權。此類高風險操作極易導致您的資產被盜洗劫一空。在授權任何智慧合約時，請務必謹慎核實智慧合約及對應平台的安全性，優先選擇大型官方平台進行智慧合約等操作。溫馨提示：無論任何平台，即使平台無主觀惡意，在遭遇黑客惡意攻擊或不可抗力因素時，均可能造成您的資產完全損失甚至歸零；如地震、海嘯、極極端事件及各種不可抗力因素均可能導致您的資產全部歸零。在您投資加密貨幣之前或進行加密貨幣衍生品交易時，您應該保持絕對慎重才可以進行加密貨幣交易以及加密貨幣衍生品交易。<br><br>梅爾地址安全團隊祝您交易愉快<br>2026年9月18日',
+        faqOperation20260915Q: '關於梅爾去中心化交易所正常營運之公告（2026年9月15日）',
+        faqOperation20260915A: '尊貴的梅爾用戶：<br><br>自 2023 年上線以來，梅爾交易所的所有營運均保持完全正常。最近我們注意到部分交易所關閉後甚至禁止用戶提領。為讓大家瞭解本平台的業務營運狀況：梅爾為去中心化交易所，用戶資產皆儲存於智慧合約系統中，不存在任何挪用客戶資金或資金短缺的情況。因此，梅爾平台絕無關閉或破產風險。梅爾不保管用戶資產，請您放心使用。<br><br>梅爾服務團隊<br>2026年9月15日',
+        faqReserve20260915Q: '梅爾儲備金證明正式上線（2026年9月15日）',
+        faqReserve20260915A: '尊貴的梅爾去中心化交易所用戶：<br><br>我們已正式推出梅爾代幣儲備金證明，確保您購買的所有梅爾代幣皆獲得 1:1 的充分擔保與兌換支援。您可透過以下連結查看梅爾儲備金證明報告：<a href="https://reserve.mer.finance" target="_blank" rel="noopener noreferrer">https://reserve.mer.finance</a>。<br><br>2026年9月15日<br>梅爾服務團隊',
+        faqAudit20260914Q: '梅爾審計報告正式公開（2026年9月14日）',
+        faqAudit20260914A: '尊貴的梅爾去中心化交易所用戶：<br><br>梅爾已正式公開產品端審計報告。產品審計是保障您安心交易的關鍵，證明梅爾產品已通過嚴格且全面的安全審計。如需完整詳情，請造訪：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>。<br><br>2026年9月14日<br>梅爾服務團隊',
+        faqSwapCompleted20260911Q: '梅爾去中心化交易所兌換升級完成通知（2026年9月11日）',
+        faqSwapCompleted20260911A: '梅爾去中心化交易所兌換於 2026 年 9 月 11 日完成系統優化升級，修復了透過底部按鈕發起交易時在行動裝置及網頁端上的相容性問題。維護過程約耗時 15 分鐘。對於維護期間造成的不便，我們深表歉意，並感謝您的持續支持。<br><br>梅爾服務團隊<br>2026年9月11日',
+        faqSwapCompletedQ: '梅爾去中心化交易所升級完成通知（2026年9月10日）',
+        faqSwapCompletedA: '尊貴的梅爾去中心化交易所用戶：<br><br>我們已於 2026 年 9 月 10 日完成梅爾去中心化交易所兌換升級。您可直接存取 <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 進入交易介面。對於期間造成的短暫不便，我們深表歉意。<br><br>梅爾全球<br>梅爾服務團隊<br>2026年9月10日',
+        faq6Q: '什麼是梅爾推薦獎勵計畫？',
+        faq6A: '邀請好友即可永久獲得您推薦用戶所產生交易手續費的 50% 佣金分潤。',
+        faq8Q: '什麼是梅爾全球？',
+        faq8A: '梅爾是一家提供加密貨幣現貨與永續合約，以及傳統金融股票現貨與永續合約交易的去中心化交易所，隸屬於由 <strong>宋小天</strong> 於 2023 年創立的<strong>梅爾全球</strong>。<strong>宋小天</strong> 是<strong>梅爾全球</strong>的創辦人。',
+        footerCopy: '© 梅爾全球 2023-2026'
+      },
       'en': {
-        docTitle: 'MER Decentralized Exchange Help Desk',
+        docTitle: 'MER Decentralized Exchange | Help Desk',
         heroTag: 'Non-Custodial · High-Speed Aggregator',
         heroTitle: 'MER Decentralized Exchange Help Desk',
         heroDesc: 'Start your cryptocurrency trading journey through MER Decentralized Exchange',
@@ -792,7 +865,7 @@
         faqFeaturesQ: 'MER Decentralized Exchange Feature Introduction (Swap & Contracts)',
         faqFeaturesA: '<strong>Platform Features Overview:</strong><br><br>1. <strong>MER Decentralized Exchange Swap</strong> is a trading platform that allows you to swap cryptocurrencies across supported blockchain networks with customizable slippage settings and standard platform service fees.<br><br>2. <strong>MER Decentralized Exchange Contracts</strong> allows you to trade perpetual futures using cryptocurrency with customizable leverage multipliers. <strong>Risk Warning</strong>: Crypto futures trading carries significantly higher risk than spot swapping. The risk is determined by your leverage ratio. Higher leverage increases trading risk and amplifies both profits and losses, directly impacting position safety. Please choose responsibly based on your needs.<br><br>3. <strong>Funding Rates in MER Decentralized Exchange Contracts</strong>:<br>• <strong>Anchoring Spot Price</strong>: Encourages shorting/closing longs when futures trade at a premium, and longing/closing shorts when futures trade at a discount.<br>• <strong>Balancing Long/Short Positions</strong>: Adjusts market position ratios through financial incentives (interest compensation).<br>• <strong>Maintaining Market Health</strong>: Prevents price manipulation and excessive leverage accumulation in one-sided markets.<br>• <strong>Funding Rate Payments</strong>: When positive (+), long positions pay short positions. When negative (-), short positions pay long positions. Settlements occur every 8 hours.<br><br>4. <strong>Liquidation in MER Decentralized Exchange Contracts</strong>: When your margin is insufficient to support your perpetual futures position, MER Decentralized Exchange Contracts will execute a forced closure (liquidation).<br><br>5. <strong>MER Risk Disclaimer</strong>: Crypto and derivatives trading carry extremely high risk. MER assumes no compensation liability or obligation. Please evaluate if you can bear such risks or consult professional advisors. MER solely provides trading platform services and assumes no liability.<br><br>6. If you do not agree to the terms above, please immediately stop using the MER platform. Thank you for your support and understanding!',
         faqSecurity20260918Q: 'MER Security Warning Notice (September 18, 2026)',
-        faqSecurity20260918A: 'Dear MER Users,<br><br>The MER Address Security Team reminds you: Please do not share your seed phrases, private keys, or authorize multi-sig permissions with strangers, nor authorize smart contracts on unfamiliar platforms. Entering your seed phrases or private keys into unfamiliar DApps, Apps, or platforms is a high-risk operation that could result in your assets being completely stolen. Always exercise extreme caution when authorizing any smart contract to verify that the contract and corresponding platform are safe, and prefer using major platforms.<br><br>Friendly reminder: Regardless of the platform, even if a platform does not act maliciously, hacker attacks or force majeure events can still cause a total loss or zeroing of your assets. Factors beyond control such as earthquakes, tsunamis, apocalypses, and other force majeure events may lead to your assets dropping to zero. You must maintain absolute caution before investing in cryptocurrencies or participating in cryptocurrency derivatives trading.<br><br>MER Address Security Team wishes you happy trading<br>September 18, 2026',
+        faqSecurity20260918A: 'Dear MER Users,<br><br>The MER Address Security Team reminds you: Please do not share your seed phrases, private keys, or authorize multi-sig permissions with strangers, nor authorize smart contracts on unfamiliar platforms or through unfamiliar web browsers/applications. Entering your seed phrases or private keys into unfamiliar environments is a high-risk operation that could result in your assets being completely stolen. Always exercise extreme caution when authorizing any smart contract to verify that the contract and corresponding platform are safe, and prefer using major official platforms.<br><br>Friendly reminder: Regardless of the platform, even if a platform does not act maliciously, hacker attacks or force majeure events can still cause a total loss or zeroing of your assets. Factors beyond control such as earthquakes, tsunamis, and other force majeure events may lead to your assets dropping to zero. You must maintain absolute caution before investing in cryptocurrencies or participating in cryptocurrency derivatives trading.<br><br>MER Address Security Team wishes you happy trading<br>September 18, 2026',
         faqOperation20260915Q: 'Announcement on the Normal Operation of MER Decentralized Exchange (September 15, 2026)',
         faqOperation20260915A: 'Dear MER Users,<br><br>All operations at MER Exchange have been running normally since 2023. Recently, we learned that some exchanges even ban withdrawals after shutting down. To let everyone know that our platform business is operating completely normally: MER is a decentralized exchange where user assets are stored in smart contract systems. There is no misappropriation of customer funds or shortage of funds. Therefore, there is no risk of closure or bankruptcy for the MER platform. MER does not manage user assets, please rest assured.<br><br>MER Services<br>September 15, 2026',
         faqReserve20260915Q: 'MER Proof of Reserves Officially Launched (September 15, 2026)',
@@ -800,7 +873,7 @@
         faqAudit20260914Q: 'MER Audit Report Officially Launched (September 14, 2026)',
         faqAudit20260914A: 'Dear MER Decentralized Exchange Users,<br><br>MER has officially launched the product-side audit report. Product auditing is key to your peace of mind, proving that MER products have been thoroughly audited. For full details, please visit: <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>.<br><br>September 14, 2026<br>MER Services',
         faqSwapCompleted20260911Q: 'MER Decentralized Exchange Swap Upgrade Completion Notice (September 11, 2026)',
-        faqSwapCompleted20260911A: 'MER Decentralized Exchange Swap underwent an optimization upgrade on September 11, 2026, resolving mobile app compatibility issues when initiating transactions via bottom buttons. Maintenance lasted approximately 15 minutes. We apologize for any inconvenience caused and thank you for your continued support.<br><br>MER Services<br>September 11, 2026',
+        faqSwapCompleted20260911A: 'MER Decentralized Exchange Swap underwent an optimization upgrade on September 11, 2026, resolving mobile and web application compatibility issues when initiating transactions via bottom buttons. Maintenance lasted approximately 15 minutes. We apologize for any inconvenience caused and thank you for your continued support.<br><br>MER Services<br>September 11, 2026',
         faqSwapCompletedQ: 'MER Decentralized Exchange Upgrade Completion Notice (September 10, 2026)',
         faqSwapCompletedA: 'Dear MER Decentralized Exchange Users,<br><br>We completed the MER Decentralized Exchange Swap upgrade on September 10, 2026. You can directly access the interface at <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>. We apologize for any temporary inconvenience caused.<br><br>MER Global<br>MER Services<br>September 10, 2026',
         faq6Q: 'What is the MER referral reward program?',
@@ -808,74 +881,6 @@
         faq8Q: 'What is MER Global?',
         faq8A: 'MER is a decentralized exchange offering cryptocurrency spot and perpetual contracts, as well as traditional financial stock spot and perpetual contract trading, under <strong>MER Global</strong>, which was created in 2023 by <strong>Sky Song Xiao Tian</strong>. <strong>Sky Song Xiao Tian</strong> is the founder of MER Global.',
         footerCopy: '© MER Global 2023-2026'
-      },
-      'zh-CN': {
-        docTitle: '梅尔去中心化交易所 | 帮助中心',
-        heroTag: '非托管 · 高速聚合器',
-        heroTitle: '梅尔去中心化交易所帮助中心',
-        heroDesc: '通过梅尔去中心化交易所开始您的加密货币交易之旅',
-        card1Title: '梅尔去中心化交易所兑换',
-        card1Desc: '加密货币与股票现货兑换、跨链交易及滑点设置',
-        card2Title: '梅尔去中心化交易所合约',
-        card2Desc: '加密货币与股票期货、高杠杆及资金费率',
-        card3Title: '梅尔VIP',
-        card3Desc: '满足交易量后联系客服升级梅尔VIP并降低手续费',
-        card4Title: '在线客服',
-        card4Desc: '梅尔客户服务团队全天候 24 小时为您服务',
-        faqTitle: '常见问题',
-        faqFeaturesQ: '梅尔去中心化交易所功能介绍（兑换 / 合约）',
-        faqFeaturesA: '<strong>平台功能介绍：</strong><br><br>1. <strong>梅尔去中心化交易所兑换</strong>是让您通过您的加密货币进行加密货币兑换的交易平台，它可以让您在梅尔去中心化交易所兑换支持的公链中完成加密货币交易，并且您可以设置对应滑点，平台收取对应服务费。<br><br>2. <strong>梅尔去中心化交易所合约</strong>是让您通过您的加密货币进行合约交易，并且可以自由选择您的杠杆倍率。<strong>风险提醒</strong>：加密货币合约交易风险远高于加密货币兑换交易，具体风险由您的杠杆倍率决定，合约交易中的杠杆倍率越高，您的交易风险就越大，同时您的盈利及亏损将被杠杆倍率放大，越高倍率的合约交易将影响您的仓位安全，建议您根据自身需求进行选择。<br><br>3. <strong>梅尔去中心化交易所合约中的资金费率</strong>：<br>• <strong>锚定现货价格</strong>：当合约价格高于现货（溢价）时，通过资金费率鼓励做空/平多；当合约价格低于现货（折价）时，鼓励做多/平空。<br>• <strong>平衡多空力量</strong>：通过经济激励（利息补偿），调节市场上多头与空头的持仓比例。<br>• <strong>维持市场健康度</strong>：避免单边行情中合约价格被无限操纵或杠杆堆积过高。<br>• <strong>多空资金费率支付介绍</strong>：资金费率为正(+)时，多头仓位将向空头仓位支付资金费率；资金费率为负(-)时，空头仓位将向多头仓位支付资金费率。资金费率结算周期为每 8 小时一次。<br><br>4. <strong>梅尔去中心化交易所合约中的爆仓/清算</strong>：当您的保证金不足以支持您的合约仓位时，梅尔去中心化交易所合约将强制平仓，也就是爆仓。<br><br>5. <strong>梅尔平台提醒您</strong>：加密货币交易以及加密货币衍生品交易存在极高风险，梅尔不承担任何赔偿责任以及赔偿义务，进行加密货币的交易及加密货币衍生品交易时，您应该审慎考虑您自身是否可以承担对应交易风险，若您不了解加密货币且想了解加密货币的交易及加密货币衍生品的内容，建议您聘请专业人士为您进行解答，梅尔只提供加密货币交易平台服务，不承担任何责任。<br><br>6. 若您不同意上述内容，请您立即停止使用梅尔交易平台进行交易，感谢您对梅尔的支持与理解，祝您每天拥有一个好心情。',
-        faqSecurity20260918Q: '梅尔安全保护提醒！（2026年9月18日）',
-        faqSecurity20260918A: '尊贵的梅尔用户，您好！梅尔地址安全团队提醒您：请勿将您的助记词，私钥，包含多签功能授权至陌生人，以及智能合约授权，包含进入陌生Dapp或陌生App将您的助记词，私钥，录入陌生平台，这些都是高风险操作，请您时刻防范这类可能将您资产洗劫一空的危险操作，在您授权任何智能合约时，请您时刻审慎该智能合约以及对应平台是否是安全的，您同时应该选择大型平台进行智能合约等操作，温馨提示：无论任何平台，即使平台不作恶，在被黑客恶意攻击或平台不可抗力等因素均可能造成您的资产全部损失，甚至您的资产全部归零；如地震海啸，世界末日，以及各种不可抗力因素均可能导致您资产全部归零，在您投资加密货币之前或进行加密货币衍生品交易时，您应该保持绝对慎重才可以进行加密货币交易以及加密货币衍生品交易。<br><br>梅尔地址安全团队祝您交易愉快<br>2026年9月18日',
-        faqOperation20260915Q: '关于梅尔去中心化交易所正常运营的公告（2026年9月15日）',
-        faqOperation20260915A: '尊贵的梅尔用户：<br><br>自 2023 年上线以来，梅尔交易所的所有运营一直保持完全正常。最近，我们了解到有些交易所在关闭后甚至禁止提现。为了让大家了解本平台的业务运营状况：梅尔是一个去中心化交易所，用户资产均存储在智能合约系统中，不存在任何挪用客户资金或资金短缺的情况。因此，梅尔平台绝不存在关闭或破产风险。梅尔不托管用户资产，请您放心使用。<br><br>梅尔服务团队<br>2026年9月15日',
-        faqReserve20260915Q: '梅尔储备金证明正式上线（2026年9月15日）',
-        faqReserve20260915A: '尊贵的梅尔去中心化交易所用户：<br><br>我们已正式推出梅尔代币储备金证明，以确保您购买的所有梅尔代币均获得 1:1 的充分担保与兑换支持。您可以通过以下网址查看梅尔储备金证明报告：<a href="https://reserve.mer.finance" target="_blank" rel="noopener noreferrer">https://reserve.mer.finance</a>。<br><br>2026年9月15日<br>梅尔服务团队',
-        faqAudit20260914Q: '梅尔审计报告正式上线（2026年9月14日）',
-        faqAudit20260914A: '尊贵的梅尔去中心化交易所用户：<br><br>梅尔已正式上线产品端审计报告。产品审计是保障您安心交易的关键，证明梅尔产品已经过严格且彻底的审计。有关完整详情，请访问：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>。<br><br>2026年9月14日<br>梅尔服务团队',
-        faqSwapCompleted20260911Q: '梅尔去中心化交易所兑换升级完成通知（2026年9月11日）',
-        faqSwapCompleted20260911A: '梅尔去中心化交易所兑换于 2026 年 9 月 11 日完成了一项优化升级，解决了通过底部按钮发起交易时在手机应用上的兼容性问题。维护持续约 15 分钟。对于由此带来的不便，我们深表歉意，并感谢您的持续支持。<br><br>梅尔服务团队<br>2026年9月11日',
-        faqSwapCompletedQ: '梅尔去中心化交易所升级完成通知（2026年9月10日）',
-        faqSwapCompletedA: '尊贵的梅尔去中心化交易所用户：<br><br>我们于 2026 年 9 月 10 日完成了梅尔去中心化交易所兑换升级。您可以直接访问 <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 进入界面。对于带来的临时不便，我们深表歉意。<br><br>梅尔全球<br>梅尔服务团队<br>2026年9月10日',
-        faq6Q: '什么是梅尔推荐奖励计划？',
-        faq6A: '邀请好友即可永久获得您推荐用户所产生交易手续费的 50% 佣金分成。',
-        faq8Q: '什么是梅尔全球？',
-        faq8A: '梅尔是一家提供加密货币现货与永续合约，以及传统金融股票现货与永续合约交易的去中心化交易所，由 <strong>宋小天</strong> 于 2023 年创立的<strong>梅尔全球</strong>。<strong>宋小天</strong> 是<strong>梅尔全球</strong>的创始人。',
-        footerCopy: '© 梅尔全球 2023-2026'
-      },
-      'zh-TW': {
-        docTitle: '梅爾去中心化交易所 | 幫助中心',
-        heroTag: '非託管 · 高速聚合器',
-        heroTitle: '梅爾去中心化交易所幫助中心',
-        heroDesc: '透過梅爾去中心化交易所開始您的加密貨幣交易之旅',
-        card1Title: '梅爾去中心化交易所兌換',
-        card1Desc: '加密貨幣與股票現貨兌換、跨鏈交易及滑點設定',
-        card2Title: '梅爾去中心化交易所合約',
-        card2Desc: '加密貨幣與股票期貨、高槓桿及資金費率',
-        card3Title: '梅爾VIP',
-        card3Desc: '達到交易量門檻後可聯繫客服升級梅爾VIP並享有手續費折扣',
-        card4Title: '線上客服',
-        card4Desc: '梅爾客戶服務團隊全天候 24 小時為您服務',
-        faqTitle: '常見問題',
-        faqFeaturesQ: '梅爾去中心化交易所功能介紹（兌換 / 合約）',
-        faqFeaturesA: '<strong>平台功能介紹：</strong><br><br>1. <strong>梅爾去中心化交易所兌換</strong>是讓您透過您的加密貨幣進行加密貨幣兌換的交易平台，它可以讓您在梅爾去中心化交易所兌換支援的公鏈中完成加密貨幣交易，並且您可以設定對應滑點，平台收取對應服務費。<br><br>2. <strong>梅爾去中心化交易所合約</strong>是讓您透過您的加密貨幣進行合約交易，並且可以自由選擇您的槓桿倍率。<strong>風險提醒</strong>：加密貨幣合約交易風險遠高於加密貨幣兌換交易，具體風險由您的槓桿倍率決定，合約交易中的槓桿倍率越高，您的交易風險就越大，同時您的盈利及虧損將被槓桿倍率放大，越高倍率的合約交易將影響您的倉位安全，建議您根據自身需求進行選擇。<br><br>3. <strong>梅爾去中心化交易所合約中的資金費率</strong>：<br>• <strong>錨定現貨價格</strong>：當合約價格高於現貨（溢價）時，透過資金費率鼓勵做空/平多；當合約價格低於現貨（折價）時，鼓勵做多/平空。<br>• <strong>平衡多空力量</strong>：透過經濟激勵（利息補償），調節市場上多頭與空頭的持倉比例。<br>• <strong>維持市場健康度</strong>：避免單邊行情中合約價格被無限操縱或槓桿堆積過高。<br>• <strong>多空資金費率支付介紹</strong>：資金費率為正(+)時，多頭倉位將向空頭倉位支付資金費率；資金費率為負(-)時，空頭倉位將向多頭倉位支付資金費率。資金費率結算週期為每 8 小時一次。<br><br>4. <strong>梅爾去中心化交易所合約中的爆倉/清算</strong>：當您的保證金不足以支持您的合約倉位時，梅爾去中心化交易所合約將強制平倉，也就是爆倉。<br><br>5. <strong>梅爾平台提醒您</strong>：加密貨幣交易以及加密貨幣衍生品交易存在極高風險，梅爾不承擔任何賠償責任以及賠償義務，進行加密貨幣的交易及加密貨幣衍生品交易時，您應該審慎考慮您自身是否可以承擔對應交易風險，若您不了解加密貨幣且想了解加密貨幣的交易及加密貨幣衍生品內容，建議您聘請專業人士為您進行解答，梅爾僅提供加密貨幣交易平台服務，不承擔任何責任。<br><br>6. 若您不同意上述內容，請您立即停止使用梅爾交易平台進行交易，感謝您對梅爾的支持與理解，祝您每天擁有一個好心情。',
-        faqSecurity20260918Q: '梅爾安全保護提醒！（2026年9月18日）',
-        faqSecurity20260918A: '尊貴的梅爾用戶，您好！梅爾地址安全團隊提醒您：請勿將您的助記詞、私鑰、包含多籤功能授權給陌生人，以及進行智能合約授權，包括進入陌生 Dapp 或陌生 App 將您的助記詞、私鑰錄入陌生平台，這些都是高風險操作，請您時刻防範這類可能將您資產洗劫一空的危險操作，在您授權任何智能合約時，請您時刻審慎評估該智能合約及對應平台是否安全，您同時應該選擇大型平台進行智能合約等操作，溫馨提示：無論任何平台，即使平台不作惡，在被黑客惡意攻擊或平台不可抗力等因素均可能造成您的資產全部損失，甚至您的資產全部歸零；如地震海嘯，世界末日，以及各種不可抗力因素均可能導致您資產全部歸零，在您投資加密貨幣之前或進行加密貨幣衍生品交易時，您應該保持絕對慎重才可以進行加密貨幣交易以及加密貨幣衍生品交易。<br><br>梅爾地址安全團隊祝您交易愉快<br>2026年9月18日',
-        faqOperation20260915Q: '關於梅爾去中心化交易所正常營運之公告（2026年9月15日）',
-        faqOperation20260915A: '尊貴的梅爾用戶：<br><br>自 2023 年上線以來，梅爾交易所的所有營運均保持完全正常。最近我們注意到部分交易所關閉後甚至禁止用戶提領。為讓大家瞭解本平台的業務營運狀況：梅爾為去中心化交易所，用戶資產皆儲存於智慧合約系統中，不存在任何挪用客戶資金或資金短缺的情況。因此，梅爾平台絕無關閉或破產風險。梅爾不保管用戶資產，請您放心使用。<br><br>梅爾服務團隊<br>2026年9月15日',
-        faqReserve20260915Q: '梅爾儲備金證明正式上線（2026年9月15日）',
-        faqReserve20260915A: '尊貴的梅爾去中心化交易所用戶：<br><br>我們已正式推出梅爾代幣儲備金證明，確保您購買的所有梅爾代幣皆獲得 1:1 的充分擔保與兌換支援。您可透過以下連結查看梅爾儲備金證明報告：<a href="https://reserve.mer.finance" target="_blank" rel="noopener noreferrer">https://reserve.mer.finance</a>。<br><br>2026年9月15日<br>梅爾服務團隊',
-        faqAudit20260914Q: '梅爾審計報告正式公開（2026年9月14日）',
-        faqAudit20260914A: '尊貴的梅爾去中心化交易所用戶：<br><br>梅爾已正式公開產品端審計報告。產品審計是保障您安心交易的關鍵，證明梅爾產品已通過嚴格且全面的安全審計。如需完整詳情，請造訪：<a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>。<br><br>2026年9月14日<br>梅爾服務團隊',
-        faqSwapCompleted20260911Q: '梅爾去中心化交易所兌換升級完成通知（2026年9月11日）',
-        faqSwapCompleted20260911A: '梅爾去中心化交易所兌換於 2026 年 9 月 11 日完成系統優化升級，修復了透過底部按鈕發起交易時在行動應用程式上的相容性問題。維護過程約耗時 15 分鐘。對於維護期間造成的不便，我們深表歉意，並感謝您的持續支持。<br><br>梅爾服務團隊<br>2026年9月11日',
-        faqSwapCompletedQ: '梅爾去中心化交易所升級完成通知（2026年9月10日）',
-        faqSwapCompletedA: '尊貴的梅爾去中心化交易所用戶：<br><br>我們已於 2026 年 9 月 10 日完成梅爾去中心化交易所兌換升級。您可直接存取 <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 進入交易介面。對於期間造成的短暫不便，我們深表歉意。<br><br>梅爾全體團隊<br>梅爾服務團隊<br>2026年9月10日',
-        faq6Q: '什麼是梅爾推薦獎勵計畫？',
-        faq6A: '邀請好友即可永久獲得您推薦用戶所產生交易手續費的 50% 佣金分潤。',
-        faq8Q: '什麼是梅爾全體？',
-        faq8A: '梅爾是一家提供加密貨幣現貨與永續合約，以及傳統金融股票現貨與永續合約交易的去中心化交易所，由 <strong>宋小天</strong> 於 2023 年創立的<strong>梅爾全體</strong>。<strong>宋小天</strong> 是<strong>梅爾全體</strong>的創辦人。',
-        footerCopy: '© 梅爾全球 2023-2026'
       },
       'ko': {
         docTitle: '메르 탈중앙화 거래소 | 고객지원 센터',
@@ -894,7 +899,7 @@
         faqFeaturesQ: '메르 탈중앙화 거래소 기능 소개 (스왑 / 선물)',
         faqFeaturesA: '<strong>플랫폼 기능 소개:</strong><br><br>1. <strong>메르 탈중앙화 거래소 스왑</strong>은 보유한 암호화폐를 다른 암호화폐로 교환할 수 있는 거래 플랫폼입니다. 메르 탈중앙화 거래소 스왑이 지원하는 블록체인 네트워크에서 거래를 완료할 수 있으며, 슬리피지 설정이 가능하고 플랫폼 서비스 수수료가 부과됩니다.<br><br>2. <strong>메르 탈중앙화 거래소 선물 및 레버리지 위험 고지</strong>: 암호화폐로 선물 계약 거래를 진행할 수 있으며, 레버리지 배율을 자유롭게 선택할 수 있습니다. <strong>위험 고지</strong>: 선물 거래는 스왑 거래보다 위험성이 훨씬 높습니다. 위험도는 선택한 레버리지 배율에 따라 달라지며, 배율이 높아질수록 거래 위험이 커지고 수익 및 손실 폭이 확대되어 포지션 안전에 영향을 미칩니다. 본인의 위험 감수 능력에 맞게 선택하시기 바랍니다.<br><br>3. <strong>메르 탈중앙화 거래소 선물 자금조달비용(펀딩비)</strong>:<br>• <strong>현물 가격 추종</strong>: 선물 가격이 현물보다 높을 때(프리미엄) 숏/롱 청산을 유도하고, 낮을 때(디스카운트) 롱/숏 청산을 유도합니다.<br>• <strong>롱/숏 균형 유지</strong>: 경제적 인센티브(이자 보상)를 통해 매수 및 매도 포지션 비율을 조절합니다.<br>• <strong>시장의 건전성 유지</strong>: 일방적인 시세에서 가격 조작이나 과도한 레버리지 축적을 방지합니다.<br>• <strong>펀딩비 정산 규칙</strong>: 펀딩비가 양수(+)일 경우 롱 포지션이 숏 포지션에 펀딩비를 지급하며, 음수(-)일 경우 숏 포지션이 롱 포지션에 지급합니다. 펀딩비 정산은 8시간마다 진행됩니다.<br><br>4. <strong>메르 탈중앙화 거래소 선물 청산(Liquidation)</strong>: 증거금이 포지션을 유지하기에 부족할 경우 메르 탈중앙화 거래소 선물이 강제 청산을 진행합니다.<br><br>5. <strong>메르 위험 고지 및 면책</strong>: 암호화폐 및 파생상품 거래에는 매우 높은 위험이 수반되며 메르는 어떠한 손해 배상 책임도 지지 않습니다. 거래 진행 전 위험을 감당할 수 있는지 신중히 검토하시기 바랍니다. 메르는 거래 플랫폼 서비스만을 제공합니다.<br><br>6. 위 내용에 동의하지 않으실 경우 메르 거래 플랫폼 이용을 즉시 중단해 주시기 바랍니다. 감사의 말씀을 드리며, 좋은 하루 되시기 바랍니다.',
         faqSecurity20260918Q: '메르 보안 보호 경고! (2026년 9월 18일)',
-        faqSecurity20260918A: '존경하는 메르 사용자 여러분, 안녕하십니까! 메르 주소 보안 팀에서 안내해 드립니다. 시드 구문, 개인 키, 다중 서명 권한을 낯선 사람에게 공유하지 마시고, 검증되지 않은 DApp, 앱 또는 플랫폼에 시드 구문과 개인 키를 입력하거나 스마트 계약 권한을 부여하지 마시기 바랍니다. 이는 자산이 전액 탈취될 수 있는 고위험 작업이므로 각별히 주의하시기 바랍니다.<br><br>메르 주소 보안 팀 드림<br>2026년 9월 18일',
+        faqSecurity20260918A: '존경하는 메르 사용자 여러분, 안녕하십니까! 메르 주소 보안 팀에서 안내해 드립니다. 시드 구문, 개인 키, 다중 서명 권한을 낯선 사람에게 공유하지 마시고, 검증되지 않은 탈중앙화 애플리케이션, 웹 브라우저 또는 모바일 애플리케이션에 시드 구문과 개인 키를 입력하거나 스마트 계약 권한을 부여하지 마시기 바랍니다. 이는 자산이 전액 탈취될 수 있는 고위험 작업이므로 각별히 주의하시기 바랍니다.<br><br>메르 주소 보안 팀 드림<br>2026년 9월 18일',
         faqOperation20260915Q: '메르 탈중앙화 거래소 정상 운영 안내 (2026년 9월 15일)',
         faqOperation20260915A: '친애하는 메르 사용자 여러분,<br><br>2023년 서비스 개시 이래 메르 거래소의 모든 서비스는 정상적으로 운영되고 있습니다. 메르는 모든 사용자 자산이 스마트 계약 시스템에 의해 안전하게 보관되는 탈중앙화 거래소입니다. 고객 자금의 임의 유용이나 자금 부족 위험이 전혀 존재하지 않습니다. 안심하고 이용하시기 바랍니다.<br><br>메르 서비스 팀<br>2026년 9월 15일',
         faqReserve20260915Q: '메르 준비금 증명 공식 출시 (2026년 9월 15일)',
@@ -902,7 +907,7 @@
         faqAudit20260914Q: '메르 보안 감사 보고서 공식 게시 (2026년 9월 14일)',
         faqAudit20260914A: '친애하는 메르 탈중앙화 거래소 사용자 여러분,<br><br>메르 제품의 보안 및 안정성을 증명하는 공식 감사 보고서를 공개하였습니다. 자세한 사항은 다음 링크를 확인해 주세요: <a href="https://audits.mer.finance" target="_blank" rel="noopener noreferrer">https://audits.mer.finance</a>.<br><br>2026년 9월 14일<br>메르 서비스 팀',
         faqSwapCompleted20260911Q: '메르 탈중앙화 거래소 스왑 최적화 완료 안내 (2026년 9월 11일)',
-        faqSwapCompleted20260911A: '모바일 환경에서의 호환성 문제를 개선한 스왑 서비스 최적화 작업이 완료되었습니다.',
+        faqSwapCompleted20260911A: '모바일 애플리케이션 및 웹 브라우저 환경에서의 호환성 문제를 개선한 스왑 서비스 최적화 작업이 완료되었습니다.',
         faqSwapCompletedQ: '메르 탈중앙화 거래소 점검 완료 안내 (2026년 9월 10일)',
         faqSwapCompletedA: '메르 탈중앙화 거래소 스왑 업데이트가 완료되었습니다. <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>를 통해 바로 이용하실 수 있습니다.',
         faq6Q: '메르 추천인 보상 프로그램 안내',
