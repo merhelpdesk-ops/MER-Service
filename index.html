@@ -730,82 +730,11 @@
 
     <div class="faq-wrapper">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqPerpsRulesQ">MER DEX Perps System Rules & Trading Guide</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faqPerpsRulesA">
-        <strong>I. Pricing Mechanism</strong><br>
-        The platform uses a 3-price mechanism to ensure fairness, stability, and protection against market manipulation:<br>
-        • <strong>Last Price</strong>: The most recent trade execution price on the order book. Used solely for charts, depth, and limit order matching.<br>
-        • <strong>Index Price</strong>: The volume-weighted average price aggregated from major spot exchanges.<br>
-        • <strong>Mark Price</strong>: The primary reference price used to calculate unrealized PnL and trigger liquidations.<br><br>
-
-        <strong>II. Margin & Leverage Modes</strong><br>
-        • <strong>Cross Margin</strong>: All positions share a single margin pool.<br>
-        • <strong>Isolated Margin</strong>: Risk is independently isolated to individual positions.<br>
-        • <strong>Tiered Margin</strong>: Dynamic maintenance margin requirements that scale proportionally with larger position sizes.<br><br>
-
-        <strong>III. Funding Rates</strong><br>
-        Periodic settlements to keep perpetual contract prices aligned with spot index prices.<br><br>
-
-        <strong>IV. Take Profit / Stop Loss</strong><br>
-        Conditional orders triggered by the mark price or last price.<br><br>
-
-        <strong>V. Liquidation, Bankruptcy & Auto-Deleveraging</strong><br>
-        A multi-tiered liquidation engine utilizing partial liquidation, insurance funds, and auto-deleveraging.<br><br>
-
-        <strong>Risk Disclaimer</strong><br>
-        Leveraged financial trading carries significant financial risk. By using MER DEX Perps, you acknowledge and agree to these terms.
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqRobinhoodLaunchQ">Robinhood Chain Official Launch Announcement (September 10, 2026)</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faqRobinhoodLaunchA">
-        Dear MER DEX Users,<br><br>MER is thrilled to announce official support for Robinhood Chain. You can now execute spot swaps for Robinhood assets directly on MER DEX.<br><br>MER Global<br>MER Services<br>September 10, 2026
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
         <span data-i18n="faqRobinhoodQ">MER DEX Supports Robinhood Chain (September 9, 2026)</span>
         <span class="faq-arrow">▲</span>
       </div>
       <div class="faq-body" data-i18n="faqRobinhoodA">
         Dear MER DEX Users,<br><br>We completed the integration of Robinhood Chain on September 9, 2026.<br><br>MER Customer Support<br>September 9, 2026
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faqUpgradeQ">MER DEX Maintenance Notice (September 5, 2026)</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faqUpgradeA">
-        Comprehensive maintenance for Swap and Perps was executed on September 5, 2026 UTC, and completed at 8:45 PM UTC.
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq1Q">Why choose MER DEX Perps for crypto and stock futures trading?</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq1A">
-        MER DEX Perps is built on Orderly Network's shared liquidity order book infrastructure, providing deep liquidity and rapid order matching.
-      </div>
-    </div>
-
-    <div class="faq-wrapper">
-      <div class="faq-header" onclick="toggleFaq(this)">
-        <span data-i18n="faq5Q">How does MER DEX Swap operate securely?</span>
-        <span class="faq-arrow">▲</span>
-      </div>
-      <div class="faq-body" data-i18n="faq5A">
-        All transactions on MER DEX Swap are executed through self-custodial smart contracts, requiring manual confirmation to ensure complete user security.
       </div>
     </div>
 
@@ -911,18 +840,8 @@
         faqSwapCompletedA: 'Dear MER DEX Users,<br><br>We completed the MER DEX Swap upgrade on September 10, 2026. You can directly access the interface at <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>. We apologize for any temporary inconvenience caused.<br><br>MER Global<br>MER Services<br>September 10, 2026',
         faqSwapUpgradeQ: 'MER DEX Maintenance Notice (September 10, 2026)',
         faqSwapUpgradeA: 'Dear MER DEX Users,<br><br>We are upgrading MER DEX Swap on September 10, 2026. Access to the swap page may be temporarily affected. MER DEX Perps is not affected.<br><br><strong>Estimated Duration:</strong> 3-30 minutes<br><strong>Main Purpose:</strong> Improve response speed and eliminate latency.',
-        faqPerpsRulesQ: 'MER DEX Perps System Rules & Trading Guide',
-        faqPerpsRulesA: '<strong>I. Pricing Mechanism</strong><br>The platform uses a 3-price mechanism to ensure fairness, stability, and protection against market manipulation:<br>• <strong>Last Price</strong>: The most recent trade execution price on the order book. Used solely for charts, depth, and limit order matching.<br>• <strong>Index Price</strong>: The volume-weighted average price aggregated from major spot exchanges.<br>• <strong>Mark Price</strong>: The primary reference price used to calculate unrealized PnL and trigger liquidations.<br><br><strong>II. Margin & Leverage Modes</strong><br>• <strong>Cross Margin</strong>: All positions share a single margin pool.<br>• <strong>Isolated Margin</strong>: Risk is independently isolated to individual positions.<br>• <strong>Tiered Margin</strong>: Dynamic maintenance margin requirements that scale proportionally with larger position sizes.<br><br><strong>III. Funding Rates</strong><br>Periodic settlements to keep perpetual contract prices aligned with spot index prices.<br><br><strong>IV. Take Profit / Stop Loss</strong><br>Conditional orders triggered by the mark price or last price.<br><br><strong>V. Liquidation, Bankruptcy & Auto-Deleveraging</strong><br>A multi-tiered liquidation engine utilizing partial liquidation, insurance funds, and auto-deleveraging.<br><br><strong>Risk Disclaimer</strong><br>Leveraged financial trading carries significant financial risk. By using MER DEX Perps, you acknowledge and agree to these terms.',
-        faqRobinhoodLaunchQ: 'Robinhood Chain Official Launch Announcement (September 10, 2026)',
-        faqRobinhoodLaunchA: 'Dear MER DEX Users,<br><br>MER is thrilled to announce official support for Robinhood Chain. You can now execute spot swaps for Robinhood assets directly on MER DEX.<br><br>MER Global<br>MER Services<br>September 10, 2026',
         faqRobinhoodQ: 'MER DEX Supports Robinhood Chain (September 9, 2026)',
         faqRobinhoodA: 'Dear MER DEX Users,<br><br>We completed the integration of Robinhood Chain on September 9, 2026.<br><br>MER Customer Support<br>September 9, 2026',
-        faqUpgradeQ: 'MER DEX Maintenance Notice (September 5, 2026)',
-        faqUpgradeA: 'Comprehensive maintenance for Swap and Perps was executed on September 5, 2026 UTC, and completed at 8:45 PM UTC.',
-        faq1Q: 'Why choose MER DEX Perps for crypto and stock futures trading?',
-        faq1A: 'MER DEX Perps is built on Orderly Network\'s shared liquidity order book infrastructure, providing deep liquidity and rapid order matching.',
-        faq5Q: 'How does MER DEX Swap operate securely?',
-        faq5A: 'All transactions on MER DEX Swap are executed through self-custodial smart contracts, requiring manual confirmation to ensure complete user security.',
         faq6Q: 'What is the MER referral reward program?',
         faq6A: 'Invite friends and earn a permanent 50% commission share of the trading fees generated by your referred users.',
         faq8Q: 'What is MER Global?',
@@ -963,18 +882,8 @@
         faqSwapCompletedA: '尊贵的梅尔去中心化交易所用户：<br><br>我们于 2026 年 9 月 10 日完成了梅尔去中心化交易所兑换升级。您可以直接访问 <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 进入界面。对于带来的临时不便，我们深表歉意。<br><br>梅尔全球<br>梅尔服务团队<br>2026年9月10日',
         faqSwapUpgradeQ: '梅尔去中心化交易所维护通知（2026年9月10日）',
         faqSwapUpgradeA: '尊贵的梅尔去中心化交易所用户：<br><br>我们在 2026 年 9 月 10 日对梅尔去中心化交易所兑换进行了系统升级。访问兑换页面可能会受到临时影响，梅尔去中心化交易所合约不受影响。<br><br><strong>预计持续时间：</strong>3 - 30 分钟<br><strong>主要目的：</strong>提高响应速度并消除延迟。',
-        faqPerpsRulesQ: '梅尔去中心化交易所合约系统规则与交易指南',
-        faqPerpsRulesA: '<strong>一、 价格机制</strong><br>平台采用三价机制以确保公平、稳定并防范市场操纵：<br>• <strong>最新价</strong>：订单簿上最近成交的价格，仅用于图表、深度和限价单撮合。<br>• <strong>指数价格</strong>：从各大主流现货交易所聚合的加权平均价格。<br>• <strong>标记价格</strong>：用于计算未实现盈亏和触发清算的主要参考价格。<br><br><strong>二、 保证金与杠杆模式</strong><br>• <strong>全仓保证金</strong>：所有持仓共享保证金池。<br>• <strong>逐仓保证金</strong>：风险独立隔离至各个单独持仓。<br>• <strong>阶梯保证金</strong>：维持保证金要求会随持仓规模的增大而动态递增。<br><br><strong>三、 资金费率</strong><br>定期结算机制，以使永续合约价格与现货指数价格保持锚定。<br><br><strong>四、 止盈 / 止损</strong><br>由标记价格或最新价触发的条件订单。<br><br><strong>五、 清算、破产与自动减仓</strong><br>结合部分清算、保险基金和自动减仓机制的多层级清算引擎。<br><br><strong>风险免责声明</strong><br>杠杆金融交易存在重大财务风险。使用梅尔去中心化交易所合约即表示您承认并同意上述所有条款。',
-        faqRobinhoodLaunchQ: '罗宾汉公链官方上线公告（2026年9月10日）',
-        faqRobinhoodLaunchA: '尊贵的梅尔去中心化交易所用户：<br><br>梅尔很高兴地宣布官方支持罗宾汉公链。您现在可以直接在梅尔去中心化交易所上执行罗宾汉链上资产的现货兑换。<br><br>梅尔全球<br>梅尔服务团队<br>2026年9月10日',
         faqRobinhoodQ: '梅尔去中心化交易所支持罗宾汉公链（2026年9月9日）',
         faqRobinhoodA: '尊贵的梅尔去中心化交易所用户：<br><br>我们于 2026 年 9 月 9 日完成了罗宾汉公链的集成。<br><br>梅尔客服团队<br>2026年9月9日',
-        faqUpgradeQ: '梅尔去中心化交易所维护通知（2026年9月5日）',
-        faqUpgradeA: '兑换与合约系统的全面维护于 2026 年 9 月 5 日（世界协调时间）执行，并于晚上 8:45 完成。',
-        faq1Q: '为什么选择梅尔去中心化交易所合约进行加密货币与股票期货交易？',
-        faq1A: '梅尔去中心化交易所合约建立在共享流动性订单簿基础设施之上，提供极深的流动性和极速的订单撮合。',
-        faq5Q: '梅尔去中心化交易所兑换如何安全运行？',
-        faq5A: '梅尔去中心化交易所兑换上的所有交易均通过自托管智能合约执行，需要用户手动确认以确保资产绝对安全。',
         faq6Q: '什么是梅尔推荐奖励计划？',
         faq6A: '邀请好友即可永久获得您推荐用户所产生交易手续费的 50% 佣金分成。',
         faq8Q: '什么是梅尔全球？',
@@ -1015,18 +924,8 @@
         faqSwapCompletedA: '尊貴的梅爾去中心化交易所用戶：<br><br>我們已於 2026 年 9 月 10 日完成梅爾去中心化交易所兌換升級。您可直接存取 <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a> 進入交易介面。對於期間造成的短暫不便，我們深表歉意。<br><br>梅爾全體團隊<br>梅爾服務團隊<br>2026年9月10日',
         faqSwapUpgradeQ: '梅爾去中心化交易所維護通知（2026年9月10日）',
         faqSwapUpgradeA: '尊貴的梅爾去中心化交易所用戶：<br><br>我們正在於 2026 年 9 月 10 日對梅爾去中心化交易所兌換進行系統升級。升級期間，兌換頁面之存取可能受到短暫影響，梅爾去中心化交易所合約交易不受影響。<br><br><strong>預計耗時：</strong>3 - 30 分鐘<br><strong>主要目的：</strong>提升系統回應速度並降低延遲。',
-        faqPerpsRulesQ: '梅爾去中心化交易所合約系統規則與交易指南',
-        faqPerpsRulesA: '<strong>一、 價格機制</strong><br>本平台採用「三價機制」以確保公平性、穩定性，並有效防範市場操縱：<br>• <strong>最新成交價</strong>：訂單簿上最近一筆成交的價格，僅用於圖表顯示、深度及限價單撮合。<br>• <strong>指數價格</strong>：綜合各大主流現貨交易所的加權平均價格。<br>• <strong>標記價格</strong>：用於計算未實現盈虧與觸發強制平倉的核心參考價格。<br><br><strong>二、 保證金與槓桿模式</strong><br>• <strong>全倉保證金</strong>：所有倉位共享同一個保證金池。<br>• <strong>逐倉保證金</strong>：各個倉位獨立隔離風險與保證金。<br>• <strong>階梯保證金</strong>：維持保證金比率將隨持倉規模擴大而動態調升。<br><br><strong>三、 資金費率</strong><br>定期結算機制，用以保持永續合約價格與現貨指數價格之錨定。<br><br><strong>四、 停利 / 停損</strong><br>由標記價格或最新成交價觸發的條件單。<br><br><strong>五、 強制平倉、破產與自動減倉</strong><br>結合部分清算、保險基金與自動減倉機制的多層級強平引擎。<br><br><strong>風險免責聲明</strong><br>槓桿金融交易具有高度財務風險。使用梅爾去中心化交易所合約即代表您已閱讀、瞭解並同意上述所有條款。',
-        faqRobinhoodLaunchQ: '羅賓漢公鏈官方上線公告（2026年9月10日）',
-        faqRobinhoodLaunchA: '尊貴的梅爾去中心化交易所用戶：<br><br>梅爾隆重宣佈正式支援羅賓漢公鏈！您現在可以直接在梅爾去中心化交易所上進行羅賓漢鏈上資產的現貨兌換。<br><br>梅爾全球<br>梅爾服務團隊<br>2026年9月10日',
         faqRobinhoodQ: '梅爾去中心化交易所支援羅賓漢公鏈（2026年9月9日）',
         faqRobinhoodA: '尊貴的梅爾去中心化交易所用戶：<br><br>我們已於 2026 年 9 月 9 日完成羅賓漢公鏈的整合。<br><br>梅爾客戶服務團隊<br>2026年9月9日',
-        faqUpgradeQ: '梅爾去中心化交易所維護通知（2026年9月5日）',
-        faqUpgradeA: '兌換與合約系統之全面維護已於 2026 年 9 月 5 日（世界協調時間）執行，並於晚上 8:45 完成。',
-        faq1Q: '為什麼選擇梅爾去中心化交易所合約進行加密貨幣與股票期貨交易？',
-        faq1A: '梅爾去中心化交易所合約基於共享流動性訂單簿基礎架構打造，提供極深的流動性與極速的訂單撮合。',
-        faq5Q: '梅爾去中心化交易所兌換如何安全運作？',
-        faq5A: '梅爾去中心化交易所兌換上的所有交易均透過自託管智慧合約執行，需要用戶手動確認以確保資產絕對安全。',
         faq6Q: '什麼是梅爾推薦獎勵計畫？',
         faq6A: '邀請好友即可永久獲得您推薦用戶所產生交易手續費的 50% 佣金分潤。',
         faq8Q: '什麼是梅爾全球？',
@@ -1067,18 +966,8 @@
         faqSwapCompletedA: '메르 탈중앙화 거래소 스왑 업데이트가 완료되었습니다. <a href="https://www.mer.finance" target="_blank" rel="noopener noreferrer">https://www.mer.finance</a>를 통해 바로 이용하실 수 있습니다.',
         faqSwapUpgradeQ: '메르 탈중앙화 거래소 점검 안내 (2026년 9월 10일)',
         faqSwapUpgradeA: '응답 속도 향상 및 지연 시간 해소를 위한 스왑 점검이 진행됩니다.',
-        faqPerpsRulesQ: '메르 탈중앙화 거래소 선물 시스템 규칙 및 가이드',
-        faqPerpsRulesA: '<strong>I. 가격 책정 메커니즘</strong><br>공정한 거래 환경 조성을 위해 3가지 가격 산정 체계를 적용합니다.<br>• <strong>최근 체결가</strong><br>• <strong>지수 가격</strong><br>• <strong>마크 가격</strong><br><br><strong>II. 증거금 및 레버리지 모드</strong><br>• <strong>교차 증거금</strong><br>• <strong>격리 증거금</strong>',
-        faqRobinhoodLaunchQ: '로빈후드 체인 공식 지원 안내 (2026년 9월 10일)',
-        faqRobinhoodLaunchA: '메르 탈중앙화 거래소에서 로빈후드 체인 자산 현물 교환을 공식 지원합니다.',
         faqRobinhoodQ: '메르 탈중앙화 거래소 로빈후드 체인 연동 (2026년 9월 9일)',
         faqRobinhoodA: '로빈후드 체인 연동 작업이 성공적으로 완료되었습니다.',
-        faqUpgradeQ: '메르 탈중앙화 거래소 정기 점검 안내 (2026년 9월 5일)',
-        faqUpgradeA: '스왑 및 선물 시스템의 전체 점검이 완료되었습니다.',
-        faq1Q: '암호화폐 및 주식 선물 거래에 메르 탈중앙화 거래소를 선택해야 하는 이유',
-        faq1A: '풍부한 유동성과 신속한 주문 체결 환경을 제공합니다.',
-        faq5Q: '메르 탈중앙화 거래소 스왑의 안전한 운영 방식',
-        faq5A: '모든 거래는 자판 수탁형 스마트 계약을 통해 직접 승인 후 진행됩니다.',
         faq6Q: '메르 추천인 보상 프로그램 안내',
         faq6A: '초대한 친구가 발생시킨 거래 수수료의 50%를 영구 수수료 분배 형태로 받으실 수 있습니다.',
         faq8Q: '메르 글로벌(MER Global) 소개',
