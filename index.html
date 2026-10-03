@@ -5,33 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>MER Decentralized Exchange Help Desk</title>
 
-  <script>
-    (function suppressNativeTawkIcon() {
-      const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-          for (const node of mutation.addedNodes) {
-            if (node.nodeType === 1 && node.tagName === 'IFRAME') {
-              const title = (node.getAttribute('title') || '').toLowerCase();
-              const style = node.getAttribute('style') || '';
-              const isSmallBubble = style.includes('width: 60px') || style.includes('width: 64px') || style.includes('height: 60px') || style.includes('height: 64px');
-              const isTawkBubble = (title.includes('chat widget') || title.includes('tawk')) && !style.includes('100%') && (isSmallBubble || !style.includes('width:'));
-
-              if (isTawkBubble) {
-                node.style.setProperty('display', 'none', 'important');
-                node.style.setProperty('visibility', 'hidden', 'important');
-                node.style.setProperty('opacity', '0', 'important');
-                node.style.setProperty('pointer-events', 'none', 'important');
-                node.style.setProperty('transform', 'scale(0)', 'important');
-              }
-            }
-          }
-        }
-      });
-
-      observer.observe(document.documentElement, { childList: true, subtree: true });
-    })();
-  </script>
-
   <link rel="dns-prefetch" href="https://embed.tawk.to" />
   <link rel="preconnect" href="https://embed.tawk.to" crossorigin />
   <link rel="icon" type="image/webp" href="favicon.webp">
@@ -346,10 +319,11 @@
       z-index: 1;
     }
 
-    iframe[title*="chat widget"][style*="width: 60px"],
-    iframe[title*="chat widget"][style*="width: 64px"],
-    iframe[title*="chat widget"][style*="width:60px"],
-    iframe[title*="chat widget"][style*="width:64px"] {
+    /* 仅在未展开聊天框时隐藏原生悬浮气泡球；展开后允许展示原生折叠按钮 */
+    body:not(.tawk-open) iframe[title*="chat widget"][style*="width: 60px"],
+    body:not(.tawk-open) iframe[title*="chat widget"][style*="width: 64px"],
+    body:not(.tawk-open) iframe[title*="chat widget"][style*="width:60px"],
+    body:not(.tawk-open) iframe[title*="chat widget"][style*="width:64px"] {
       display: none !important;
       visibility: hidden !important;
       opacity: 0 !important;
@@ -418,12 +392,6 @@
       if (widget) widget.classList.toggle('is-visible', visible && isMobileTawkScreen());
     }
 
-    function hideNativeTawkWidget() {
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-    }
-
     function clampMobileTawkWidget() {
       var widget = getMobileTawkWidget();
       if (!widget || !widget.classList.contains('is-visible')) return;
@@ -454,14 +422,17 @@
     function syncMobileTawkWidget() {
       var maximized = typeof Tawk_API.isChatMaximized === 'function' && Tawk_API.isChatMaximized();
       if (maximized) {
+        document.body.classList.add('tawk-open');
         showMobileTawkWidget(false);
       } else {
+        document.body.classList.remove('tawk-open');
         showMobileTawkWidget(true);
         restoreMobileTawkPosition();
       }
     }
 
     function openMobileTawkChat() {
+      document.body.classList.add('tawk-open');
       showMobileTawkWidget(false);
       if (typeof Tawk_API !== 'undefined') {
         if (typeof Tawk_API.showWidget === 'function') {
@@ -481,27 +452,23 @@
       openMobileTawkChat();
     }
 
-    Tawk_API.onBeforeLoad = function() {
-      hideNativeTawkWidget();
-    };
-
     Tawk_API.onLoad = function () {
-      hideNativeTawkWidget();
       syncMobileTawkWidget();
     };
 
     Tawk_API.onChatMaximized = function () {
+      document.body.classList.add('tawk-open');
       showMobileTawkWidget(false);
     };
 
     Tawk_API.onChatMinimized = function () {
-      hideNativeTawkWidget();
+      document.body.classList.remove('tawk-open');
       showMobileTawkWidget(true);
       restoreMobileTawkPosition();
     };
 
     Tawk_API.onChatHidden = function () {
-      hideNativeTawkWidget();
+      document.body.classList.remove('tawk-open');
       showMobileTawkWidget(true);
       restoreMobileTawkPosition();
     };
