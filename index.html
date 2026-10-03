@@ -98,11 +98,14 @@
       flex-shrink: 0;
     }
 
+    /* 优化 Logo 尺寸与防模糊渲染 */
     .brand-logo {
-      height: 26px;
+      height: 38px;
       width: auto;
       display: block;
       object-fit: contain;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
 
     .lang-switcher {
@@ -415,7 +418,7 @@
       } else {
         document.body.classList.remove('tawk-open');
         if (typeof Tawk_API.hideWidget === 'function') {
-          Tawk_API.hideWidget(); // 隐藏 Tawk 默认图标
+          Tawk_API.hideWidget();
         }
         showMobileTawkWidget(true);
         restoreMobileTawkPosition();
@@ -427,7 +430,7 @@
       showMobileTawkWidget(false);
       if (typeof Tawk_API !== 'undefined') {
         if (typeof Tawk_API.showWidget === 'function') {
-          Tawk_API.showWidget(); // 唤起聊天框前先允许 widget 显示
+          Tawk_API.showWidget();
         }
         if (typeof Tawk_API.maximize === 'function') {
           Tawk_API.maximize();
@@ -445,7 +448,7 @@
 
     Tawk_API.onLoad = function () {
       if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget(); // 加载完成后隐藏原生按钮
+        Tawk_API.hideWidget();
       }
       syncMobileTawkWidget();
     };
@@ -458,7 +461,7 @@
     Tawk_API.onChatMinimized = function () {
       document.body.classList.remove('tawk-open');
       if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget(); // 折叠/最小化时继续隐藏原生按钮
+        Tawk_API.hideWidget();
       }
       showMobileTawkWidget(true);
       restoreMobileTawkPosition();
@@ -467,7 +470,7 @@
     Tawk_API.onChatHidden = function () {
       document.body.classList.remove('tawk-open');
       if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget(); // 隐藏时保持原生按钮不可见
+        Tawk_API.hideWidget();
       }
       showMobileTawkWidget(true);
       restoreMobileTawkPosition();
