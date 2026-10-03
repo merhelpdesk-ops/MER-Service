@@ -319,17 +319,6 @@
       z-index: 1;
     }
 
-    body:not(.tawk-open) iframe[title*="chat widget"][style*="width: 60px"],
-    body:not(.tawk-open) iframe[title*="chat widget"][style*="width: 64px"],
-    body:not(.tawk-open) iframe[title*="chat widget"][style*="width:60px"],
-    body:not(.tawk-open) iframe[title*="chat widget"][style*="width:64px"] {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      transform: scale(0) !important;
-    }
-
     #mobile-tawk-widget {
       display: none;
     }
@@ -425,6 +414,9 @@
         showMobileTawkWidget(false);
       } else {
         document.body.classList.remove('tawk-open');
+        if (typeof Tawk_API.hideWidget === 'function') {
+          Tawk_API.hideWidget(); // 隐藏 Tawk 默认图标
+        }
         showMobileTawkWidget(true);
         restoreMobileTawkPosition();
       }
@@ -435,7 +427,7 @@
       showMobileTawkWidget(false);
       if (typeof Tawk_API !== 'undefined') {
         if (typeof Tawk_API.showWidget === 'function') {
-          Tawk_API.showWidget();
+          Tawk_API.showWidget(); // 唤起聊天框前先允许 widget 显示
         }
         if (typeof Tawk_API.maximize === 'function') {
           Tawk_API.maximize();
@@ -452,6 +444,9 @@
     }
 
     Tawk_API.onLoad = function () {
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget(); // 加载完成后隐藏原生按钮
+      }
       syncMobileTawkWidget();
     };
 
@@ -462,12 +457,18 @@
 
     Tawk_API.onChatMinimized = function () {
       document.body.classList.remove('tawk-open');
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget(); // 折叠/最小化时继续隐藏原生按钮
+      }
       showMobileTawkWidget(true);
       restoreMobileTawkPosition();
     };
 
     Tawk_API.onChatHidden = function () {
       document.body.classList.remove('tawk-open');
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget(); // 隐藏时保持原生按钮不可见
+      }
       showMobileTawkWidget(true);
       restoreMobileTawkPosition();
     };
